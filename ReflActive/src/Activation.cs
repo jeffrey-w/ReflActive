@@ -17,4 +17,9 @@ public sealed class Activation
     /// <see cref="BaseArgument">Bindings</see> to the constructor parameters targeted by this <c>Activation</c>.
     /// </summary>
     public required List<BaseArgument> Arguments { get; init; }
+
+    internal Dictionary<string, object?> ToBindings()
+    {
+        return Arguments.ToDictionary(argument => argument.Name, argument => argument.Payload);
+    }
 }

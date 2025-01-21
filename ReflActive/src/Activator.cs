@@ -54,7 +54,7 @@ public static class Activator
         Activation activation, IActivationContext context) where TAttribute : ActivationTargetAttribute
     {
         var constructor = GetConstructor<TAttribute>(activation);
-        return constructor.Invoke(GetValues(constructor, activation, context));
+        return constructor.Invoke(GetValues(constructor, activation.ToBindings(), context));
     }
 
     private static ConstructorInfo GetConstructor<TAttribute>(
@@ -75,15 +75,12 @@ public static class Activator
             .IsTargetedBy(activation);
     }
     
-    private static object?[] GetValues(ConstructorInfo constructor, Activation activation, IActivationContext context)
+    private static object?[] GetValues(
+        ConstructorInfo constructor, Dictionary<string, object?> bindings, IActivationContext context)
     {
         return constructor
             .GetParameters()
-            .Select(parameter => GetValue(
-                parameter, 
-                activation.Arguments.ToDictionary(
-                    argument => argument.Name, argument => argument.Payload), 
-                context))
+            .Select(parameter => GetValue(parameter, bindings, context))
             .ToArray();
     }
 
