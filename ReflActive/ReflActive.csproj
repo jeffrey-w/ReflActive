@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <RootNamespace>ReflActive</RootNamespace>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <Reference Include="EveryType">
+        <HintPath>..\..\EveryType\EveryType\bin\Debug\net8.0\EveryType.dll</HintPath>
+      </Reference>
+      <Reference Include="Extensions">
+        <HintPath>..\..\Extensions\Extensions\bin\Debug\net8.0\Extensions.dll</HintPath>
+      </Reference>
+      <Reference Include="Guard">
+        <HintPath>..\..\Guard\Guard\bin\Debug\net8.0\Guard.dll</HintPath>
+      </Reference>
+    </ItemGroup>
+
+</Project>
