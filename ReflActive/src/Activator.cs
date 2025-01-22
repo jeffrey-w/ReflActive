@@ -84,11 +84,11 @@ public static class Activator
             .ToArray();
     }
 
-    private static object? GetValue(ParameterInfo parameter, IDictionary<string, object?> names, IActivationContext context)
+    private static object? GetValue(ParameterInfo parameter, Dictionary<string, object?> bindings, IActivationContext context)
     {
         if (parameter.HasCustomAttribute<ParameterAttribute>())
         {
-            return GetEntitiesOrDefault(parameter, names[GetNameFor(parameter)], context);
+            return GetEntitiesOrDefault(parameter, bindings[GetNameFor(parameter)], context);
         }
 
         if (parameter.HasCustomAttribute<DependencyAttribute>())
