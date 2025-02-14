@@ -24,10 +24,10 @@ public interface IActivationContext
     /// </summary>
     /// <typeparam name="TDependency">The <see cref="Type"/> of the specified <paramref name="dependency"/>.</typeparam>
     /// <param name="dependency">The object to include in this <c>IActivationContext</c>.</param>
-    /// <returns>The specified <paramref name="dependency"/>.</returns>
+    /// <returns>This <c>IActivationContext</c>.</returns>
     /// <exception cref="ArgumentException">If the <see cref="Type"/>s to which the specified <paramref name="dependency"/>
     /// belongs intersects with the types exhibited by another object in this <c>IActivationContext</c>.</exception>
-    public TDependency AddDependency<TDependency>(TDependency dependency) where TDependency : notnull;
+    public IActivationContext AddDependency<TDependency>(TDependency dependency) where TDependency : notnull;
     /// <summary>
     /// Provides the dependency that exhibits the specified type, <typeparamref name="TDependency"/>, in this <c>IActivationContext</c>.
     /// </summary>
@@ -51,9 +51,10 @@ public interface IActivationContext
     /// <param name="value">The data to associate with the specified <paramref name="name"/> in this <c>IActivationContext</c>.</param>
     /// <param name="constant">If <c>true</c>, the association defined by the specified <paramref name="name"/> and
     /// <paramref name="value"/> may not be <see cref="Set{TValue}"> modified</see>.</param>
+    /// <returns>This <c>IActivationContext</c>.</returns>
     /// <exception cref="ArgumentException">If the specified <paramref name="name"/> is already associated with another
     /// <paramref name="value"/> in this <c>IActivationContext</c>.</exception>
-    public TValue? DefineVariable<TValue>(string name, TValue? value, bool constant = true);
+    public IActivationContext DefineVariable<TValue>(string name, TValue? value, bool constant = true);
     /// <summary>
     /// Provides the value associated with the specified <paramref name="name"/> in this <c>IActivationContext</c>.
     /// </summary>
@@ -92,13 +93,13 @@ public static class ActivationContext
         private readonly Dictionary<Type, object> _types = [];
         private readonly Dictionary<string, Variable> _names = [];
 
-        public TDependency AddDependency<TDependency>(TDependency dependency) where TDependency : notnull
+        public IActivationContext AddDependency<TDependency>(TDependency dependency) where TDependency : notnull
         {
             foreach (var type in dependency.GetEveryType())
             {
                 _types.Add(type, dependency);
             }
-            return dependency;
+            return this;
         }
 
         public TDependency GetDependency<TDependency>()
@@ -111,10 +112,10 @@ public static class ActivationContext
             return _types[type];
         }
 
-        public TValue? DefineVariable<TValue>(string name, TValue? value, bool constant = false)
+        public IActivationContext DefineVariable<TValue>(string name, TValue? value, bool constant = false)
         {
             _names.Add(Guard.Against.NullOrWhitespace(name, nameof(name)), new Variable(name, value, constant));
-            return value;
+            return this;
         }
 
         public TValue? Get<TValue>(string name)
