@@ -5,7 +5,7 @@ using ReflActive.Attributes;
 namespace ReflActive;
 
 /// <summary>
-/// The <c>IAnalysisContext</c> interface provides properties and operations on the environment in which <see
+/// The <c>IActivationContext</c> interface provides properties and operations on the environment in which <see
 /// cref="Activator.Activate{TResult,TAttribute}">activations</see> occur.
 /// </summary>
 public interface IActivationContext
@@ -85,7 +85,7 @@ public interface IActivationContext
 /// </summary>
 public static class ActivationContext
 {
-    private sealed class AnalysisContextImpl : IActivationContext
+    private sealed class ActivationContextImpl : IActivationContext
     {
         public bool IsDevelopment { get; set; }
         public bool IsExperimental { get; set; }
@@ -145,7 +145,7 @@ public static class ActivationContext
     /// <returns>A new <see cref="IActivationContext"/>.</returns>
     public static IActivationContext Init()
     {
-        var context = new AnalysisContextImpl { IsDevelopment = true };
+        var context = new ActivationContextImpl { IsDevelopment = true };
         foreach (var variable in GetVariables(context.IsDevelopment))
         {
             context.AddVariable(variable);
