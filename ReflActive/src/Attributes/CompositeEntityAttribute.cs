@@ -11,6 +11,8 @@ public sealed class CompositeEntityAttribute : Attribute
     /// <summary>
     /// The <see cref="Type"/> over which the parameter annotated by this <c>CompositeEntityAttribute</c> ranges.
     /// </summary>
+    /// <exception cref="ArgumentException">If the <see cref="Type"/> used to initialize this property does not
+    /// implement the <see cref="ICompositeEntityConverter"/> interface.</exception>
     public required Type Type
     {
         get => _type;
