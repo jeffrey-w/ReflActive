@@ -1,4 +1,6 @@
+using System.Collections.Immutable;
 using System.Reflection;
+using System.Text.Json.Serialization;
 using Extensions;
 using ReflActive.Attributes;
 
@@ -6,8 +8,10 @@ namespace ReflActive;
 
 /// <summary>
 /// The <c>IActivationTargetMetadata</c> interface provides properties and operations on descriptive attributes for a
-/// <see cref="Type"/> that may be <see cref="Activator.Activate{TResult,TAttribute}">activated</see>.
+/// <see cref="Type"/> that may be <see cref="Activator.Activate{TResult}">activated</see>.
 /// </summary>
+[JsonDerivedType(typeof(ActivationTargetMetadata.SingletonActivationTargetMetadata))]
+[JsonDerivedType(typeof(ActivationTargetMetadata.CompositeActivationTargetMetadata))]
 public interface IActivationTargetMetadata
 {
     /// <summary>
@@ -41,6 +45,10 @@ public interface IActivationTargetMetadata
     /// Indicates whether this <c>IActivationTargetMetadata</c> is logically composed by one or more other instances.
     /// </summary>
     public bool IsComposite { get; }
+    /// <summary>
+    /// Additional attributes associated with the <see cref="Type"/> described by this <c>IActivationTargetMetadata</c>. 
+    /// </summary>
+    public IDictionary<string, string> Properties { get; }
     /// <summary>
     /// The Boolean-valued <see cref="IParameter{TDomain}">parameters</see> to the <see cref="ActivationTargetConstructorAttribute">
     /// constructor</see> for the <see cref="Type"/> described by this <c>IActivationTargetMetadata</c>.
@@ -79,141 +87,216 @@ public interface IActivationTargetMetadata
 /// The <c>ICompositeActivationTargetMetadata</c> interface provides properties and operations on <see cref="IActivationTargetMetadata"/>
 /// that is logically composed by one or more other instances.
 /// </summary>
-/// <typeparam name="TMetadata">The <see cref="Type"/> of <see cref="IActivationTargetMetadata"/> that composes this
-/// <c>ICompositeActivationTargetMetadata</c>.</typeparam>
-public interface ICompositeActivationTargetMetadata<out TMetadata> : IActivationTargetMetadata where TMetadata : IActivationTargetMetadata
+public interface ICompositeActivationTargetMetadata : IActivationTargetMetadata
 {
     /// <summary>
     /// Descriptions of the <see cref="Types"/> that logically compose the one described by this <c>ICompositeActivationTargetMetadata</c>.
     /// </summary>
-    public IEnumerable<TMetadata> Children { get; }
+    public IEnumerable<IActivationTargetMetadata> Children { get; }
 }
 
 /// <summary>
-/// The <c>BaseActivationTargetMetadata</c> class provides a minimal implementation of the <see cref="IActivationTargetMetadata"/>
+/// The <c>ActivationTargetMetadata</c> class provides a concrete implementation of the <see cref="IActivationTargetMetadata"/>
 /// interface.
 /// </summary>
-public abstract class BaseActivationTargetMetadata : IActivationTargetMetadata
+public static class ActivationTargetMetadata
 {
-    /// <inheritdoc/>
-    public string Name => Type.GetCustomAttribute<ActivationTargetAttribute>()?.Name ?? string.Empty;
-    /// <inheritdoc/>
-    public string Discriminator => Type.GetCustomAttribute<ActivationTargetAttribute>()?.Discriminator ?? string.Empty;
-    /// <inheritdoc/>
-    public string Description => Type.GetCustomAttribute<ActivationTargetAttribute>()?.Description ?? string.Empty;
-    /// <inheritdoc/>
-    public bool IsDevelopment => Type.GetCustomAttribute<ActivationTargetAttribute>()?.IsDevelopment ?? false;
-    /// <inheritdoc/>
-    public bool IsExperimental => Type.GetCustomAttribute<ActivationTargetAttribute>()?.IsExperimental ?? false;
-    /// <inheritdoc/>
-    public bool IsComposite => false;
-    /// <inheritdoc/>
-    public bool IsParameterized => 
-        Toggles.Any() || Counts.Any() || Quantities.Any() || Labels.Any() || SingleSelections.Any() || CompositeSelections.Any();
-    /// <inheritdoc/>
-    public IEnumerable<IBooleanParameter> Toggles => GetParameters(IsAssignableTo<bool>).Select(_factory.MakeBoolean);
-    /// <inheritdoc/>
-    public IEnumerable<IDiscreteNumberParameter> Counts => 
-        GetParameters(IsAssignableTo<int>).Select(_factory.MakeDiscreteNumber);
-    /// <inheritdoc/>
-    public IEnumerable<IContinuousNumberParameter> Quantities => 
-        GetParameters(IsAssignableTo<double>).Select(_factory.MakeContinuousNumber);
-    /// <inheritdoc/>
-    public IEnumerable<ITextParameter> Labels => GetParameters(IsAssignableTo<string>).Select(_factory.MakeText);
-    /// <inheritdoc/>
-    public IEnumerable<ISingletonEntityParameter> SingleSelections =>
-        GetParameters(IsAnnotatedBy<SingletonEntityAttribute>).Select(_factory.MakeSingletonEntity);
-    /// <inheritdoc/>
-    public IEnumerable<ICompositeEntityParameter> CompositeSelections =>
-        GetParameters(IsAnnotatedBy<CompositeEntityAttribute>).Select(_factory.MakeCompositeEntity);
-    
-    /// <summary>
-    /// The <see cref="System.Type"/> described by this <c>BaseActivationTargetMetadata</c>.
-    /// </summary>
-    protected Type Type { get; }
+    internal sealed class SingletonActivationTargetMetadata : IActivationTargetMetadata
+    {
+        public string Name => _type.GetCustomAttribute<ActivationTargetAttribute>()?.Name ?? string.Empty;
+        public string Discriminator => _type.GetCustomAttribute<ActivationTargetAttribute>()?.Discriminator ?? string.Empty;
+        public string Description => _type.GetCustomAttribute<ActivationTargetAttribute>()?.Description ?? string.Empty;
+        public bool IsDevelopment => _type.GetCustomAttribute<ActivationTargetAttribute>()?.IsDevelopment ?? false;
+        public bool IsExperimental => _type.GetCustomAttribute<ActivationTargetAttribute>()?.IsExperimental ?? false;
+        public bool IsComposite => false;
+        public bool IsParameterized => 
+            Toggles.Any() || Counts.Any() || Quantities.Any() || Labels.Any() || SingleSelections.Any() || CompositeSelections.Any();
 
-    private readonly Parameter.Factory _factory;
+        public IDictionary<string, string> Properties => _properties;
+        public IEnumerable<IBooleanParameter> Toggles => GetParameters(IsAssignableTo<bool>).Select(_factory.MakeBoolean);
+        public IEnumerable<IDiscreteNumberParameter> Counts => 
+            GetParameters(IsAssignableTo<int>).Select(_factory.MakeDiscreteNumber);
+        public IEnumerable<IContinuousNumberParameter> Quantities => 
+            GetParameters(IsAssignableTo<double>).Select(_factory.MakeContinuousNumber);
+        public IEnumerable<ITextParameter> Labels => GetParameters(IsAssignableTo<string>).Select(_factory.MakeText);
+        public IEnumerable<ISingletonEntityParameter> SingleSelections =>
+            GetParameters(IsAnnotatedBy<SingletonEntityAttribute>).Select(_factory.MakeSingletonEntity);
+        public IEnumerable<ICompositeEntityParameter> CompositeSelections =>
+            GetParameters(IsAnnotatedBy<CompositeEntityAttribute>).Select(_factory.MakeCompositeEntity);
+
+        private readonly Parameter.Factory _factory;
+
+        private readonly ImmutableDictionary<string, string> _properties;
+
+        private readonly Type _type;
+
+        public SingletonActivationTargetMetadata(Type type, IActivationContext context, params string[] exclude)
+        {
+            _type = Guard.Against.Violation(type, t => IsValidType(t, context));
+            _factory = new Parameter.Factory(context);
+            _properties = CompileProperties(type, exclude);
+        }
+        
+        private static bool IsValidType(Type type, IActivationContext context)
+        {
+            return type
+                   .GetCustomAttribute<ActivationTargetAttribute>()
+                   ?.CanBeActivatedIn(context) ??
+                   false;
+        }
+
+        private static ImmutableDictionary<string, string> CompileProperties(Type type, IEnumerable<string> exclude)
+        {
+            return type
+                   .GetCustomAttribute<PropertiesAttribute>()
+                   ?.Compile(exclude.ToHashSet()) ??
+                   ImmutableDictionary.Create<string, string>();
+        }
+
+        private IEnumerable<ParameterInfo> GetParameters(Func<ParameterInfo, bool> predicate)
+        {
+            return _type
+                   .GetConstructors()
+                   .Single(constructor => constructor.HasCustomAttribute<ActivationTargetConstructorAttribute>())
+                   .GetParameters()
+                   .Where(predicate);
+        }
+        
+        private static bool IsAssignableTo<T>(ParameterInfo parameter)
+        {
+            return (Nullable.GetUnderlyingType(parameter.ParameterType) ?? parameter.ParameterType) == typeof(T);
+        }
+
+        private static bool IsAnnotatedBy<T>(ParameterInfo info) where T : Attribute
+        {
+            return info.HasCustomAttribute<T>();
+        }
+
+        internal IActivationTargetMetadata WithoutProperties(IEnumerable<string> names)
+        {
+            return new SingletonActivationTargetMetadata(_type, _factory.Context, names.ToArray());
+        }
+    }
+
+    internal sealed class CompositeActivationTargetMetadata : ICompositeActivationTargetMetadata
+    {
+        public string Name { get; }
+        public string Discriminator => string.Empty;
+        public string Description => string.Empty;
+        public bool IsDevelopment => Children.All(child => child.IsDevelopment);
+        public bool IsExperimental => Children.All(child => child.IsExperimental);
+        public bool IsParameterized => false;
+        public bool IsComposite => true;
+        public IDictionary<string, string> Properties { get; }
+        public IEnumerable<IBooleanParameter> Toggles => [];
+        public IEnumerable<IDiscreteNumberParameter> Counts => [];
+        public IEnumerable<IContinuousNumberParameter> Quantities => [];
+        public IEnumerable<ITextParameter> Labels => [];
+        public IEnumerable<ISingletonEntityParameter> SingleSelections => [];
+        public IEnumerable<ICompositeEntityParameter> CompositeSelections => [];
+
+        public IEnumerable<IActivationTargetMetadata> Children =>
+            _children
+                .Cast<SingletonActivationTargetMetadata>()
+                .Select(child => child.WithoutProperties(Properties.Keys))
+                .ToList();
+        
+        private readonly List<IActivationTargetMetadata> _children;
+
+        public CompositeActivationTargetMetadata(string name, IEnumerable<IActivationTargetMetadata> children)
+        {
+            _children = children.ToList();
+            Name = name;
+            Properties = CompileProperties();
+        }
+
+        private ImmutableDictionary<string, string> CompileProperties()
+        {
+            return _children
+                   .Skip(1)
+                   .Select(child => child.Properties)
+                   .Aggregate(
+                       _children
+                           .First()
+                           .Properties
+                           .AsEnumerable(),
+                       (intersection, properties) => intersection.Where(pair => Contains(properties, pair)),
+                       intersection => intersection.ToImmutableDictionary());
+        }
+
+        private static bool Contains(IDictionary<string, string> properties, KeyValuePair<string, string> pair)
+        {
+            return properties.TryGetValue(pair.Key, out var value) && value == pair.Value;
+        }
+    }
 
     /// <summary>
-    /// Creates a new <c>BaseActivationTargetMetadata</c>.
+    /// Provides a new <see cref="IActivationTargetMetadata"/> instance for the specified <paramref name="type"/>.
     /// </summary>
-    /// <param name="type">The <see cref="Type"/> described by this <c>BaseActivationTargetMetadata</c>.</param>
+    /// <param name="type">The <see cref="Type"/> described by the new <see cref="IActivationTargetMetadata"/> instance.</param>
     /// <param name="context">The current <see cref="IActivationContext"/>.</param>
-    protected BaseActivationTargetMetadata(Type type, IActivationContext context)
+    /// <returns>A new <see cref="IActivationTargetMetadata"/> instance.</returns>
+    /// <exception cref="ArgumentException">If the specified <paramref name="type"/> does not exhibit the
+    /// <see cref="ActivationTargetAttribute"/>, or if it is unsupported by the specified <paramref name="context"/>.</exception>
+    public static IActivationTargetMetadata Singleton(Type type, IActivationContext context)
     {
-        Type = type;
-        _factory = new Parameter.Factory(context);
+        return new SingletonActivationTargetMetadata(type, context);
     }
-    
-    private IEnumerable<ParameterInfo> GetParameters(Func<ParameterInfo, bool> predicate)
-    {
-        return Type
-            .GetConstructors()
-            .Single(constructor => constructor.HasCustomAttribute<ActivationTargetConstructorAttribute>())
-            .GetParameters()
-            .Where(predicate);
-    }
-    
-    private static bool IsAssignableTo<T>(ParameterInfo parameter)
-    {
-        return (Nullable.GetUnderlyingType(parameter.ParameterType) ?? parameter.ParameterType) == typeof(T);
-    }
-
-    private static bool IsAnnotatedBy<T>(ParameterInfo info) where T : Attribute
-    {
-        return info.HasCustomAttribute<T>();
-    }
-}
-
-/// <summary>
-/// The <c>BaseCompositeActivationTargetMetadata</c> class provides a minimal implementation of the <see
-/// cref="ICompositeActivationTargetMetadata{TMetadata}"/> interface.
-/// </summary>
-/// <typeparam name="TMetadata">The <see cref="Type"/> of <see cref="IActivationTargetMetadata"/> that composes this
-/// <c>BaseCompositeActivationTargetMetadata</c>.</typeparam>
-public abstract class BaseCompositeActivationTargetMetadata<TMetadata> :
-    ICompositeActivationTargetMetadata<TMetadata> where TMetadata : IActivationTargetMetadata
-{
-    /// <inheritdoc/>
-    public string Name { get; }
-    /// <inheritdoc/>
-    public string Discriminator => string.Empty;
-    /// <inheritdoc/>
-    public string Description => string.Empty;
-    /// <inheritdoc/>
-    public bool IsDevelopment => Children.All(child => child.IsDevelopment);
-    /// <inheritdoc/>
-    public bool IsExperimental => Children.All(child => child.IsExperimental);
-    /// <inheritdoc/>
-    public bool IsParameterized => false;
-    /// <inheritdoc/>
-    public bool IsComposite => true;
-    /// <inheritdoc/>
-    public IEnumerable<IBooleanParameter> Toggles => [];
-    /// <inheritdoc/>
-    public IEnumerable<IDiscreteNumberParameter> Counts => [];
-    /// <inheritdoc/>
-    public IEnumerable<IContinuousNumberParameter> Quantities => [];
-    /// <inheritdoc/>
-    public IEnumerable<ITextParameter> Labels => [];
-    /// <inheritdoc/>
-    public IEnumerable<ISingletonEntityParameter> SingleSelections => [];
-    /// <inheritdoc/>
-    public IEnumerable<ICompositeEntityParameter> CompositeSelections => [];
-    /// <inheritdoc/>
-    public IEnumerable<TMetadata> Children => _children;
-
-    private readonly List<TMetadata> _children;
 
     /// <summary>
-    /// Creates a new <c>BaseCompositeActivationTargetMetadata</c> instance.
+    /// Provides a new <see cref="ICompositeActivationTargetMetadata"/> instance for the specified <paramref name="children"/>.
     /// </summary>
-    /// <param name="name">The unique identifier for the <see cref="Type"/> described by the new <c>BaseCompositeActivationTargetMetadata</c>.</param>
-    /// <param name="children">Descriptions of the <see cref="Type"/>s that logically compose the one described by the new
-    /// <c>BaseCompositeActivationTargetMetadata</c>.</param>
-    protected BaseCompositeActivationTargetMetadata(string name, IEnumerable<TMetadata> children)
+    /// <param name="name">The identifier common to each of the specified <paramref name="children"/>.</param>
+    /// <param name="children">The <see cref="IActivationTargetMetadata"/> instances related by the new
+    /// <see cref="ICompositeActivationTargetMetadata"/>.</param>
+    /// <returns>A new <see cref="ICompositeActivationTargetMetadata"/> instance.</returns>
+    /// <exception cref="ArgumentException">If any of the specified <paramref name="children"/> are <c>null</c>, or if any
+    /// of them do not exhibit the specified <paramref name="name"/>.</exception>
+    public static ICompositeActivationTargetMetadata Composite(string name, IEnumerable<IActivationTargetMetadata> children)
     {
-        Name = name;
-        _children = children.ToList();
+        return new CompositeActivationTargetMetadata(
+            name,
+            Guard
+                .Against
+                .InvalidEnumerable(children)
+                .NullElements()
+                .AnyViolation(child => child.Name == name)
+                .Validated());
+    }
+
+    /// <summary>
+    /// Provides <see cref="IActivationTargetMetadata"/> instanes for every member of <typeparamref name="T"/>.
+    /// </summary>
+    /// <typeparam name="T">The type for which <see cref="IActivationTargetMetadata"/> is being queried.</typeparam>
+    /// <param name="context">The current <see cref="IActivationContext"/>.</param>
+    /// <returns>A collection of <see cref="IActivationTargetMetadata"/> instances describing the members of
+    /// <typeparamref name="T"/>.</returns>
+    public static IEnumerable<IActivationTargetMetadata> For<T>(IActivationContext context)
+    {
+        return EveryType
+               .That
+               .IsAssignableTo<T>()
+               .Where(type => CanBeActivatedIn(type, context))
+               .GroupBy(type => type.GetCustomAttribute<ActivationTargetAttribute>()!)
+               .Select(grouping => From(grouping, context));
+    }
+
+    private static bool CanBeActivatedIn(Type type, IActivationContext context)
+    {
+        // TODO figure out a way to remove this
+        return type
+               .GetCustomAttribute<ActivationTargetAttribute>()
+               ?.CanBeActivatedIn(context) ??
+               false;
+    }
+
+    private static IActivationTargetMetadata From(
+        IGrouping<ActivationTargetAttribute, Type> grouping, IActivationContext context)
+    {
+        return grouping.IsSingleton()
+            ? new SingletonActivationTargetMetadata(grouping.Single(), context)
+            : new CompositeActivationTargetMetadata(
+                grouping.Key.Name,
+                grouping.Select(type => new SingletonActivationTargetMetadata(type, context)));
     }
 }

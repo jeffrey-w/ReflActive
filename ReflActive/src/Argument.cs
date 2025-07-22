@@ -7,7 +7,8 @@ namespace ReflActive;
 /// </summary>
 [JsonPolymorphic]
 [JsonDerivedType(typeof(BooleanArgument), typeDiscriminator: "boolean")]
-[JsonDerivedType(typeof(ContinuousNumberArgument), typeDiscriminator: "number")]
+[JsonDerivedType(typeof(IntegerArgument), typeDiscriminator: "integer")]
+[JsonDerivedType(typeof(DoubleArgument), typeDiscriminator: "double")]
 [JsonDerivedType(typeof(StringArgument), typeDiscriminator: "string")]
 [JsonDerivedType(typeof(StringsArgument), typeDiscriminator: "strings")]
 public abstract class BaseArgument
@@ -40,14 +41,14 @@ public abstract class BaseTypedArgument<TValue> : BaseArgument
 public sealed class BooleanArgument : BaseTypedArgument<bool>;
 
 /// <summary>
-/// The <c>DiscreteNumberArgument</c> class represents a binding to a real-valued constructor parameter.
+/// The <c>IntegerArgument</c> class represents a binding to a integral-valued constructor parameter.
 /// </summary>
-public sealed class DiscreteNumberArgument : BaseTypedArgument<int>;
+public sealed class IntegerArgument : BaseTypedArgument<int>;
 
 /// <summary>
-/// The <c>ContinuousNumberArgument</c> class represents a binding to a real-valued constructor parameter.
+/// The <c>DoubleArgument</c> class represents a binding to a real-valued constructor parameter.
 /// </summary>
-public sealed class ContinuousNumberArgument : BaseTypedArgument<double>;
+public sealed class DoubleArgument : BaseTypedArgument<double>;
 
 /// <summary>
 /// The <c>StringArgument</c> class represents a binding to a string-valued constructor parameter.

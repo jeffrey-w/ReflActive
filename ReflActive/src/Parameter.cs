@@ -123,6 +123,8 @@ internal static class Parameter
 {
     public sealed class Factory(IActivationContext context)
     {
+        internal IActivationContext Context => context;
+        
         public IBooleanParameter MakeBoolean(ParameterInfo info)
         {
             return new BooleanParameter(info, context);
@@ -158,6 +160,7 @@ internal static class Parameter
     {
         public string Name => Info.GetCustomAttribute<ParameterAttribute>()?.Name ?? string.Empty;
         public string Description => Info.GetCustomAttribute<ParameterAttribute>()?.Description ?? string.Empty;
+        // TODO this isn't working
         public bool IsRequired => Nullable.GetUnderlyingType(Info.ParameterType) is null;
         public virtual TDomain? Default => (TDomain?)Info.GetCustomAttribute<DefaultAttribute>()?.GetValue(Context);
 

@@ -6,18 +6,18 @@ namespace ReflActive;
 
 /// <summary>
 /// The <c>IActivationContext</c> interface provides properties and operations on the environment in which <see
-/// cref="Activator.Activate{TResult,TAttribute}">activations</see> occur.
+/// cref="Activator.Activate{TResult}">activations</see> occur.
 /// </summary>
 public interface IActivationContext
 {
     /// <summary>
     /// Indicates whether this <c>IActivationContext</c> contains data that is not intended for a production environment.
     /// </summary>
-    public bool IsDevelopment { get; set; }
+    public bool IsDevelopment { get; }
     /// <summary>
     /// Indicates whether this <c>IActivationContext</c> contains data that is intended for a testing environment.
     /// </summary>
-    public bool IsExperimental { get; set; }
+    public bool IsExperimental { get; }
     
     /// <summary>
     /// Includes the specified <paramref name="dependency"/> in this <c>IActivationContext</c>.
@@ -83,105 +83,69 @@ public interface IActivationContext
 /// The <c>ActivationContext</c> class provides a concrete implementation of the <see cref="IActivationContext"/>
 /// interface.
 /// </summary>
-public static class ActivationContext
+public sealed class ActivationContext : IActivationContext
 {
-    private sealed class ActivationContextImpl : IActivationContext
+    /// <summary>
+    /// Provides a new <see cref="IActivationContext"/> in its native state.
+    /// </summary>
+    /// <param name="development">Indicates whether the new <c>IActivationContext</c> contains data that is not intended
+    /// for a production environment.</param>
+    /// <param name="experimental">Indicates whether the new <c>IActivationContext</c> contains data that is intended for
+    /// a testing environment.</param>
+    /// <returns>A new <see cref="IActivationContext"/>.</returns>
+    public static IActivationContext Init(bool development = false, bool experimental = false)
     {
-        public bool IsDevelopment { get; set; }
-        public bool IsExperimental { get; set; }
+        return new ActivationContext(development, experimental);
+    }
+    
+    /// <inheritdoc />
+    public bool IsDevelopment { get; }
 
-        private readonly Dictionary<Type, object> _types = [];
-        private readonly Dictionary<string, Variable> _names = [];
+    /// <inheritdoc />
+    public bool IsExperimental { get; }
 
-        public IActivationContext AddDependency<TDependency>(TDependency dependency) where TDependency : notnull
-        {
-            foreach (var type in dependency.GetEveryType())
-            {
-                _types.Add(type, dependency);
-            }
-            return this;
-        }
+    private readonly Dictionary<Type, object> _types = [];
+    private readonly Dictionary<string, Variable> _names = [];
 
-        public TDependency GetDependency<TDependency>()
-        {
-            return (TDependency)GetDependency(typeof(TDependency));
-        }
-
-        public object GetDependency(Type type)
-        {
-            return _types[type];
-        }
-
-        public IActivationContext DefineVariable<TValue>(string name, TValue? value, bool constant = false)
-        {
-            _names.Add(Guard.Against.NullOrWhitespace(name, nameof(name)), new Variable(name, value, constant));
-            return this;
-        }
-
-        public TValue? Get<TValue>(string name)
-        {
-            return (TValue?)_names[name].Value;
-        }
-
-        public TValue? Set<TValue>(string name, TValue? value)
-        {
-            if (_names[name].IsConstant)
-            {
-                throw new InvalidOperationException();
-            }
-            _names[name] = new Variable(name, value, false);
-            return value;
-        }
-
-        public void AddVariable(Variable variable)
+    private ActivationContext(bool development, bool experimental)
+    {
+        IsDevelopment = development;
+        IsExperimental = experimental;
+        foreach (var variable in GetVariables())
         {
             _names.Add(variable.Name, variable);
         }
     }
     
-    /// <summary>
-    /// Provides a new <see cref="IActivationContext"/> in its native state.
-    /// </summary>
-    /// <returns>A new <see cref="IActivationContext"/>.</returns>
-    public static IActivationContext Init()
-    {
-        var context = new ActivationContextImpl { IsDevelopment = true };
-        foreach (var variable in GetVariables(context.IsDevelopment))
-        {
-            context.AddVariable(variable);
-        }
-        return context;
-    }
-
-    private static IEnumerable<Variable> GetVariables(bool development)
+    private IEnumerable<Variable> GetVariables()
     {
         var assemblies = AppDomain.CurrentDomain.GetAssemblies();
         return assemblies
-            .SelectMany(assembly => MakeVariablesFromTypes(assembly, development))
-            .Concat(assemblies.SelectMany(assembly => MakeVariablesFromFields(assembly, development)))
-            .ThrowIfDuplicatesBy(variable => variable.Name);
+               .SelectMany(MakeVariablesFromTypes)
+               .Concat(assemblies.SelectMany(MakeVariablesFromFields))
+               .ThrowIfDuplicatesBy(variable => variable.Name);
     }
 
-    private static IEnumerable<Variable> MakeVariablesFromTypes(Assembly assembly, bool development)
+    private IEnumerable<Variable> MakeVariablesFromTypes(Assembly assembly)
     {
         return assembly
-            .GetTypes()
-            .Where(IsTarget)
-            .SelectMany(type => MakeVariables(type, development));
+               .GetTypes()
+               .Where(IsTarget)
+               .SelectMany(MakeVariables);
     }
 
-    private static IEnumerable<Variable> MakeVariablesFromFields(Assembly assembly, bool development)
+    private IEnumerable<Variable> MakeVariablesFromFields(Assembly assembly)
     {
         return assembly
-            .GetTypes()
-            .SelectMany(type => type.GetFields())
-            .Where(IsTarget)
-            .SelectNotNull(type => MakeVariable(type, development));
+               .GetTypes()
+               .SelectMany(type => type.GetFields())
+               .Where(IsTarget)
+               .SelectNotNull(MakeVariable);
     }
 
     private static bool IsTarget(Type type)
     {
-        return type.IsPublic && type.IsStatic() && type.HasCustomAttribute<ActivationVariableAttribute>();
+        return type.IsPublic && type.IsStatic() && type.HasCustomAttribute<ActivationConfigurationAttribute>();
     }
 
     private static bool IsTarget(FieldInfo field)
@@ -189,20 +153,66 @@ public static class ActivationContext
         return field.IsStatic && field.HasCustomAttribute<ActivationVariableAttribute>();
     }
 
-    private static IEnumerable<Variable> MakeVariables(Type type, bool development)
+    private IEnumerable<Variable> MakeVariables(Type type)
     {
         return type
-            .GetCustomAttribute<ActivationConfigurationAttribute>()!
-            .MakeVariables(type, development);
+               .GetCustomAttribute<ActivationConfigurationAttribute>()!
+               .MakeVariables(type, IsDevelopment);
     }
 
-    private static Variable? MakeVariable(FieldInfo field, bool development)
+    private Variable? MakeVariable(FieldInfo field)
     {
         var attribute = field.GetCustomAttribute<ActivationVariableAttribute>()!;
-        if (!attribute.Development || development)
+        if (!attribute.IsDevelopment || IsDevelopment)
         {
             return new Variable(attribute.Name, field.GetValue(null), attribute.IsConstant);
         }
         return null;
+    }
+
+    /// <inheritdoc />
+    public IActivationContext AddDependency<TDependency>(TDependency dependency) where TDependency : notnull
+    {
+        foreach (var type in dependency.GetEveryType())
+        {
+            _types.Add(type, dependency);
+        }
+        return this;
+    }
+
+    /// <inheritdoc />
+    public TDependency GetDependency<TDependency>()
+    {
+        return (TDependency)GetDependency(typeof(TDependency));
+    }
+
+    /// <inheritdoc />
+    public object GetDependency(Type type)
+    {
+        return _types[type];
+    }
+
+    /// <inheritdoc />
+    public IActivationContext DefineVariable<TValue>(string name, TValue? value, bool constant = false)
+    {
+        _names.Add(Guard.Against.NullOrWhitespace(name, nameof(name)), new Variable(name, value, constant));
+        return this;
+    }
+
+    /// <inheritdoc />
+    public TValue? Get<TValue>(string name)
+    {
+        return (TValue?)_names[name].Value;
+    }
+
+    /// <inheritdoc />
+    public TValue? Set<TValue>(string name, TValue? value)
+    {
+        if (_names[name].IsConstant)
+        {
+            throw new InvalidOperationException();
+        }
+        _names[name] = new Variable(name, value, false);
+        return value;
     }
 }

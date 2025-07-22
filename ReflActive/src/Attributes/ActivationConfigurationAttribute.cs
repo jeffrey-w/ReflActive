@@ -31,11 +31,11 @@ public sealed class ActivationConfigurationAttribute : Attribute
     /// Indicates whether this <c>ActivationConfigurationAttribute</c> annotates a class that defines values that are not
     /// intended for production.
     /// </summary>
-    public bool Development { get; init; } = false;
+    public bool IsDevelopment { get; init; } = false;
 
     internal IEnumerable<Variable> MakeVariables(Type type, bool development)
     {
-        return type
+       return type
             .GetFields(BindingFlags.Public | BindingFlags.Static)
             .WhereNot(field => field.HasCustomAttribute<ActivationVariableAttribute>())
             .SelectNotNull(field => MakeVariable(field, development));
@@ -43,7 +43,7 @@ public sealed class ActivationConfigurationAttribute : Attribute
 
     private Variable? MakeVariable(FieldInfo field, bool development)
     {
-        if (!Development || development)
+        if (!IsDevelopment || development)
         {
             return new Variable(GetName(field), field.GetValue(null), field.HasCustomAttribute<ConstantAttribute>());
         }

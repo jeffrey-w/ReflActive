@@ -2,10 +2,10 @@ namespace ReflActive.Attributes;
 
 /// <summary>
 /// The <c>ActivationTargetAttribute</c> annotates <see cref="Type"/>s that may be <see
-/// cref="Activator.Activate{TResult,TAttribute}">activated</see> with descriptive information.
+/// cref="Activator.Activate{TResult}">activated</see> with descriptive information.
 /// </summary>
 [AttributeUsage(AttributeTargets.Class)]
-public abstract class ActivationTargetAttribute : Attribute, IEquatable<ActivationTargetAttribute>
+public sealed class ActivationTargetAttribute : Attribute, IEquatable<ActivationTargetAttribute>
 {
     /// <summary>
     /// The prefix of the unique identifier for the <see cref="Type"/> annotated by this <c>ActivationTargetAttribute</c>.
@@ -31,7 +31,7 @@ public abstract class ActivationTargetAttribute : Attribute, IEquatable<Activati
     public bool IsExperimental { get; init; }
     /// <summary>
     /// Indicates that the <see cref="Type"/> annotated by this <c>ActivationTargetAttribute</c> ought to be preferred
-    /// when selecting those to <see cref="Activator.Activate{TResult,TAttribute}">activate</see>.
+    /// when selecting those to <see cref="Activator.Activate{TResult}">activate</see>.
     /// </summary>
     public bool IsPermanent { get; init; }
 
@@ -51,6 +51,11 @@ public abstract class ActivationTargetAttribute : Attribute, IEquatable<Activati
     public override int GetHashCode()
     {
         return HashCode.Combine(Name);
+    }
+    
+    internal bool CanBeActivatedIn(IActivationContext context)
+    {
+        return !IsPermanent && (!IsDevelopment || context.IsDevelopment) && (!IsExperimental || context.IsExperimental);
     }
 
     internal bool IsTargetedBy(Activation activation)

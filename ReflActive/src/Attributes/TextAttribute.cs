@@ -10,12 +10,13 @@ public sealed class TextAttribute : Attribute
     /// <summary>
     /// The least number of characters the string bound to the parameter annotated by this <c>TextAttribute</c> may have.
     /// </summary>
-    public int? Min { get; init; }
+    public int Min { get; init; } = 0;
+
     /// <summary>
     /// The greatest number of characters the string bound to the parameter annotated by this <c>TextAttribute</c> may
     /// have.
     /// </summary>
-    public int? Max { get; init; }
+    public int Max { get; init; } = int.MaxValue;
     /// <summary>
     /// The regular expression that defines the strings that may be bound to the parameter annotated by this <c>TextAttribute</c>.
     /// </summary>

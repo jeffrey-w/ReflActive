@@ -10,6 +10,8 @@ public sealed class SingletonEntityAttribute : Attribute
     /// <summary>
     /// The <see cref="Type"/> over which the parameter annotated by this <c>SingletonEntityAttribute</c> ranges.
     /// </summary>
+    /// <exception cref="ArgumentException">If the <see cref="Type"/> used to initialize this property does not
+    /// implement the <see cref="ISingletonEntityConverter"/> interface.</exception>
     public required Type Type
     {
         get => _type;

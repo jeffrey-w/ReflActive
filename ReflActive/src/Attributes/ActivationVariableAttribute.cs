@@ -21,5 +21,5 @@ public sealed class ActivationVariableAttribute : Attribute
     /// <summary>
     /// Indicates whether this <c>ActivationVariableAttribute</c> annotates a value that is not intended for production.
     /// </summary>
-    public bool Development { get; init; } = false;
+    public bool IsDevelopment { get; init; } = false;
 }
