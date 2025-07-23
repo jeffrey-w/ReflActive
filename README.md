@@ -451,4 +451,4 @@ contribute, you may request an invitation to collaborate on this repository.
 
 ## License
 
-[MIT](https://spdx.org/licenses/MIT.html)
+[MIT](LICENSE.md)
