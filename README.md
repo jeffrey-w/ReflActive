@@ -173,7 +173,7 @@ public ImportantComputation(
     Entity param3,
     Config config)
 {
-    ...
+    // ...
 }
 ```
 
@@ -212,7 +212,7 @@ public ImportantComputation(
     Entity param3,
     [Dependency] Config config)
 {
-    ...
+    // ...
 }
 ```
 
@@ -313,7 +313,7 @@ properties that we've already discussed. How might you convey that information? 
 [Properties(typeof(ImportantComputationProperties))]
 public class ImportantComputation
 {
-    ...
+    // ...
 }
 ```
 
