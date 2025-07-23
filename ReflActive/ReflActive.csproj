@@ -9,7 +9,7 @@
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <Title>ReflActive</Title>
         <Authors>Jeff Wilgus</Authors>
-        <Description>A library for introspecting on types, and providing language-agnostic descriptors of their constructors.</Description>
+        <Description>A library for introspecting on types, and providing language-agnostic descriptions of their constructors</Description>
         <Copyright>Jeff Wilgus</Copyright>
         <PackageProjectUrl>https://github.com/jeffrey-w/ReflActive</PackageProjectUrl>
         <PackageLicenseFile>LICENSE.md</PackageLicenseFile>

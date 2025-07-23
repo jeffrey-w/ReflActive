@@ -1,4 +1,4 @@
-# <img src="./icon.png" width="256px" height="256px" />
+# <p align="center"><img src="./icon.png" width="256px" height="256px" /></p>
 
 ReflActive is a .NET library for introspecting on CLR types, and providing language-agnostic descriptions of their
 constructors. Clients may render this information so that user input may be used to instantiate those types at runtime
