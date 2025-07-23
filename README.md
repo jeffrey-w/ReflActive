@@ -335,7 +335,7 @@ Now, the properties defined on the `ImportantComputationProperties` class will b
 attribute of the `IActivationTargetMetadata` interface. It ought to be noted that properties that do not belong to
 `string` will be converted to that type by calling `ToString` on the value bound to them.
 
-Let's inspect what our metadata instance looks like, serializing it using `System.Test.Json`.
+Let's inspect what our metadata instance looks like, serializing it using `System.Text.Json`.
 
 ```json
 {
