@@ -21,14 +21,14 @@ public static class Activator
     /// exhibit either the <see cref="ParameterAttribute"/> or the <see cref="DependencyAttribute"/>, or if the <see
     /// cref="Activation.Arguments"/> associtaed with the specified <paramref name="activation"/> do not belong to the
     /// same <see cref="Type"/>s as the parameters they target.</exception>
-    /// <exception cref="InvalidCastException">If the specified <paramref name="activation"/> does not target a
-    /// constructor for a member of <typeparamref name="TResult"/>.</exception>
-    /// <exception cref="InvalidOperationException">If there is not exactly one member of <typeparamref name="TResult"/>
-    /// that exhibits the same <see cref="ActivationTargetAttribute.Name"/> and <see cref="ActivationTargetAttribute.Discriminator"/>
-    /// as the specified <paramref name="activation"/>, if it does not declare exactly one constructor that
-    /// exhibits the <see cref="ActivationTargetConstructorAttribute"/>, if any parameter it declares is subject to an <see
-    /// cref="IEntityConverter"/> that does not declare a constructor that is parameterized only by the current <see
-    /// cref="IActivationContext"/>.</exception>
+    /// <exception cref="InvalidCastException">.</exception>
+    /// <exception cref="InvalidOperationException">If the specified <paramref name="activation"/> does not target a
+    /// constructor for a member of <typeparamref name="TResult"/>, if there is not exactly one member of
+    /// <typeparamref name="TResult"/> that exhibits the same <see cref="ActivationTargetAttribute.Name"/> and
+    /// <see cref="ActivationTargetAttribute.Discriminator"/> as the specified <paramref name="activation"/>, if it does
+    /// not declare exactly one constructor that exhibits the <see cref="ActivationTargetConstructorAttribute"/>, or if
+    /// any parameter it declares is subject to an <see cref="IEntityConverter"/> that does not declare a constructor
+    /// that is parameterized only by the current <see cref="IActivationContext"/>.</exception>
     /// <exception cref="KeyNotFoundException">If the constructor targeted by the specified <paramref name="activation"/>
     /// declares a parameter that is neither <see cref="ParameterAttribute.Name">named</see> nor belongs to a <see
     /// cref="Type"/> for which a <see cref="IActivationContext.GetDependency">dependency</see> exists in the current
@@ -59,6 +59,7 @@ public static class Activator
 
     private static bool IsTargetedType(Type type, Activation activation)
     {
+        // TODO verify that type is valid for context
         return type
             .GetCustomAttribute<ActivationTargetAttribute>()!
             .IsTargetedBy(activation);
