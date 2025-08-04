@@ -54,7 +54,7 @@ public interface ICompositeEntityConverter : IEntityConverter
     /// <param name="ids">The unique identifiers for a subset of the members of the <see cref="Type"/> over which
     /// this <c>ICompositeEntityConverter</c> operates.</param>
     /// <returns>The entities identified by the specified <paramref name="ids"/>.</returns>
-    ISet<object> Entities(IEnumerable<string> ids);
+    object Entities(IEnumerable<string> ids);
 }
 
 internal static class EntityConverter
