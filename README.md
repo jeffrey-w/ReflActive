@@ -1,4 +1,4 @@
-# <p align="center"><img src="./icon.png" width="256px" height="256px" /></p>
+# <p align="center"><img src="./icon.png" alt="ReflActive logo" width="256px" height="256px" /></p>
 
 ReflActive is a .NET library for introspecting on CLR types, and providing language-agnostic descriptions of their
 constructors. Clients may render this information so that user input may be used to instantiate those types at runtime
@@ -6,7 +6,7 @@ in a transparent way.
 
 Targeted types, their constructors, and parameters thereof exhibit attributes, which are reflected upon at runtime to
 automatically build representations of the type that may be used to create richly detailed user interfaces. In addition
-to providing descriptions of the data necessary to instantiate a type, other metadata may be associated with each type
+to providing descriptions of the data necessary to instantiate a type, other metadata may be associated with it as well
 to provide a more complete context for its use.
 
 ReflActive also provides an interface for translating user input into constructor invocations. Having provided
@@ -46,7 +46,7 @@ public class ImportantComputation
 }
 ```
 
-Providing users with fields to input values for `param1` and `param2` to the constructor declared by
+Providing users with fields to specify values for `param1` and `param2` to the constructor declared by
 `ImportantComputation` is not especially difficult. Fields for `param3` and `config` might be slightly more complicated,
 but certainly can be implemented. However, the effort becomes more tedious as parameters are added or modified, and as
 the number of types to expose are added. Furthermore, it would be ideal for there to be a more standard way to marshall
@@ -68,9 +68,12 @@ public class ImportantComputation
 
     [ActivationTargetConstructor]
     public ImportantComputation(
-        [Parameter(Name = "Param One")] [StaticDefault(Value = 123)] [DiscreteNumber(0, int.MaxValue)] int param1,
+        [Parameter(Name = "Param One")]
+        [StaticDefault(Value = 123)]
+        [DiscreteNumber(0, int.MaxValue)]
+        int param1,
         [Parameter(Name = "Param Two")]
-        [DynamicDefault(Name = "DefaultImportantComputationParam2Value")]
+        [DynamicDefault(Name = "Param Two Default")]
         [Text(Min = 1, Max = 1024)]
         string param2,
         [Parameter(Name = "Param Three")]
@@ -92,22 +95,22 @@ itself: `ActivationTargetAttribute`. This identifies the class as one that may b
 provided by ReflActive. It also allows helpful information to be associated with the class, which may be rendered to
 user interfaces as necessary.
 
-Next, the attribute on the constructor for `ImportantComputation`. The `ActivationTargetConstructorAttribute` identifies
-the constructor that ReflActive will call when attempting to instantiate instances of the targeted class. It is
-important that only one constructor for a class exhibit this attribute.
+Next, consider the attribute on the constructor for `ImportantComputation`. The `ActivationTargetConstructorAttribute`
+identifies the constructor that ReflActive will call when attempting to instantiate instances of the targeted class. It
+is important that only one constructor for a class exhibit this attribute.
 
 Finally, there are the attributes on the constructor parameters. Every parameter that is to be exposed to clients must
 exhibit the `ParameterAttribute`. Similar to the `ActivationTargetAttribute`, it allows you to provide useful
 information to users that are specifying input to the parameter. Parameters may optionally be associated with a default
-value. The `StaticDefaultAttribute` lets you provide a typical constant value to bind to a parameter. The
-`DynamicDefaultAttribute` lets you specify the name of a variable, declared in
-the [activation context](#activation-contexts) in which a class is being instantiated, that holds the typical value to
-bind to a parameter. In addition, depending on the type to which a parameter belongs, it may exhibit one of many
-attributes that limit its domain. For example the `DiscreteNumber` attribute allows you to specify the least and
-greatest values that an argument to an integer-valued parameter may take. The `TextAttribute` allows you to specify the
-least and greatest number of characters that an argument to a string-valued parameter may exhibit, and also an optional
-regular expression for further limiting what constitutes a valid argument to the parameter. The following attributes are
-available for restricting the domains of parameters.
+value. The `StaticDefaultAttribute` lets you provide a typical constant value to associate with a parameter. The
+`DynamicDefaultAttribute` lets you specify the name of a variable, declared in the [activation context](#activation-contexts) in which a
+class is being instantiated, that holds the typical value to associate with a parameter. In addition, depending on the
+type to which a parameter belongs, it may exhibit one of many  attributes that limit its domain. For example the
+`DiscreteNumber` attribute allows you to specify the least and greatest values that an argument to an integer-valued
+parameter may take. The `TextAttribute` allows you to specify the least and greatest number of characters that an
+argument to a string-valued parameter may exhibit, and also an optional regular expression for further limiting what
+constitutes a valid argument to the parameter. The following attributes are available for restricting the domains of
+parameters.
 
 - `DiscreteNumberAttribute`
 - `ContinuousNumberAttribute`
@@ -164,12 +167,16 @@ At our constructor declaration, we add the `SingletonEntityAttribute` to our par
 ```csharp
 [ActivationTargetConstructor]
 public ImportantComputation(
-    [Parameter(Name = "Param One")] [StaticDefault(Value = 123)] [DiscreteNumber(0, int.MaxValue)] int param1,
+    [Parameter(Name = "Param One")]
+    [StaticDefault(Value = 123)]
+    [DiscreteNumber(0, int.MaxValue)]
+    int param1,
     [Parameter(Name = "Param Two")]
-    [DynamicDefault(Name = "DefaultImportantComputationParam2Value")]
+    [DynamicDefault(Name = "Param Two Default")]
     [Text(Min = 1, Max = 1024)]
     string param2,
-    [Parameter(Name = "Param Three")] [SingletonEntity(Type = typeof(SingletonEntityConverter))]
+    [Parameter(Name = "Param Three")]
+    [SingletonEntity(Type = typeof(SingletonEntityConverter))]
     Entity param3,
     Config config)
 {
@@ -183,9 +190,9 @@ parameters.
 
 ### Dependencies
 
-What about parameters that take values from complex types that do not declare a property by which instances are uniquely
-identified? The parameter `config` to the constructor for `ImportantComputation` belongs to the type `Config`, which
-represents user-supplied configuration values. In this case, the `Config` class is not likely to exhibit a unique
+What about parameters that take values from complex types, which do not declare a property by which instances are
+uniquely identified? The parameter `config` to the constructor for `ImportantComputation` belongs to the type `Config`,
+which represents user-supplied configuration values. In this case, the `Config` class is not likely to exhibit a unique
 identifier (it's simply a bag of values that define a computation environment). Let's suppose it's defined as such.
 
 ```csharp
@@ -203,14 +210,19 @@ it needs to. To indicate that the instance ought to be bound to the parameter, w
 ```csharp
 [ActivationTargetConstructor]
 public ImportantComputation(
-    [Parameter(Name = "Param One")] [StaticDefault(Value = 123)] [DiscreteNumber(0, int.MaxValue)] int param1,
+    [Parameter(Name = "Param One")]
+    [StaticDefault(Value = 123)]
+    [DiscreteNumber(0, int.MaxValue)]
+    int param1,
     [Parameter(Name = "Param Two")]
-    [DynamicDefault(Name = "DefaultImportantComputationParam2Value")]
+    [DynamicDefault(Name = "Param Two Default")]
     [Text(Min = 1, Max = 1024)]
     string param2,
-    [Parameter(Name = "Param Three")] [SingletonEntity(Type = typeof(SingletonEntityConverter))]
+    [Parameter(Name = "Param Three")]
+    [SingletonEntity(Type = typeof(SingletonEntityConverter))]
     Entity param3,
-    [Dependency] Config config)
+    [Dependency]
+    Config config)
 {
     // ...
 }
@@ -221,9 +233,13 @@ Notice that `config` does not exhibit the `ParameterAttribute`. That's because w
 about this parameter to the user: there is only one choice of value anyway, and it has already been defined by the time
 the user is specifying input to the constructor for `ImportantComputation`.
 
-Up until now, we have avoided explaining how ReflActive accesses values that are not defined at compile time. That is,
-values that may vary between different images of the same executable. To achieve this we rely on the
-`IActivationContext` interface.
+Another use for the `[DependencyAttribute]` is to mark collections that are typically obtained from databases. These are
+in effect singleton instances of the underlying relation that prevailed at the time queries to the database were
+executed. The collections may indeed contain objects that admit identity semantics, but the collection itself does not,
+and so is better cast as a dependency.
+
+Up until now, we have avoided explaining how ReflActive accesses values that are not defined at compile time. To achieve
+this, we rely on the `IActivationContext` interface.
 
 ### Activation Contexts
 
@@ -232,41 +248,43 @@ declared at compile time. You may think of it as a mechanism similar to what ope
 achieve. Broadly speaking, an `IActivationContext` maintains references to two types of values: variables and
 dependencies. The difference between these storage classes is only the way by which they are identified. Variables are
 associated with a name, represented by a string, that must be unique to an `IActivationContext`. Dependencies, on the
-other hand, are identified by any of the CLR types to which they are assignable. Naturally, the subset of types to which
-a dependency is assignable must be pairwise disjoint with the set associated with every other dependency (excluding
+other hand, are identified by any of the types to which they are assignable. Naturally, the subset of types to which a
+dependency is assignable must be pairwise disjoint with the set associated with every other dependency (excluding
 `object`, of course, which belongs to every set and may not be used to identify a dependency). As shown below, the
 `IActivationContext` interface provides a means for defining and accessing variables and dependencies, and for updating
-variables that are not defined as constant.
+variables that are not declared constant.
 
 ```csharp
 var context = ActivationContext.Init();
 
-context.DefineVariable("DefaultImportantComputationParam2Value", "test");
+context.DefineVariable("Param Two Default", "test");
 context.AddDependency(new Config());
 
-var defaultValue = context.Get<string>("DefaultImportantComputationParam2Value"); // "test"
-var config = context.GetDependency<Config>(); // new Config()
+var defaultValue = context.Get<string>("Param Two Default"); // defaultValue == "test"
+var config = context.GetDependency<Config>(); // config.Value == "Value"
+
+context.Set("Param Two Default", "TEST")
 ```
 
 You may also define variables by declaring the `ActivationConfigurationAttribute` on public static classes, or the
-`ActivationVariableAttribute` on public static fields of a class (that does not exhibit the former attribute).
+`ActivationVariableAttribute` on public static fields of a class.
 
 The names and types that identify variables and dependencies may be referenced by the attributes declared on constructor
 parameters, and a lookup is performed at runtime to resolve the desired value. For example, recall the attribute
-declaration `[DynamicDefault("DefaultImportantComputationParam2Value")]` on the parameter `param2` to the constructor
-for `ImportantComputation`. This will bind the value `"test"` by default to `param2`. Similarly, the `[Dependency]`
+declaration `[DynamicDefault("Param Two Default")]` on the parameter `param2` to the constructor for
+`ImportantComputation`. This will associate the value `"TEST"` by default to `param2`. Similarly, the `[Dependency]`
 attribute declared on the parameter `config` will cause it to be bound to the dependency in the current
 `IActivationContext` that belongs to the `Config` type.
 
 ### Metadata
 
-We have now declared the appropriate attributes on our class and the constructor thereof, and initialized an
+We have now declared the appropriate attributes on our class and its constructor, and initialized an
 `IActivationContext`. Now what? The `IActivationTargetMetadata` interface provides a descriptive summary of the
 information compiled by ReflActive for a given type. To obtain an `IActivationTargetMetadata` for
 `ImportantComputation`, we may use the `Singleton` factory method, as shown below.
 
 ```csharp
-var metadata = ActivationTargetMetadata.Singleton(typeof(ImportantComputation), context);
+var metadata = ActivationTargetMetadata.Singleton<ImportantComputation>(context);
 ```
 
 That's it! Other factory methods exist for different use cases, including the following.
@@ -276,16 +294,16 @@ That's it! Other factory methods exist for different use cases, including the fo
 
 The `IActivationTargetMetadata` provides the following important properties (among others).
 
-- `Name` &mdash; the identifier assigned to the targeted type (N.B., this is the value bound to the `Name` property of
-  the `ActivationTargetAttribute` declared on the targeted, not the name of the class itself)
-- `Description` &mdash; a natural language characterization of the targeted type
-- `Toggles` &mdash; the Boolean-valued parameters to the constructor for the targeted type
-- `Counts` &mdash; the integer-valued parameters to the constructor for the targeted type
-- `Quantities` &mdash; the real-valued parameters to the constructor for the targeted type
-- `Labels` &mdash; the string-valued parameters to the constructor for the targeted type
-- `SingleSelections` &mdash; the parameters to the constructor for the targeted type that may be bound to a single value
+- `Name` &mdash; the identifier assigned to the targeted class (N.B., this is the value bound to the `Name` property of
+  the `ActivationTargetAttribute` declared on the targeted class, not the name of the class itself)
+- `Description` &mdash; a natural language characterization of the targeted class
+- `Toggles` &mdash; the Boolean-valued parameters to the constructor for the targeted class
+- `Counts` &mdash; the integer-valued parameters to the constructor for the targeted class
+- `Quantities` &mdash; the real-valued parameters to the constructor for the targeted class
+- `Labels` &mdash; the string-valued parameters to the constructor for the targeted class
+- `SingleSelections` &mdash; the parameters to the constructor for the targeted class that may be bound to a single value
   from a finite subset of the strings that identify a complex type
-- `CompositeSelections` &mdash; the parameters to the constructor for the targeted type that may be bound to many values
+- `CompositeSelections` &mdash; the parameters to the constructor for the targeted class that may be bound to many values
   from a finite subset of the strings that identify a complex type
 
 Other properties are discussed below.
@@ -293,12 +311,15 @@ Other properties are discussed below.
 __Development and Experimental Metadata__
 
 It may be the case that you would only like to expose the existence of some types (and a means for instantiating them)
-to users with higher privilege access to a system. Orthogonally, you may like to indicate that an exposed class may be
-used by everyone, but caution them to be more vigilant about the possibility for errors. That is what the
-`IsDevelopment` and `IsExperimental` properties are for respectively. Depending on the configuration of the similarly
-named properties of an instance of the `IActivationContext` interface, the `ActivationTargetMetadata.Singleton` factory
-method will throw an exception if you attempt to instantiate unsupported metadata, and the
-`ActivationTargetMetadata.For` factory method will filter unsupported metadata from the results it provides.
+to users that are building a system. Orthogonally, you may like to indicate that an exposed class may be used by
+everyone, but caution them to be more vigilant about the possibility for errors. That is what the `IsDevelopment` and
+`IsExperimental` properties are for respectively. Depending on the configuration of the similarly named properties of an
+instance of the `IActivationContext` interface, the `ActivationTargetMetadata.Singleton` factory  method will throw an
+exception if you attempt to instantiate unsupported metadata, and the `ActivationTargetMetadata.For` factory method will
+filter unsupported metadata from the results it provides. For example, suppose our `ImportantComputation` class was
+declared `IsDevelopment`. Then, since our activation `context` is not for development, our previous call to `Singleton`
+would fail. Note that the converse is not necessarily true. If `context` were `IsDevelopment`, then
+`ImportantComputation` could be instantiated in it regardless of whether it was declared for development only or not.
 
 __Additional Information__
 
@@ -332,8 +353,8 @@ public static class ImportantComputationProperties
 ```
 
 Now, the properties defined on the `ImportantComputationProperties` class will be available through the `Properties`
-attribute of the `IActivationTargetMetadata` interface. It ought to be noted that properties that do not belong to
-`string` will be converted to that type by calling `ToString` on the value bound to them.
+attribute of the `IActivationTargetMetadata` instance instantiated for it. It ought to be noted that properties that do
+not belong to `string` will be converted to that type by calling `ToString` on the value bound to them.
 
 Let's inspect what our metadata instance looks like, serializing it using `System.Text.Json`.
 
@@ -370,7 +391,7 @@ Let's inspect what our metadata instance looks like, serializing it using `Syste
       "name": "Param Two",
       "description": "",
       "isRequired": true,
-      "default": "test"
+      "default": "TEST"
     }
   ],
   "singleSelections": [
@@ -392,7 +413,7 @@ Let's inspect what our metadata instance looks like, serializing it using `Syste
 
 __Composite Metadata__
 
-Sometimes, you may want to indicate that a collection of types are logically connected. Perhaps they each represent
+Sometimes, you may want to indicate that a collection of types are logically similar. Perhaps they each represent
 different modes of operation for a single category of computation. It would be awkward to have to differentiate them
 using only the `Name` property of the `IActivationTargetMetadata` interface. That is why the interface also declares a
 `Discriminator` property, with a corresponding property declared on the `AnalysisTargetAttribute`. When types belong to
@@ -401,17 +422,17 @@ may create an instance of the `ICompositeActivationMetadata` interface, which im
 interface, and also declares a `Children` property that contains associated metadata instances. You may use the
 `ActivationTargetMetadata.Composite` factory method to explicitly specify the `Children` of an
 `ICompositeActivationTargetMetadata` instance, or rely on `ActivationTargetMetadata.For` to infer groupings
-automatically. The `Properties` of an `ICompositeActivationTargetMetadata` are computed as the intersection of
-properties incident on its `Children`. Those properties available on the composite are no longer available on its
-`Children`.
+automatically within a hierarchy of types. The `Properties` of an `ICompositeActivationTargetMetadata` are computed as
+the intersection of properties incident on its `Children`. Those properties available on the composite are no longer
+available on its `Children`.
 
 ### Activations
 
-Let's say that we've gone through everything above, have rendered a beautiful UI to capture the necessary inputs to
+Let's say that we've gone through everything above, have rendered a stunning UI to capture the necessary inputs to
 instantiate our `ImportantComputation`, and have received input from our user. What's next? Now, we must build an
 `Activation` from that input and pass it to the `Activator.Activate` method to obtain an instance of our
 `ImportantComputation`. Note, that `Activation` instances are converted to and from JSON easily using
-`System.Text.Json`. Other encodings may also be used.
+`System.Text.Json`.
 
 ```csharp
 var activation = new Activation
@@ -420,7 +441,7 @@ var activation = new Activation
     Arguments =
     [
         new IntegerArgument { Name = "Param One", Value = 42 },
-        new StringArgument { Name = "Param Two", Value = "TEST" },
+        new StringArgument { Name = "Param Two", Value = "test" },
         new StringArgument { Name = "Param Three", Value = "Z" },
     ],
 };
@@ -441,7 +462,7 @@ computation.Execute();
 Finally, observe the following output at the terminal.
 
 ```
-Executing with: param1=42, param2=TEST, param3=Z, config=Value.
+Executing with: param1=42, param2=test, param3=Z, config=Value.
 ```
 
 ## Contributing
