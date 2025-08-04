@@ -231,16 +231,17 @@ public static class ActivationTargetMetadata
     }
 
     /// <summary>
-    /// Provides a new <see cref="IActivationTargetMetadata"/> instance for the specified <paramref name="type"/>.
+    /// Provides a new <see cref="IActivationTargetMetadata"/> instance for <typeparamref name="TTarget"/>.
     /// </summary>
-    /// <param name="type">The <see cref="Type"/> described by the new <see cref="IActivationTargetMetadata"/> instance.</param>
+    /// <typeparam name="TTarget">The <see cref="Type"/> described by the new <see cref="IActivationTargetMetadata"/>
+    /// instance.</typeparam>
     /// <param name="context">The current <see cref="IActivationContext"/>.</param>
     /// <returns>A new <see cref="IActivationTargetMetadata"/> instance.</returns>
-    /// <exception cref="ArgumentException">If the specified <paramref name="type"/> does not exhibit the
-    /// <see cref="ActivationTargetAttribute"/>, or if it is unsupported by the specified <paramref name="context"/>.</exception>
-    public static IActivationTargetMetadata Singleton(Type type, IActivationContext context)
+    /// <exception cref="ArgumentException">If <typeparamref name="TTarget"/> does not exhibit the <see cref="ActivationTargetAttribute"/>,
+    /// or if it is unsupported by the specified <paramref name="context"/>.</exception>
+    public static IActivationTargetMetadata Singleton<TTarget>(IActivationContext context)
     {
-        return new SingletonActivationTargetMetadata(type, context);
+        return new SingletonActivationTargetMetadata(typeof(TTarget), context);
     }
 
     /// <summary>
