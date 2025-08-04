@@ -1,7 +1,7 @@
 namespace ReflActive.Attributes;
 
 /// <summary>
-/// The <c>CompositeEntityAttribute</c> annotates a parameter to a constructor exhibiting the <see cref="ActivationTargetConstructorAttribute"/>
+/// The <c>SingletonEntityAttribute</c> annotates a parameter to a constructor exhibiting the <see cref="ActivationTargetConstructorAttribute"/>
 /// that ranges over a subset of a <see cref="Type"/> for which each member is assigned a unique identifier.
 /// </summary>
 [AttributeUsage(AttributeTargets.Parameter)]
