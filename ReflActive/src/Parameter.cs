@@ -4,7 +4,7 @@ using ReflActive.Attributes;
 namespace ReflActive;
 
 /// <summary>
-/// The <c>IParameter</c> interface provides properties and operations on a variable data passed to a function.
+/// The <c>IParameter</c> interface provides properties and operations on variable data passed to a function.
 /// </summary>
 /// <typeparam name="TDomain">The set of values assignable to this <c>IParameter</c>.</typeparam>
 public interface IParameter<out TDomain>
@@ -24,7 +24,7 @@ public interface IParameter<out TDomain>
     /// <summary>
     /// The typical value bound this <c>IParameter</c>.
     /// </summary>
-    public TDomain? Default { get; }
+    public object? Default { get; }
 }
 
 /// <summary>
@@ -160,9 +160,8 @@ internal static class Parameter
     {
         public string Name => Info.GetCustomAttribute<ParameterAttribute>()?.Name ?? string.Empty;
         public string Description => Info.GetCustomAttribute<ParameterAttribute>()?.Description ?? string.Empty;
-        // TODO this isn't working
         public bool IsRequired => Nullable.GetUnderlyingType(Info.ParameterType) is null;
-        public virtual TDomain? Default => (TDomain?)Info.GetCustomAttribute<DefaultAttribute>()?.GetValue(Context);
+        public virtual object? Default => Info.GetCustomAttribute<DefaultAttribute>()?.GetValue(Context);
 
         protected ParameterInfo Info => info;
         protected IActivationContext Context => context;
