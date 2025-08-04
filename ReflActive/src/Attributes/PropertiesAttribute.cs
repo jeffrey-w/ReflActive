@@ -4,9 +4,9 @@ using Extensions;
 namespace ReflActive.Attributes;
 
 /// <summary>
-/// The <c>PropertiesAttribute</c> annotates <see cref="Type"/>s with additional descriptive attributes.
+/// The <c>PropertiesAttribute</c> annotates <see cref="Type"/>s with additional descriptive information.
 /// </summary>
-/// <param name="target">The class that defined additional descriptive attributes for the <see cref="Type"/> annotated by
+/// <param name="target">The class that defines additional descriptive attributes for the <see cref="Type"/> annotated by
 /// the new <c>PropertiesAttribute</c>.</param>
 /// <param name="args">Optional arguments to the constructor for the <see cref="TargetType"/> associated with this
 /// <c>PropertiesAttribute</c></param>
