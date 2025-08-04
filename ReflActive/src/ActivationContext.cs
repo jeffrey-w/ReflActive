@@ -24,10 +24,10 @@ public interface IActivationContext
     /// </summary>
     /// <typeparam name="TDependency">The <see cref="Type"/> of the specified <paramref name="dependency"/>.</typeparam>
     /// <param name="dependency">The object to include in this <c>IActivationContext</c>.</param>
-    /// <returns>This <c>IActivationContext</c>.</returns>
+    /// <returns>The specified <paramref name="dependency"/>.</returns>
     /// <exception cref="ArgumentException">If the <see cref="Type"/>s to which the specified <paramref name="dependency"/>
     /// belongs intersects with the types exhibited by another object in this <c>IActivationContext</c>.</exception>
-    public IActivationContext AddDependency<TDependency>(TDependency dependency) where TDependency : notnull;
+    public TDependency AddDependency<TDependency>(TDependency dependency) where TDependency : notnull;
     /// <summary>
     /// Provides the dependency that exhibits the specified type, <typeparamref name="TDependency"/>, in this <c>IActivationContext</c>.
     /// </summary>
@@ -51,10 +51,10 @@ public interface IActivationContext
     /// <param name="value">The data to associate with the specified <paramref name="name"/> in this <c>IActivationContext</c>.</param>
     /// <param name="constant">If <c>true</c>, the association defined by the specified <paramref name="name"/> and
     /// <paramref name="value"/> may not be <see cref="Set{TValue}"> modified</see>.</param>
-    /// <returns>This <c>IActivationContext</c>.</returns>
+    /// <returns>The specified <paramref name="value"/>.</returns>
     /// <exception cref="ArgumentException">If the specified <paramref name="name"/> is already associated with another
     /// <paramref name="value"/> in this <c>IActivationContext</c>.</exception>
-    public IActivationContext DefineVariable<TValue>(string name, TValue? value, bool constant = true);
+    public TValue? Define<TValue>(string name, TValue? value, bool constant = true);
     /// <summary>
     /// Provides the value associated with the specified <paramref name="name"/> in this <c>IActivationContext</c>.
     /// </summary>
@@ -62,6 +62,8 @@ public interface IActivationContext
     /// range.</typeparam>
     /// <param name="name">The unique identifier for the queried value in this <c>IActivationContext</c>.</param>
     /// <returns>The value by the specified <paramref name="name"/> in this <c>IActivationContext</c>.</returns>
+    /// <exception cref="InvalidCastException">If the value associated with the specified <paramref name="name"/> in this
+    /// <c>IActivationContext</c> does not belong to <typeparamref name="TValue"/>.</exception>
     /// <exception cref="KeyNotFoundException">If there is no value associated with the specified <paramref name="name"/>
     /// in this <c>IActivationContext</c>.</exception>
     public TValue? Get<TValue>(string name);
@@ -72,6 +74,7 @@ public interface IActivationContext
     /// /// <typeparam name="TValue">The <see cref="Type"/> over which the specified <paramref name="value"/> may range.</typeparam>
     /// <param name="name">The unique identifier for the specified <paramref name="value"/> in this <c>IActivationContext</c>.</param>
     /// <param name="value">The data to associate with the specified <paramref name="name"/> in this <c>IActivationContext</c>.</param>
+    /// <returns>The specified <paramref name="value"/>.</returns>
     /// <exception cref="InvalidOperationException">If the specified <paramref name="name"/> is associated with a constant
     /// <paramref name="value"/>.</exception>
     /// <exception cref="KeyNotFoundException">If the specified <paramref name="name"/> is not associated with a <paramref
@@ -171,13 +174,13 @@ public sealed class ActivationContext : IActivationContext
     }
 
     /// <inheritdoc />
-    public IActivationContext AddDependency<TDependency>(TDependency dependency) where TDependency : notnull
+    public TDependency AddDependency<TDependency>(TDependency dependency) where TDependency : notnull
     {
         foreach (var type in dependency.GetEveryType())
         {
             _types.Add(type, dependency);
         }
-        return this;
+        return dependency;
     }
 
     /// <inheritdoc />
@@ -193,10 +196,10 @@ public sealed class ActivationContext : IActivationContext
     }
 
     /// <inheritdoc />
-    public IActivationContext DefineVariable<TValue>(string name, TValue? value, bool constant = false)
+    public TValue? Define<TValue>(string name, TValue? value, bool constant = false)
     {
-        _names.Add(Guard.Against.NullOrWhitespace(name, nameof(name)), new Variable(name, value, constant));
-        return this;
+        _names.Add(name, new Variable(name, value, constant));
+        return value;
     }
 
     /// <inheritdoc />
