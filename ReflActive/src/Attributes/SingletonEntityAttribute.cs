@@ -1,3 +1,5 @@
+using Extra.Guard;
+
 namespace ReflActive.Attributes;
 
 /// <summary>
@@ -15,7 +17,7 @@ public sealed class SingletonEntityAttribute : Attribute
     public required Type Type
     {
         get => _type;
-        init => _type = Guard.Against.InvalidType<ISingletonEntityConverter>(value);
+        init => _type = Against.InvalidType<ISingletonEntityConverter>(value);
     }
     
     private readonly Type _type = null!;
