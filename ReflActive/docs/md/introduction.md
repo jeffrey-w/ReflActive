@@ -1,4 +1,4 @@
-# <img src="logo.svg" alt="Logo" width=50 height=50 /> ReflActive
+# Introduction
 
 ReflActive is a .NET library for introspecting on CLR types, and providing
 language-agnostic descriptions of their
@@ -20,21 +20,17 @@ appropriate values for each parameter to a constructor, strongly-typed instances
 of the targeted class may be obtained
 using a standard, serializable representation of the specified arguments.
 
-## Installation
+## Motivation
 
-ReflActive can be installed using [NuGet](https://nuget.org/ReflActive/).
-
-## Usage
-
-You can find a quick tutorial and API documentation for
-ReflActive [here](https://github.io/jeffrey-w/ReflActive/).
-
-## Contributing
-
-ReflActive is privately maintained. Please open an issue to request a feature or
-report a bug. If you would like to
-contribute, you may request an invitation to collaborate on this repository.
-
-## License
-
-[MIT](LICENSE.md)
+ReflActive evolved from a desire to standardize how user interfaces for
+selecting and tuning operations over data are
+rendered. It was conceived as a means for sending information about the classes
+performing those operations over the
+wire, and using it to automate the construction of HTML forms that could capture
+the input necessary to instantiate
+those classes. As such, you will notice a correspondence between the properties
+exposed by the data structures provided
+by ReflActive, and the attributes on HTML form inputs that control how they are
+displayed, accept data, and validate it.
+However, those same properties ought to be adaptable to any UI toolkit in
+principle.

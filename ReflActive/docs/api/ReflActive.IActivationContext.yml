@@ -1,0 +1,629 @@
+### YamlMime:ManagedReference
+items:
+- uid: ReflActive.IActivationContext
+  commentId: T:ReflActive.IActivationContext
+  id: IActivationContext
+  parent: ReflActive
+  children:
+  - ReflActive.IActivationContext.AddDependency``1(``0)
+  - ReflActive.IActivationContext.Define``1(System.String,``0,System.Boolean)
+  - ReflActive.IActivationContext.GetDependency(System.Type)
+  - ReflActive.IActivationContext.GetDependency``1
+  - ReflActive.IActivationContext.Get``1(System.String)
+  - ReflActive.IActivationContext.IsDevelopment
+  - ReflActive.IActivationContext.IsExperimental
+  - ReflActive.IActivationContext.Set``1(System.String,``0)
+  langs:
+  - csharp
+  - vb
+  name: IActivationContext
+  nameWithType: IActivationContext
+  fullName: ReflActive.IActivationContext
+  type: Interface
+  source:
+    remote:
+      path: ReflActive/src/ActivationContext.cs
+      branch: main
+      repo: git@github.com:jeffrey-w/ReflActive.git
+    id: IActivationContext
+    path: ../src/ActivationContext.cs
+    startLine: 10
+  assemblies:
+  - ReflActive
+  namespace: ReflActive
+  summary: The <code>IActivationContext</code> interface provides properties and operations on the environment in which <xref href="ReflActive.Activator.Activate%60%601(ReflActive.Activation%2cReflActive.IActivationContext)?text=activations" data-throw-if-not-resolved="false"></xref> occur.
+  example: []
+  syntax:
+    content: public interface IActivationContext
+    content.vb: Public Interface IActivationContext
+- uid: ReflActive.IActivationContext.IsDevelopment
+  commentId: P:ReflActive.IActivationContext.IsDevelopment
+  id: IsDevelopment
+  parent: ReflActive.IActivationContext
+  langs:
+  - csharp
+  - vb
+  name: IsDevelopment
+  nameWithType: IActivationContext.IsDevelopment
+  fullName: ReflActive.IActivationContext.IsDevelopment
+  type: Property
+  source:
+    remote:
+      path: ReflActive/src/ActivationContext.cs
+      branch: main
+      repo: git@github.com:jeffrey-w/ReflActive.git
+    id: IsDevelopment
+    path: ../src/ActivationContext.cs
+    startLine: 15
+  assemblies:
+  - ReflActive
+  namespace: ReflActive
+  summary: Indicates whether this <code>IActivationContext</code> contains data that is not intended for a production environment.
+  example: []
+  syntax:
+    content: bool IsDevelopment { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: ReadOnly Property IsDevelopment As Boolean
+  overload: ReflActive.IActivationContext.IsDevelopment*
+- uid: ReflActive.IActivationContext.IsExperimental
+  commentId: P:ReflActive.IActivationContext.IsExperimental
+  id: IsExperimental
+  parent: ReflActive.IActivationContext
+  langs:
+  - csharp
+  - vb
+  name: IsExperimental
+  nameWithType: IActivationContext.IsExperimental
+  fullName: ReflActive.IActivationContext.IsExperimental
+  type: Property
+  source:
+    remote:
+      path: ReflActive/src/ActivationContext.cs
+      branch: main
+      repo: git@github.com:jeffrey-w/ReflActive.git
+    id: IsExperimental
+    path: ../src/ActivationContext.cs
+    startLine: 19
+  assemblies:
+  - ReflActive
+  namespace: ReflActive
+  summary: Indicates whether this <code>IActivationContext</code> contains data that is intended for a testing environment.
+  example: []
+  syntax:
+    content: bool IsExperimental { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: ReadOnly Property IsExperimental As Boolean
+  overload: ReflActive.IActivationContext.IsExperimental*
+- uid: ReflActive.IActivationContext.AddDependency``1(``0)
+  commentId: M:ReflActive.IActivationContext.AddDependency``1(``0)
+  id: AddDependency``1(``0)
+  parent: ReflActive.IActivationContext
+  langs:
+  - csharp
+  - vb
+  name: AddDependency<TDependency>(TDependency)
+  nameWithType: IActivationContext.AddDependency<TDependency>(TDependency)
+  fullName: ReflActive.IActivationContext.AddDependency<TDependency>(TDependency)
+  type: Method
+  source:
+    remote:
+      path: ReflActive/src/ActivationContext.cs
+      branch: main
+      repo: git@github.com:jeffrey-w/ReflActive.git
+    id: AddDependency
+    path: ../src/ActivationContext.cs
+    startLine: 29
+  assemblies:
+  - ReflActive
+  namespace: ReflActive
+  summary: Includes the specified <code class="paramref">dependency</code> in this <code>IActivationContext</code>.
+  example: []
+  syntax:
+    content: 'TDependency AddDependency<TDependency>(TDependency dependency) where TDependency : notnull'
+    parameters:
+    - id: dependency
+      type: '{TDependency}'
+      description: The object to include in this <code>IActivationContext</code>.
+    typeParameters:
+    - id: TDependency
+      description: The <xref href="System.Type" data-throw-if-not-resolved="false"></xref> of the specified <code class="paramref">dependency</code>.
+    return:
+      type: '{TDependency}'
+      description: The specified <code class="paramref">dependency</code>.
+    content.vb: Function AddDependency(Of TDependency)(dependency As TDependency) As TDependency
+  overload: ReflActive.IActivationContext.AddDependency*
+  exceptions:
+  - type: System.ArgumentException
+    commentId: T:System.ArgumentException
+    description: >-
+      If the <xref href="System.Type" data-throw-if-not-resolved="false"></xref>s to which the specified <code class="paramref">dependency</code>
+          belongs intersects with the types exhibited by another object in this <code>IActivationContext</code>.
+  nameWithType.vb: IActivationContext.AddDependency(Of TDependency)(TDependency)
+  fullName.vb: ReflActive.IActivationContext.AddDependency(Of TDependency)(TDependency)
+  name.vb: AddDependency(Of TDependency)(TDependency)
+- uid: ReflActive.IActivationContext.GetDependency``1
+  commentId: M:ReflActive.IActivationContext.GetDependency``1
+  id: GetDependency``1
+  parent: ReflActive.IActivationContext
+  langs:
+  - csharp
+  - vb
+  name: GetDependency<TDependency>()
+  nameWithType: IActivationContext.GetDependency<TDependency>()
+  fullName: ReflActive.IActivationContext.GetDependency<TDependency>()
+  type: Method
+  source:
+    remote:
+      path: ReflActive/src/ActivationContext.cs
+      branch: main
+      repo: git@github.com:jeffrey-w/ReflActive.git
+    id: GetDependency
+    path: ../src/ActivationContext.cs
+    startLine: 37
+  assemblies:
+  - ReflActive
+  namespace: ReflActive
+  summary: Provides the dependency that exhibits the specified type, <code class="typeparamref">TDependency</code>, in this <code>IActivationContext</code>.
+  example: []
+  syntax:
+    content: TDependency GetDependency<TDependency>()
+    typeParameters:
+    - id: TDependency
+      description: The <xref href="System.Type" data-throw-if-not-resolved="false"></xref> of the queried dependency.
+    return:
+      type: '{TDependency}'
+      description: The dependency of the specified type, <code class="typeparamref">TDependency</code>.
+    content.vb: Function GetDependency(Of TDependency)() As TDependency
+  overload: ReflActive.IActivationContext.GetDependency*
+  exceptions:
+  - type: System.Collections.Generic.KeyNotFoundException
+    commentId: T:System.Collections.Generic.KeyNotFoundException
+    description: >-
+      If there is no dependency with the specified type, <code class="typeparamref">TDependency</code>,
+          in this <code>IActivationContext</code>.
+  nameWithType.vb: IActivationContext.GetDependency(Of TDependency)()
+  fullName.vb: ReflActive.IActivationContext.GetDependency(Of TDependency)()
+  name.vb: GetDependency(Of TDependency)()
+- uid: ReflActive.IActivationContext.GetDependency(System.Type)
+  commentId: M:ReflActive.IActivationContext.GetDependency(System.Type)
+  id: GetDependency(System.Type)
+  parent: ReflActive.IActivationContext
+  langs:
+  - csharp
+  - vb
+  name: GetDependency(Type)
+  nameWithType: IActivationContext.GetDependency(Type)
+  fullName: ReflActive.IActivationContext.GetDependency(System.Type)
+  type: Method
+  source:
+    remote:
+      path: ReflActive/src/ActivationContext.cs
+      branch: main
+      repo: git@github.com:jeffrey-w/ReflActive.git
+    id: GetDependency
+    path: ../src/ActivationContext.cs
+    startLine: 44
+  assemblies:
+  - ReflActive
+  namespace: ReflActive
+  summary: Provides the dependency that exhibits the specified <code class="paramref">type</code> in this <code>IActivationContext</code>.
+  example: []
+  syntax:
+    content: object GetDependency(Type type)
+    parameters:
+    - id: type
+      type: System.Type
+    return:
+      type: System.Object
+      description: The dependency that belongs to the specified <code class="paramref">type</code>.
+    content.vb: Function GetDependency(type As Type) As Object
+  overload: ReflActive.IActivationContext.GetDependency*
+  exceptions:
+  - type: System.Collections.Generic.KeyNotFoundException
+    commentId: T:System.Collections.Generic.KeyNotFoundException
+    description: >-
+      If there is no dependency with the specified <code class="paramref">type</code> in
+          this <code>IActivationContext</code>.
+- uid: ReflActive.IActivationContext.Define``1(System.String,``0,System.Boolean)
+  commentId: M:ReflActive.IActivationContext.Define``1(System.String,``0,System.Boolean)
+  id: Define``1(System.String,``0,System.Boolean)
+  parent: ReflActive.IActivationContext
+  langs:
+  - csharp
+  - vb
+  name: Define<TValue>(string, TValue?, bool)
+  nameWithType: IActivationContext.Define<TValue>(string, TValue?, bool)
+  fullName: ReflActive.IActivationContext.Define<TValue>(string, TValue?, bool)
+  type: Method
+  source:
+    remote:
+      path: ReflActive/src/ActivationContext.cs
+      branch: main
+      repo: git@github.com:jeffrey-w/ReflActive.git
+    id: Define
+    path: ../src/ActivationContext.cs
+    startLine: 56
+  assemblies:
+  - ReflActive
+  namespace: ReflActive
+  summary: Associates the specified <code class="paramref">name</code> with the specified <code class="paramref">value</code> in this <code>IActivationContext</code>.
+  example: []
+  syntax:
+    content: TValue? Define<TValue>(string name, TValue? value, bool constant = true)
+    parameters:
+    - id: name
+      type: System.String
+      description: The unique identifier for the specified <code class="paramref">value</code> in this <code>IActivationContext</code>.
+    - id: value
+      type: '{TValue}'
+      description: The data to associate with the specified <code class="paramref">name</code> in this <code>IActivationContext</code>.
+    - id: constant
+      type: System.Boolean
+      description: >-
+        If <code>true</code>, the association defined by the specified <code class="paramref">name</code> and
+            <code class="paramref">value</code> may not be <xref href="ReflActive.IActivationContext.Set%60%601(System.String%2c%60%600)?text=+modified" data-throw-if-not-resolved="false"></xref>.
+    typeParameters:
+    - id: TValue
+      description: The <xref href="System.Type" data-throw-if-not-resolved="false"></xref> over which the specified <code class="paramref">value</code> may range.
+    return:
+      type: '{TValue}'
+      description: The specified <code class="paramref">value</code>.
+    content.vb: Function Define(Of TValue)(name As String, value As TValue, constant As Boolean = True) As TValue
+  overload: ReflActive.IActivationContext.Define*
+  exceptions:
+  - type: System.ArgumentException
+    commentId: T:System.ArgumentException
+    description: >-
+      If the specified <code class="paramref">name</code> is already associated with another
+          <code class="paramref">value</code> in this <code>IActivationContext</code>.
+  nameWithType.vb: IActivationContext.Define(Of TValue)(String, TValue, Boolean)
+  fullName.vb: ReflActive.IActivationContext.Define(Of TValue)(String, TValue, Boolean)
+  name.vb: Define(Of TValue)(String, TValue, Boolean)
+- uid: ReflActive.IActivationContext.Get``1(System.String)
+  commentId: M:ReflActive.IActivationContext.Get``1(System.String)
+  id: Get``1(System.String)
+  parent: ReflActive.IActivationContext
+  langs:
+  - csharp
+  - vb
+  name: Get<TValue>(string)
+  nameWithType: IActivationContext.Get<TValue>(string)
+  fullName: ReflActive.IActivationContext.Get<TValue>(string)
+  type: Method
+  source:
+    remote:
+      path: ReflActive/src/ActivationContext.cs
+      branch: main
+      repo: git@github.com:jeffrey-w/ReflActive.git
+    id: Get
+    path: ../src/ActivationContext.cs
+    startLine: 68
+  assemblies:
+  - ReflActive
+  namespace: ReflActive
+  summary: Provides the value associated with the specified <code class="paramref">name</code> in this <code>IActivationContext</code>.
+  example: []
+  syntax:
+    content: TValue? Get<TValue>(string name)
+    parameters:
+    - id: name
+      type: System.String
+      description: The unique identifier for the queried value in this <code>IActivationContext</code>.
+    typeParameters:
+    - id: TValue
+      description: >-
+        The <xref href="System.Type" data-throw-if-not-resolved="false"></xref> over which the value by the specified <code class="paramref">name</code> may
+            range.
+    return:
+      type: '{TValue}'
+      description: The value by the specified <code class="paramref">name</code> in this <code>IActivationContext</code>.
+    content.vb: Function [Get](Of TValue)(name As String) As TValue
+  overload: ReflActive.IActivationContext.Get*
+  exceptions:
+  - type: System.InvalidCastException
+    commentId: T:System.InvalidCastException
+    description: >-
+      If the value associated with the specified <code class="paramref">name</code> in this
+          <code>IActivationContext</code> does not belong to <code class="typeparamref">TValue</code>.
+  - type: System.Collections.Generic.KeyNotFoundException
+    commentId: T:System.Collections.Generic.KeyNotFoundException
+    description: >-
+      If there is no value associated with the specified <code class="paramref">name</code>
+          in this <code>IActivationContext</code>.
+  nameWithType.vb: IActivationContext.Get(Of TValue)(String)
+  fullName.vb: ReflActive.IActivationContext.Get(Of TValue)(String)
+  name.vb: Get(Of TValue)(String)
+- uid: ReflActive.IActivationContext.Set``1(System.String,``0)
+  commentId: M:ReflActive.IActivationContext.Set``1(System.String,``0)
+  id: Set``1(System.String,``0)
+  parent: ReflActive.IActivationContext
+  langs:
+  - csharp
+  - vb
+  name: Set<TValue>(string, TValue?)
+  nameWithType: IActivationContext.Set<TValue>(string, TValue?)
+  fullName: ReflActive.IActivationContext.Set<TValue>(string, TValue?)
+  type: Method
+  source:
+    remote:
+      path: ReflActive/src/ActivationContext.cs
+      branch: main
+      repo: git@github.com:jeffrey-w/ReflActive.git
+    id: Set
+    path: ../src/ActivationContext.cs
+    startLine: 81
+  assemblies:
+  - ReflActive
+  namespace: ReflActive
+  summary: >-
+    Associates the specified <code class="paramref">name</code> with the specified <code class="paramref">value</code> in this <code>IActivationContext</code>,
+
+    overwriting the previously associated data.
+  example: []
+  syntax:
+    content: TValue? Set<TValue>(string name, TValue? value)
+    parameters:
+    - id: name
+      type: System.String
+      description: The unique identifier for the specified <code class="paramref">value</code> in this <code>IActivationContext</code>.
+    - id: value
+      type: '{TValue}'
+      description: The data to associate with the specified <code class="paramref">name</code> in this <code>IActivationContext</code>.
+    typeParameters:
+    - id: TValue
+      description: The <xref href="System.Type" data-throw-if-not-resolved="false"></xref> over which the specified <code class="paramref">value</code> may range.
+    return:
+      type: '{TValue}'
+      description: The specified <code class="paramref">value</code>.
+    content.vb: Function [Set](Of TValue)(name As String, value As TValue) As TValue
+  overload: ReflActive.IActivationContext.Set*
+  exceptions:
+  - type: System.InvalidOperationException
+    commentId: T:System.InvalidOperationException
+    description: >-
+      If the specified <code class="paramref">name</code> is associated with a constant
+          <code class="paramref">value</code>.
+  - type: System.Collections.Generic.KeyNotFoundException
+    commentId: T:System.Collections.Generic.KeyNotFoundException
+    description: If the specified <code class="paramref">name</code> is not associated with a <code class="paramref">value</code> in this <code>IActivationContext</code>.
+  nameWithType.vb: IActivationContext.Set(Of TValue)(String, TValue)
+  fullName.vb: ReflActive.IActivationContext.Set(Of TValue)(String, TValue)
+  name.vb: Set(Of TValue)(String, TValue)
+references:
+- uid: ReflActive.Activator.Activate``1(ReflActive.Activation,ReflActive.IActivationContext)
+  commentId: M:ReflActive.Activator.Activate``1(ReflActive.Activation,ReflActive.IActivationContext)
+  href: ReflActive.Activator.html#ReflActive_Activator_Activate__1_ReflActive_Activation_ReflActive_IActivationContext_
+  name: Activate<TResult>(Activation, IActivationContext)
+  nameWithType: Activator.Activate<TResult>(Activation, IActivationContext)
+  fullName: ReflActive.Activator.Activate<TResult>(ReflActive.Activation, ReflActive.IActivationContext)
+  nameWithType.vb: Activator.Activate(Of TResult)(Activation, IActivationContext)
+  fullName.vb: ReflActive.Activator.Activate(Of TResult)(ReflActive.Activation, ReflActive.IActivationContext)
+  name.vb: Activate(Of TResult)(Activation, IActivationContext)
+  spec.csharp:
+  - uid: ReflActive.Activator.Activate``1(ReflActive.Activation,ReflActive.IActivationContext)
+    name: Activate
+    href: ReflActive.Activator.html#ReflActive_Activator_Activate__1_ReflActive_Activation_ReflActive_IActivationContext_
+  - name: <
+  - name: TResult
+  - name: '>'
+  - name: (
+  - uid: ReflActive.Activation
+    name: Activation
+    href: ReflActive.Activation.html
+  - name: ','
+  - name: " "
+  - uid: ReflActive.IActivationContext
+    name: IActivationContext
+    href: ReflActive.IActivationContext.html
+  - name: )
+  spec.vb:
+  - uid: ReflActive.Activator.Activate``1(ReflActive.Activation,ReflActive.IActivationContext)
+    name: Activate
+    href: ReflActive.Activator.html#ReflActive_Activator_Activate__1_ReflActive_Activation_ReflActive_IActivationContext_
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+  - name: (
+  - uid: ReflActive.Activation
+    name: Activation
+    href: ReflActive.Activation.html
+  - name: ','
+  - name: " "
+  - uid: ReflActive.IActivationContext
+    name: IActivationContext
+    href: ReflActive.IActivationContext.html
+  - name: )
+- uid: ReflActive
+  commentId: N:ReflActive
+  href: ReflActive.html
+  name: ReflActive
+  nameWithType: ReflActive
+  fullName: ReflActive
+- uid: ReflActive.IActivationContext.IsDevelopment*
+  commentId: Overload:ReflActive.IActivationContext.IsDevelopment
+  href: ReflActive.IActivationContext.html#ReflActive_IActivationContext_IsDevelopment
+  name: IsDevelopment
+  nameWithType: IActivationContext.IsDevelopment
+  fullName: ReflActive.IActivationContext.IsDevelopment
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: ReflActive.IActivationContext.IsExperimental*
+  commentId: Overload:ReflActive.IActivationContext.IsExperimental
+  href: ReflActive.IActivationContext.html#ReflActive_IActivationContext_IsExperimental
+  name: IsExperimental
+  nameWithType: IActivationContext.IsExperimental
+  fullName: ReflActive.IActivationContext.IsExperimental
+- uid: System.Type
+  commentId: T:System.Type
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.type
+  name: Type
+  nameWithType: Type
+  fullName: System.Type
+- uid: System.ArgumentException
+  commentId: T:System.ArgumentException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.argumentexception
+  name: ArgumentException
+  nameWithType: ArgumentException
+  fullName: System.ArgumentException
+- uid: ReflActive.IActivationContext.AddDependency*
+  commentId: Overload:ReflActive.IActivationContext.AddDependency
+  href: ReflActive.IActivationContext.html#ReflActive_IActivationContext_AddDependency__1___0_
+  name: AddDependency
+  nameWithType: IActivationContext.AddDependency
+  fullName: ReflActive.IActivationContext.AddDependency
+- uid: '{TDependency}'
+  commentId: '!:TDependency'
+  definition: TDependency
+  name: TDependency
+  nameWithType: TDependency
+  fullName: TDependency
+- uid: TDependency
+  name: TDependency
+  nameWithType: TDependency
+  fullName: TDependency
+- uid: System.Collections.Generic.KeyNotFoundException
+  commentId: T:System.Collections.Generic.KeyNotFoundException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.keynotfoundexception
+  name: KeyNotFoundException
+  nameWithType: KeyNotFoundException
+  fullName: System.Collections.Generic.KeyNotFoundException
+- uid: ReflActive.IActivationContext.GetDependency*
+  commentId: Overload:ReflActive.IActivationContext.GetDependency
+  href: ReflActive.IActivationContext.html#ReflActive_IActivationContext_GetDependency__1
+  name: GetDependency
+  nameWithType: IActivationContext.GetDependency
+  fullName: ReflActive.IActivationContext.GetDependency
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: ReflActive.IActivationContext.Set``1(System.String,``0)
+  commentId: M:ReflActive.IActivationContext.Set``1(System.String,``0)
+  isExternal: true
+  href: ReflActive.IActivationContext.html#ReflActive_IActivationContext_Set__1_System_String___0_
+  name: Set<TValue>(string, TValue)
+  nameWithType: IActivationContext.Set<TValue>(string, TValue)
+  fullName: ReflActive.IActivationContext.Set<TValue>(string, TValue)
+  nameWithType.vb: IActivationContext.Set(Of TValue)(String, TValue)
+  fullName.vb: ReflActive.IActivationContext.Set(Of TValue)(String, TValue)
+  name.vb: Set(Of TValue)(String, TValue)
+  spec.csharp:
+  - uid: ReflActive.IActivationContext.Set``1(System.String,``0)
+    name: Set
+    href: ReflActive.IActivationContext.html#ReflActive_IActivationContext_Set__1_System_String___0_
+  - name: <
+  - name: TValue
+  - name: '>'
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: )
+  spec.vb:
+  - uid: ReflActive.IActivationContext.Set``1(System.String,``0)
+    name: Set
+    href: ReflActive.IActivationContext.html#ReflActive_IActivationContext_Set__1_System_String___0_
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TValue
+  - name: )
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: )
+- uid: ReflActive.IActivationContext.Define*
+  commentId: Overload:ReflActive.IActivationContext.Define
+  href: ReflActive.IActivationContext.html#ReflActive_IActivationContext_Define__1_System_String___0_System_Boolean_
+  name: Define
+  nameWithType: IActivationContext.Define
+  fullName: ReflActive.IActivationContext.Define
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: '{TValue}'
+  commentId: '!:TValue'
+  definition: TValue
+  name: TValue
+  nameWithType: TValue
+  fullName: TValue
+- uid: TValue
+  name: TValue
+  nameWithType: TValue
+  fullName: TValue
+- uid: System.InvalidCastException
+  commentId: T:System.InvalidCastException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.invalidcastexception
+  name: InvalidCastException
+  nameWithType: InvalidCastException
+  fullName: System.InvalidCastException
+- uid: ReflActive.IActivationContext.Get*
+  commentId: Overload:ReflActive.IActivationContext.Get
+  href: ReflActive.IActivationContext.html#ReflActive_IActivationContext_Get__1_System_String_
+  name: Get
+  nameWithType: IActivationContext.Get
+  fullName: ReflActive.IActivationContext.Get
+- uid: System.InvalidOperationException
+  commentId: T:System.InvalidOperationException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.invalidoperationexception
+  name: InvalidOperationException
+  nameWithType: InvalidOperationException
+  fullName: System.InvalidOperationException
+- uid: ReflActive.IActivationContext.Set*
+  commentId: Overload:ReflActive.IActivationContext.Set
+  href: ReflActive.IActivationContext.html#ReflActive_IActivationContext_Set__1_System_String___0_
+  name: Set
+  nameWithType: IActivationContext.Set
+  fullName: ReflActive.IActivationContext.Set

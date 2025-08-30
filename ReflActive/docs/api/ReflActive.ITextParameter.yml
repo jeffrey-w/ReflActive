@@ -1,0 +1,358 @@
+### YamlMime:ManagedReference
+items:
+- uid: ReflActive.ITextParameter
+  commentId: T:ReflActive.ITextParameter
+  id: ITextParameter
+  parent: ReflActive
+  children:
+  - ReflActive.ITextParameter.Max
+  - ReflActive.ITextParameter.Min
+  - ReflActive.ITextParameter.Pattern
+  langs:
+  - csharp
+  - vb
+  name: ITextParameter
+  nameWithType: ITextParameter
+  fullName: ReflActive.ITextParameter
+  type: Interface
+  source:
+    remote:
+      path: ReflActive/src/Parameter.cs
+      branch: main
+      repo: git@github.com:jeffrey-w/ReflActive.git
+    id: ITextParameter
+    path: ../src/Parameter.cs
+    startLine: 80
+  assemblies:
+  - ReflActive
+  namespace: ReflActive
+  summary: >-
+    The <code>ITextParameter</code> interface provides properties and operations on an <xref href="ReflActive.IParameter%601" data-throw-if-not-resolved="false"></xref> that
+
+    may be bound to a string.
+  example: []
+  syntax:
+    content: 'public interface ITextParameter : IParameter<string>'
+    content.vb: Public Interface ITextParameter Inherits IParameter(Of String)
+  inheritedMembers:
+  - ReflActive.IParameter{System.String}.Name
+  - ReflActive.IParameter{System.String}.Description
+  - ReflActive.IParameter{System.String}.IsRequired
+  - ReflActive.IParameter{System.String}.Default
+- uid: ReflActive.ITextParameter.Min
+  commentId: P:ReflActive.ITextParameter.Min
+  id: Min
+  parent: ReflActive.ITextParameter
+  langs:
+  - csharp
+  - vb
+  name: Min
+  nameWithType: ITextParameter.Min
+  fullName: ReflActive.ITextParameter.Min
+  type: Property
+  source:
+    remote:
+      path: ReflActive/src/Parameter.cs
+      branch: main
+      repo: git@github.com:jeffrey-w/ReflActive.git
+    id: Min
+    path: ../src/Parameter.cs
+    startLine: 85
+  assemblies:
+  - ReflActive
+  namespace: ReflActive
+  summary: The least number of characters the string bound to this <code>ITextParameter</code> may have.
+  example: []
+  syntax:
+    content: int? Min { get; }
+    parameters: []
+    return:
+      type: System.Nullable{System.Int32}
+    content.vb: ReadOnly Property Min As Integer?
+  overload: ReflActive.ITextParameter.Min*
+- uid: ReflActive.ITextParameter.Max
+  commentId: P:ReflActive.ITextParameter.Max
+  id: Max
+  parent: ReflActive.ITextParameter
+  langs:
+  - csharp
+  - vb
+  name: Max
+  nameWithType: ITextParameter.Max
+  fullName: ReflActive.ITextParameter.Max
+  type: Property
+  source:
+    remote:
+      path: ReflActive/src/Parameter.cs
+      branch: main
+      repo: git@github.com:jeffrey-w/ReflActive.git
+    id: Max
+    path: ../src/Parameter.cs
+    startLine: 89
+  assemblies:
+  - ReflActive
+  namespace: ReflActive
+  summary: The greatest number of characters the string bound to this <code>ITextParameter</code> may have.
+  example: []
+  syntax:
+    content: int? Max { get; }
+    parameters: []
+    return:
+      type: System.Nullable{System.Int32}
+    content.vb: ReadOnly Property Max As Integer?
+  overload: ReflActive.ITextParameter.Max*
+- uid: ReflActive.ITextParameter.Pattern
+  commentId: P:ReflActive.ITextParameter.Pattern
+  id: Pattern
+  parent: ReflActive.ITextParameter
+  langs:
+  - csharp
+  - vb
+  name: Pattern
+  nameWithType: ITextParameter.Pattern
+  fullName: ReflActive.ITextParameter.Pattern
+  type: Property
+  source:
+    remote:
+      path: ReflActive/src/Parameter.cs
+      branch: main
+      repo: git@github.com:jeffrey-w/ReflActive.git
+    id: Pattern
+    path: ../src/Parameter.cs
+    startLine: 93
+  assemblies:
+  - ReflActive
+  namespace: ReflActive
+  summary: The regular expression that defines the strings that may be bound to this <code>ITextParameter</code>.
+  example: []
+  syntax:
+    content: string? Pattern { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: ReadOnly Property Pattern As String
+  overload: ReflActive.ITextParameter.Pattern*
+references:
+- uid: ReflActive.IParameter`1
+  commentId: T:ReflActive.IParameter`1
+  href: ReflActive.IParameter-1.html
+  name: IParameter<TDomain>
+  nameWithType: IParameter<TDomain>
+  fullName: ReflActive.IParameter<TDomain>
+  nameWithType.vb: IParameter(Of TDomain)
+  fullName.vb: ReflActive.IParameter(Of TDomain)
+  name.vb: IParameter(Of TDomain)
+  spec.csharp:
+  - uid: ReflActive.IParameter`1
+    name: IParameter
+    href: ReflActive.IParameter-1.html
+  - name: <
+  - name: TDomain
+  - name: '>'
+  spec.vb:
+  - uid: ReflActive.IParameter`1
+    name: IParameter
+    href: ReflActive.IParameter-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TDomain
+  - name: )
+- uid: ReflActive
+  commentId: N:ReflActive
+  href: ReflActive.html
+  name: ReflActive
+  nameWithType: ReflActive
+  fullName: ReflActive
+- uid: ReflActive.IParameter{System.String}.Name
+  commentId: P:ReflActive.IParameter{System.String}.Name
+  parent: ReflActive.IParameter{System.String}
+  definition: ReflActive.IParameter`1.Name
+  href: ReflActive.IParameter-1.html#ReflActive_IParameter_1_Name
+  name: Name
+  nameWithType: IParameter<string>.Name
+  fullName: ReflActive.IParameter<string>.Name
+  nameWithType.vb: IParameter(Of String).Name
+  fullName.vb: ReflActive.IParameter(Of String).Name
+- uid: ReflActive.IParameter{System.String}.Description
+  commentId: P:ReflActive.IParameter{System.String}.Description
+  parent: ReflActive.IParameter{System.String}
+  definition: ReflActive.IParameter`1.Description
+  href: ReflActive.IParameter-1.html#ReflActive_IParameter_1_Description
+  name: Description
+  nameWithType: IParameter<string>.Description
+  fullName: ReflActive.IParameter<string>.Description
+  nameWithType.vb: IParameter(Of String).Description
+  fullName.vb: ReflActive.IParameter(Of String).Description
+- uid: ReflActive.IParameter{System.String}.IsRequired
+  commentId: P:ReflActive.IParameter{System.String}.IsRequired
+  parent: ReflActive.IParameter{System.String}
+  definition: ReflActive.IParameter`1.IsRequired
+  href: ReflActive.IParameter-1.html#ReflActive_IParameter_1_IsRequired
+  name: IsRequired
+  nameWithType: IParameter<string>.IsRequired
+  fullName: ReflActive.IParameter<string>.IsRequired
+  nameWithType.vb: IParameter(Of String).IsRequired
+  fullName.vb: ReflActive.IParameter(Of String).IsRequired
+- uid: ReflActive.IParameter{System.String}.Default
+  commentId: P:ReflActive.IParameter{System.String}.Default
+  parent: ReflActive.IParameter{System.String}
+  definition: ReflActive.IParameter`1.Default
+  href: ReflActive.IParameter-1.html#ReflActive_IParameter_1_Default
+  name: Default
+  nameWithType: IParameter<string>.Default
+  fullName: ReflActive.IParameter<string>.Default
+  nameWithType.vb: IParameter(Of String).Default
+  fullName.vb: ReflActive.IParameter(Of String).Default
+- uid: ReflActive.IParameter`1.Name
+  commentId: P:ReflActive.IParameter`1.Name
+  href: ReflActive.IParameter-1.html#ReflActive_IParameter_1_Name
+  name: Name
+  nameWithType: IParameter<TDomain>.Name
+  fullName: ReflActive.IParameter<TDomain>.Name
+  nameWithType.vb: IParameter(Of TDomain).Name
+  fullName.vb: ReflActive.IParameter(Of TDomain).Name
+- uid: ReflActive.IParameter{System.String}
+  commentId: T:ReflActive.IParameter{System.String}
+  parent: ReflActive
+  definition: ReflActive.IParameter`1
+  href: ReflActive.IParameter-1.html
+  name: IParameter<string>
+  nameWithType: IParameter<string>
+  fullName: ReflActive.IParameter<string>
+  nameWithType.vb: IParameter(Of String)
+  fullName.vb: ReflActive.IParameter(Of String)
+  name.vb: IParameter(Of String)
+  spec.csharp:
+  - uid: ReflActive.IParameter`1
+    name: IParameter
+    href: ReflActive.IParameter-1.html
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  spec.vb:
+  - uid: ReflActive.IParameter`1
+    name: IParameter
+    href: ReflActive.IParameter-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: ReflActive.IParameter`1.Description
+  commentId: P:ReflActive.IParameter`1.Description
+  href: ReflActive.IParameter-1.html#ReflActive_IParameter_1_Description
+  name: Description
+  nameWithType: IParameter<TDomain>.Description
+  fullName: ReflActive.IParameter<TDomain>.Description
+  nameWithType.vb: IParameter(Of TDomain).Description
+  fullName.vb: ReflActive.IParameter(Of TDomain).Description
+- uid: ReflActive.IParameter`1.IsRequired
+  commentId: P:ReflActive.IParameter`1.IsRequired
+  href: ReflActive.IParameter-1.html#ReflActive_IParameter_1_IsRequired
+  name: IsRequired
+  nameWithType: IParameter<TDomain>.IsRequired
+  fullName: ReflActive.IParameter<TDomain>.IsRequired
+  nameWithType.vb: IParameter(Of TDomain).IsRequired
+  fullName.vb: ReflActive.IParameter(Of TDomain).IsRequired
+- uid: ReflActive.IParameter`1.Default
+  commentId: P:ReflActive.IParameter`1.Default
+  href: ReflActive.IParameter-1.html#ReflActive_IParameter_1_Default
+  name: Default
+  nameWithType: IParameter<TDomain>.Default
+  fullName: ReflActive.IParameter<TDomain>.Default
+  nameWithType.vb: IParameter(Of TDomain).Default
+  fullName.vb: ReflActive.IParameter(Of TDomain).Default
+- uid: ReflActive.ITextParameter.Min*
+  commentId: Overload:ReflActive.ITextParameter.Min
+  href: ReflActive.ITextParameter.html#ReflActive_ITextParameter_Min
+  name: Min
+  nameWithType: ITextParameter.Min
+  fullName: ReflActive.ITextParameter.Min
+- uid: System.Nullable{System.Int32}
+  commentId: T:System.Nullable{System.Int32}
+  parent: System
+  definition: System.Nullable`1
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int?
+  nameWithType: int?
+  fullName: int?
+  nameWithType.vb: Integer?
+  fullName.vb: Integer?
+  name.vb: Integer?
+  spec.csharp:
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '?'
+  spec.vb:
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '?'
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: ReflActive.ITextParameter.Max*
+  commentId: Overload:ReflActive.ITextParameter.Max
+  href: ReflActive.ITextParameter.html#ReflActive_ITextParameter_Max
+  name: Max
+  nameWithType: ITextParameter.Max
+  fullName: ReflActive.ITextParameter.Max
+- uid: ReflActive.ITextParameter.Pattern*
+  commentId: Overload:ReflActive.ITextParameter.Pattern
+  href: ReflActive.ITextParameter.html#ReflActive_ITextParameter_Pattern
+  name: Pattern
+  nameWithType: ITextParameter.Pattern
+  fullName: ReflActive.ITextParameter.Pattern
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String

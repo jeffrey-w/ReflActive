@@ -1,0 +1,251 @@
+### YamlMime:ManagedReference
+items:
+- uid: ReflActive.IParameter`1
+  commentId: T:ReflActive.IParameter`1
+  id: IParameter`1
+  parent: ReflActive
+  children:
+  - ReflActive.IParameter`1.Default
+  - ReflActive.IParameter`1.Description
+  - ReflActive.IParameter`1.IsRequired
+  - ReflActive.IParameter`1.Name
+  langs:
+  - csharp
+  - vb
+  name: IParameter<TDomain>
+  nameWithType: IParameter<TDomain>
+  fullName: ReflActive.IParameter<TDomain>
+  type: Interface
+  source:
+    remote:
+      path: ReflActive/src/Parameter.cs
+      branch: main
+      repo: git@github.com:jeffrey-w/ReflActive.git
+    id: IParameter
+    path: ../src/Parameter.cs
+    startLine: 9
+  assemblies:
+  - ReflActive
+  namespace: ReflActive
+  summary: The <code>IParameter</code> interface provides properties and operations on variable data passed to a function.
+  example: []
+  syntax:
+    content: public interface IParameter<out TDomain>
+    typeParameters:
+    - id: TDomain
+      description: The set of values assignable to this <code>IParameter</code>.
+    content.vb: Public Interface IParameter(Of Out TDomain)
+  nameWithType.vb: IParameter(Of TDomain)
+  fullName.vb: ReflActive.IParameter(Of TDomain)
+  name.vb: IParameter(Of TDomain)
+- uid: ReflActive.IParameter`1.Name
+  commentId: P:ReflActive.IParameter`1.Name
+  id: Name
+  parent: ReflActive.IParameter`1
+  langs:
+  - csharp
+  - vb
+  name: Name
+  nameWithType: IParameter<TDomain>.Name
+  fullName: ReflActive.IParameter<TDomain>.Name
+  type: Property
+  source:
+    remote:
+      path: ReflActive/src/Parameter.cs
+      branch: main
+      repo: git@github.com:jeffrey-w/ReflActive.git
+    id: Name
+    path: ../src/Parameter.cs
+    startLine: 14
+  assemblies:
+  - ReflActive
+  namespace: ReflActive
+  summary: The unique identifier for this <code>IParameter</code>.
+  example: []
+  syntax:
+    content: string Name { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: ReadOnly Property Name As String
+  overload: ReflActive.IParameter`1.Name*
+  nameWithType.vb: IParameter(Of TDomain).Name
+  fullName.vb: ReflActive.IParameter(Of TDomain).Name
+- uid: ReflActive.IParameter`1.Description
+  commentId: P:ReflActive.IParameter`1.Description
+  id: Description
+  parent: ReflActive.IParameter`1
+  langs:
+  - csharp
+  - vb
+  name: Description
+  nameWithType: IParameter<TDomain>.Description
+  fullName: ReflActive.IParameter<TDomain>.Description
+  type: Property
+  source:
+    remote:
+      path: ReflActive/src/Parameter.cs
+      branch: main
+      repo: git@github.com:jeffrey-w/ReflActive.git
+    id: Description
+    path: ../src/Parameter.cs
+    startLine: 18
+  assemblies:
+  - ReflActive
+  namespace: ReflActive
+  summary: The natural language characterization for this <code>IParameter</code>.
+  example: []
+  syntax:
+    content: string Description { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: ReadOnly Property Description As String
+  overload: ReflActive.IParameter`1.Description*
+  nameWithType.vb: IParameter(Of TDomain).Description
+  fullName.vb: ReflActive.IParameter(Of TDomain).Description
+- uid: ReflActive.IParameter`1.IsRequired
+  commentId: P:ReflActive.IParameter`1.IsRequired
+  id: IsRequired
+  parent: ReflActive.IParameter`1
+  langs:
+  - csharp
+  - vb
+  name: IsRequired
+  nameWithType: IParameter<TDomain>.IsRequired
+  fullName: ReflActive.IParameter<TDomain>.IsRequired
+  type: Property
+  source:
+    remote:
+      path: ReflActive/src/Parameter.cs
+      branch: main
+      repo: git@github.com:jeffrey-w/ReflActive.git
+    id: IsRequired
+    path: ../src/Parameter.cs
+    startLine: 22
+  assemblies:
+  - ReflActive
+  namespace: ReflActive
+  summary: Indicates whether this <code>IParameter</code> must be assigned a value.
+  example: []
+  syntax:
+    content: bool IsRequired { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: ReadOnly Property IsRequired As Boolean
+  overload: ReflActive.IParameter`1.IsRequired*
+  nameWithType.vb: IParameter(Of TDomain).IsRequired
+  fullName.vb: ReflActive.IParameter(Of TDomain).IsRequired
+- uid: ReflActive.IParameter`1.Default
+  commentId: P:ReflActive.IParameter`1.Default
+  id: Default
+  parent: ReflActive.IParameter`1
+  langs:
+  - csharp
+  - vb
+  name: Default
+  nameWithType: IParameter<TDomain>.Default
+  fullName: ReflActive.IParameter<TDomain>.Default
+  type: Property
+  source:
+    remote:
+      path: ReflActive/src/Parameter.cs
+      branch: main
+      repo: git@github.com:jeffrey-w/ReflActive.git
+    id: Default
+    path: ../src/Parameter.cs
+    startLine: 26
+  assemblies:
+  - ReflActive
+  namespace: ReflActive
+  summary: The typical value bound this <code>IParameter</code>.
+  example: []
+  syntax:
+    content: object? Default { get; }
+    parameters: []
+    return:
+      type: System.Object
+    content.vb: ReadOnly Property [Default] As Object
+  overload: ReflActive.IParameter`1.Default*
+  nameWithType.vb: IParameter(Of TDomain).Default
+  fullName.vb: ReflActive.IParameter(Of TDomain).Default
+references:
+- uid: ReflActive
+  commentId: N:ReflActive
+  href: ReflActive.html
+  name: ReflActive
+  nameWithType: ReflActive
+  fullName: ReflActive
+- uid: ReflActive.IParameter`1.Name*
+  commentId: Overload:ReflActive.IParameter`1.Name
+  href: ReflActive.IParameter-1.html#ReflActive_IParameter_1_Name
+  name: Name
+  nameWithType: IParameter<TDomain>.Name
+  fullName: ReflActive.IParameter<TDomain>.Name
+  nameWithType.vb: IParameter(Of TDomain).Name
+  fullName.vb: ReflActive.IParameter(Of TDomain).Name
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: ReflActive.IParameter`1.Description*
+  commentId: Overload:ReflActive.IParameter`1.Description
+  href: ReflActive.IParameter-1.html#ReflActive_IParameter_1_Description
+  name: Description
+  nameWithType: IParameter<TDomain>.Description
+  fullName: ReflActive.IParameter<TDomain>.Description
+  nameWithType.vb: IParameter(Of TDomain).Description
+  fullName.vb: ReflActive.IParameter(Of TDomain).Description
+- uid: ReflActive.IParameter`1.IsRequired*
+  commentId: Overload:ReflActive.IParameter`1.IsRequired
+  href: ReflActive.IParameter-1.html#ReflActive_IParameter_1_IsRequired
+  name: IsRequired
+  nameWithType: IParameter<TDomain>.IsRequired
+  fullName: ReflActive.IParameter<TDomain>.IsRequired
+  nameWithType.vb: IParameter(Of TDomain).IsRequired
+  fullName.vb: ReflActive.IParameter(Of TDomain).IsRequired
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: ReflActive.IParameter`1.Default*
+  commentId: Overload:ReflActive.IParameter`1.Default
+  href: ReflActive.IParameter-1.html#ReflActive_IParameter_1_Default
+  name: Default
+  nameWithType: IParameter<TDomain>.Default
+  fullName: ReflActive.IParameter<TDomain>.Default
+  nameWithType.vb: IParameter(Of TDomain).Default
+  fullName.vb: ReflActive.IParameter(Of TDomain).Default
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object

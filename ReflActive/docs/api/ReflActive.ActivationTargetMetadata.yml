@@ -1,0 +1,643 @@
+### YamlMime:ManagedReference
+items:
+- uid: ReflActive.ActivationTargetMetadata
+  commentId: T:ReflActive.ActivationTargetMetadata
+  id: ActivationTargetMetadata
+  parent: ReflActive
+  children:
+  - ReflActive.ActivationTargetMetadata.Composite(System.String,System.Collections.Generic.IEnumerable{ReflActive.IActivationTargetMetadata})
+  - ReflActive.ActivationTargetMetadata.For``1(ReflActive.IActivationContext)
+  - ReflActive.ActivationTargetMetadata.Singleton``1(ReflActive.IActivationContext)
+  langs:
+  - csharp
+  - vb
+  name: ActivationTargetMetadata
+  nameWithType: ActivationTargetMetadata
+  fullName: ReflActive.ActivationTargetMetadata
+  type: Class
+  source:
+    remote:
+      path: ReflActive/src/ActivationTargetMetadata.cs
+      branch: main
+      repo: git@github.com:jeffrey-w/ReflActive.git
+    id: ActivationTargetMetadata
+    path: ../src/ActivationTargetMetadata.cs
+    startLine: 103
+  assemblies:
+  - ReflActive
+  namespace: ReflActive
+  summary: >-
+    The <code>ActivationTargetMetadata</code> class provides a concrete implementation of the <xref href="ReflActive.IActivationTargetMetadata" data-throw-if-not-resolved="false"></xref>
+
+    interface.
+  example: []
+  syntax:
+    content: public static class ActivationTargetMetadata
+    content.vb: Public Module ActivationTargetMetadata
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: ReflActive.ActivationTargetMetadata.Singleton``1(ReflActive.IActivationContext)
+  commentId: M:ReflActive.ActivationTargetMetadata.Singleton``1(ReflActive.IActivationContext)
+  id: Singleton``1(ReflActive.IActivationContext)
+  parent: ReflActive.ActivationTargetMetadata
+  langs:
+  - csharp
+  - vb
+  name: Singleton<TTarget>(IActivationContext)
+  nameWithType: ActivationTargetMetadata.Singleton<TTarget>(IActivationContext)
+  fullName: ReflActive.ActivationTargetMetadata.Singleton<TTarget>(ReflActive.IActivationContext)
+  type: Method
+  source:
+    remote:
+      path: ReflActive/src/ActivationTargetMetadata.cs
+      branch: main
+      repo: git@github.com:jeffrey-w/ReflActive.git
+    id: Singleton
+    path: ../src/ActivationTargetMetadata.cs
+    startLine: 245
+  assemblies:
+  - ReflActive
+  namespace: ReflActive
+  summary: Provides a new <xref href="ReflActive.IActivationTargetMetadata" data-throw-if-not-resolved="false"></xref> instance for <code class="typeparamref">TTarget</code>.
+  example: []
+  syntax:
+    content: public static IActivationTargetMetadata Singleton<TTarget>(IActivationContext context)
+    parameters:
+    - id: context
+      type: ReflActive.IActivationContext
+      description: The current <xref href="ReflActive.IActivationContext" data-throw-if-not-resolved="false"></xref>.
+    typeParameters:
+    - id: TTarget
+      description: >-
+        The <xref href="System.Type" data-throw-if-not-resolved="false"></xref> described by the new <xref href="ReflActive.IActivationTargetMetadata" data-throw-if-not-resolved="false"></xref>
+            instance.
+    return:
+      type: ReflActive.IActivationTargetMetadata
+      description: A new <xref href="ReflActive.IActivationTargetMetadata" data-throw-if-not-resolved="false"></xref> instance.
+    content.vb: Public Shared Function Singleton(Of TTarget)(context As IActivationContext) As IActivationTargetMetadata
+  overload: ReflActive.ActivationTargetMetadata.Singleton*
+  exceptions:
+  - type: System.ArgumentException
+    commentId: T:System.ArgumentException
+    description: >-
+      If <code class="typeparamref">TTarget</code> does not exhibit the <xref href="ReflActive.Attributes.ActivationTargetAttribute" data-throw-if-not-resolved="false"></xref>,
+          if it is unsupported by the specified <code class="paramref">context</code>, or if any pair of
+          <xref href="ReflActive.Attributes.ActivationTargetPropertyAttribute?text=properties" data-throw-if-not-resolved="false"></xref> it declares have the same
+          <xref href="ReflActive.Attributes.ActivationTargetPropertyAttribute.Name" data-throw-if-not-resolved="false"></xref>.
+  nameWithType.vb: ActivationTargetMetadata.Singleton(Of TTarget)(IActivationContext)
+  fullName.vb: ReflActive.ActivationTargetMetadata.Singleton(Of TTarget)(ReflActive.IActivationContext)
+  name.vb: Singleton(Of TTarget)(IActivationContext)
+- uid: ReflActive.ActivationTargetMetadata.Composite(System.String,System.Collections.Generic.IEnumerable{ReflActive.IActivationTargetMetadata})
+  commentId: M:ReflActive.ActivationTargetMetadata.Composite(System.String,System.Collections.Generic.IEnumerable{ReflActive.IActivationTargetMetadata})
+  id: Composite(System.String,System.Collections.Generic.IEnumerable{ReflActive.IActivationTargetMetadata})
+  parent: ReflActive.ActivationTargetMetadata
+  langs:
+  - csharp
+  - vb
+  name: Composite(string, IEnumerable<IActivationTargetMetadata>)
+  nameWithType: ActivationTargetMetadata.Composite(string, IEnumerable<IActivationTargetMetadata>)
+  fullName: ReflActive.ActivationTargetMetadata.Composite(string, System.Collections.Generic.IEnumerable<ReflActive.IActivationTargetMetadata>)
+  type: Method
+  source:
+    remote:
+      path: ReflActive/src/ActivationTargetMetadata.cs
+      branch: main
+      repo: git@github.com:jeffrey-w/ReflActive.git
+    id: Composite
+    path: ../src/ActivationTargetMetadata.cs
+    startLine: 259
+  assemblies:
+  - ReflActive
+  namespace: ReflActive
+  summary: Provides a new <xref href="ReflActive.ICompositeActivationTargetMetadata" data-throw-if-not-resolved="false"></xref> instance for the specified <code class="paramref">children</code>.
+  example: []
+  syntax:
+    content: public static ICompositeActivationTargetMetadata Composite(string name, IEnumerable<IActivationTargetMetadata> children)
+    parameters:
+    - id: name
+      type: System.String
+      description: The identifier common to each of the specified <code class="paramref">children</code>.
+    - id: children
+      type: System.Collections.Generic.IEnumerable{ReflActive.IActivationTargetMetadata}
+      description: >-
+        The <xref href="ReflActive.IActivationTargetMetadata" data-throw-if-not-resolved="false"></xref> instances related by the new
+            <xref href="ReflActive.ICompositeActivationTargetMetadata" data-throw-if-not-resolved="false"></xref>.
+    return:
+      type: ReflActive.ICompositeActivationTargetMetadata
+      description: A new <xref href="ReflActive.ICompositeActivationTargetMetadata" data-throw-if-not-resolved="false"></xref> instance.
+    content.vb: Public Shared Function Composite(name As String, children As IEnumerable(Of IActivationTargetMetadata)) As ICompositeActivationTargetMetadata
+  overload: ReflActive.ActivationTargetMetadata.Composite*
+  exceptions:
+  - type: System.ArgumentException
+    commentId: T:System.ArgumentException
+    description: >-
+      If any of the specified <code class="paramref">children</code> are <code>null</code>, or if any
+          of them do not exhibit the specified <code class="paramref">name</code>.
+  nameWithType.vb: ActivationTargetMetadata.Composite(String, IEnumerable(Of IActivationTargetMetadata))
+  fullName.vb: ReflActive.ActivationTargetMetadata.Composite(String, System.Collections.Generic.IEnumerable(Of ReflActive.IActivationTargetMetadata))
+  name.vb: Composite(String, IEnumerable(Of IActivationTargetMetadata))
+- uid: ReflActive.ActivationTargetMetadata.For``1(ReflActive.IActivationContext)
+  commentId: M:ReflActive.ActivationTargetMetadata.For``1(ReflActive.IActivationContext)
+  id: For``1(ReflActive.IActivationContext)
+  parent: ReflActive.ActivationTargetMetadata
+  langs:
+  - csharp
+  - vb
+  name: For<T>(IActivationContext)
+  nameWithType: ActivationTargetMetadata.For<T>(IActivationContext)
+  fullName: ReflActive.ActivationTargetMetadata.For<T>(ReflActive.IActivationContext)
+  type: Method
+  source:
+    remote:
+      path: ReflActive/src/ActivationTargetMetadata.cs
+      branch: main
+      repo: git@github.com:jeffrey-w/ReflActive.git
+    id: For
+    path: ../src/ActivationTargetMetadata.cs
+    startLine: 279
+  assemblies:
+  - ReflActive
+  namespace: ReflActive
+  summary: Provides <xref href="ReflActive.IActivationTargetMetadata" data-throw-if-not-resolved="false"></xref> instanes for every member of <code class="typeparamref">T</code>.
+  example: []
+  syntax:
+    content: public static IEnumerable<IActivationTargetMetadata> For<T>(IActivationContext context)
+    parameters:
+    - id: context
+      type: ReflActive.IActivationContext
+      description: The current <xref href="ReflActive.IActivationContext" data-throw-if-not-resolved="false"></xref>.
+    typeParameters:
+    - id: T
+      description: The type for which <xref href="ReflActive.IActivationTargetMetadata" data-throw-if-not-resolved="false"></xref> is being queried.
+    return:
+      type: System.Collections.Generic.IEnumerable{ReflActive.IActivationTargetMetadata}
+      description: >-
+        A collection of <xref href="ReflActive.IActivationTargetMetadata" data-throw-if-not-resolved="false"></xref> instances describing the members of
+            <code class="typeparamref">T</code>.
+    content.vb: Public Shared Function [For](Of T)(context As IActivationContext) As IEnumerable(Of IActivationTargetMetadata)
+  overload: ReflActive.ActivationTargetMetadata.For*
+  exceptions:
+  - type: System.ArgumentException
+    commentId: T:System.ArgumentException
+    description: >-
+      if any pair of <xref href="ReflActive.Attributes.ActivationTargetPropertyAttribute?text=properties" data-throw-if-not-resolved="false"></xref>
+          declared by a member of <code class="typeparamref">T</code> have the same <xref href="ReflActive.Attributes.ActivationTargetPropertyAttribute.Name" data-throw-if-not-resolved="false"></xref>.
+  nameWithType.vb: ActivationTargetMetadata.For(Of T)(IActivationContext)
+  fullName.vb: ReflActive.ActivationTargetMetadata.For(Of T)(ReflActive.IActivationContext)
+  name.vb: For(Of T)(IActivationContext)
+references:
+- uid: ReflActive.IActivationTargetMetadata
+  commentId: T:ReflActive.IActivationTargetMetadata
+  parent: ReflActive
+  href: ReflActive.IActivationTargetMetadata.html
+  name: IActivationTargetMetadata
+  nameWithType: IActivationTargetMetadata
+  fullName: ReflActive.IActivationTargetMetadata
+- uid: ReflActive
+  commentId: N:ReflActive
+  href: ReflActive.html
+  name: ReflActive
+  nameWithType: ReflActive
+  fullName: ReflActive
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Type
+  commentId: T:System.Type
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.type
+  name: Type
+  nameWithType: Type
+  fullName: System.Type
+- uid: ReflActive.IActivationContext
+  commentId: T:ReflActive.IActivationContext
+  parent: ReflActive
+  href: ReflActive.IActivationContext.html
+  name: IActivationContext
+  nameWithType: IActivationContext
+  fullName: ReflActive.IActivationContext
+- uid: ReflActive.Attributes.ActivationTargetAttribute
+  commentId: T:ReflActive.Attributes.ActivationTargetAttribute
+  parent: ReflActive.Attributes
+  href: ReflActive.Attributes.ActivationTargetAttribute.html
+  name: ActivationTargetAttribute
+  nameWithType: ActivationTargetAttribute
+  fullName: ReflActive.Attributes.ActivationTargetAttribute
+- uid: ReflActive.Attributes.ActivationTargetPropertyAttribute
+  commentId: T:ReflActive.Attributes.ActivationTargetPropertyAttribute
+  href: ReflActive.Attributes.ActivationTargetPropertyAttribute.html
+  name: ActivationTargetPropertyAttribute
+  nameWithType: ActivationTargetPropertyAttribute
+  fullName: ReflActive.Attributes.ActivationTargetPropertyAttribute
+- uid: ReflActive.Attributes.ActivationTargetPropertyAttribute.Name
+  commentId: P:ReflActive.Attributes.ActivationTargetPropertyAttribute.Name
+  href: ReflActive.Attributes.ActivationTargetPropertyAttribute.html#ReflActive_Attributes_ActivationTargetPropertyAttribute_Name
+  name: Name
+  nameWithType: ActivationTargetPropertyAttribute.Name
+  fullName: ReflActive.Attributes.ActivationTargetPropertyAttribute.Name
+- uid: System.ArgumentException
+  commentId: T:System.ArgumentException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.argumentexception
+  name: ArgumentException
+  nameWithType: ArgumentException
+  fullName: System.ArgumentException
+- uid: ReflActive.ActivationTargetMetadata.Singleton*
+  commentId: Overload:ReflActive.ActivationTargetMetadata.Singleton
+  href: ReflActive.ActivationTargetMetadata.html#ReflActive_ActivationTargetMetadata_Singleton__1_ReflActive_IActivationContext_
+  name: Singleton
+  nameWithType: ActivationTargetMetadata.Singleton
+  fullName: ReflActive.ActivationTargetMetadata.Singleton
+- uid: ReflActive.Attributes
+  commentId: N:ReflActive.Attributes
+  href: ReflActive.html
+  name: ReflActive.Attributes
+  nameWithType: ReflActive.Attributes
+  fullName: ReflActive.Attributes
+  spec.csharp:
+  - uid: ReflActive
+    name: ReflActive
+    href: ReflActive.html
+  - name: .
+  - uid: ReflActive.Attributes
+    name: Attributes
+    href: ReflActive.Attributes.html
+  spec.vb:
+  - uid: ReflActive
+    name: ReflActive
+    href: ReflActive.html
+  - name: .
+  - uid: ReflActive.Attributes
+    name: Attributes
+    href: ReflActive.Attributes.html
+- uid: ReflActive.ICompositeActivationTargetMetadata
+  commentId: T:ReflActive.ICompositeActivationTargetMetadata
+  parent: ReflActive
+  href: ReflActive.ICompositeActivationTargetMetadata.html
+  name: ICompositeActivationTargetMetadata
+  nameWithType: ICompositeActivationTargetMetadata
+  fullName: ReflActive.ICompositeActivationTargetMetadata
+- uid: ReflActive.ActivationTargetMetadata.Composite*
+  commentId: Overload:ReflActive.ActivationTargetMetadata.Composite
+  href: ReflActive.ActivationTargetMetadata.html#ReflActive_ActivationTargetMetadata_Composite_System_String_System_Collections_Generic_IEnumerable_ReflActive_IActivationTargetMetadata__
+  name: Composite
+  nameWithType: ActivationTargetMetadata.Composite
+  fullName: ReflActive.ActivationTargetMetadata.Composite
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Collections.Generic.IEnumerable{ReflActive.IActivationTargetMetadata}
+  commentId: T:System.Collections.Generic.IEnumerable{ReflActive.IActivationTargetMetadata}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<IActivationTargetMetadata>
+  nameWithType: IEnumerable<IActivationTargetMetadata>
+  fullName: System.Collections.Generic.IEnumerable<ReflActive.IActivationTargetMetadata>
+  nameWithType.vb: IEnumerable(Of IActivationTargetMetadata)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of ReflActive.IActivationTargetMetadata)
+  name.vb: IEnumerable(Of IActivationTargetMetadata)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: ReflActive.IActivationTargetMetadata
+    name: IActivationTargetMetadata
+    href: ReflActive.IActivationTargetMetadata.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ReflActive.IActivationTargetMetadata
+    name: IActivationTargetMetadata
+    href: ReflActive.IActivationTargetMetadata.html
+  - name: )
+- uid: System.Collections.Generic.IEnumerable`1
+  commentId: T:System.Collections.Generic.IEnumerable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: System.Collections.Generic.IEnumerable<T>
+  nameWithType.vb: IEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T)
+  name.vb: IEnumerable(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: ReflActive.ActivationTargetMetadata.For*
+  commentId: Overload:ReflActive.ActivationTargetMetadata.For
+  href: ReflActive.ActivationTargetMetadata.html#ReflActive_ActivationTargetMetadata_For__1_ReflActive_IActivationContext_
+  name: For
+  nameWithType: ActivationTargetMetadata.For
+  fullName: ReflActive.ActivationTargetMetadata.For

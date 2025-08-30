@@ -1,0 +1,194 @@
+### YamlMime:ManagedReference
+items:
+- uid: ReflActive.Attributes
+  commentId: N:ReflActive.Attributes
+  id: ReflActive.Attributes
+  children:
+  - ReflActive.Attributes.ActivationConfigurationAttribute
+  - ReflActive.Attributes.ActivationConfigurationAttribute.ConstantAttribute
+  - ReflActive.Attributes.ActivationTargetAttribute
+  - ReflActive.Attributes.ActivationTargetConstructorAttribute
+  - ReflActive.Attributes.ActivationTargetPropertyAttribute
+  - ReflActive.Attributes.ActivationVariableAttribute
+  - ReflActive.Attributes.ComparableAttribute`1
+  - ReflActive.Attributes.CompositeEntityAttribute
+  - ReflActive.Attributes.ContinuousNumberAttribute
+  - ReflActive.Attributes.DefaultAttribute
+  - ReflActive.Attributes.DependencyAttribute
+  - ReflActive.Attributes.DiscreteNumberAttribute
+  - ReflActive.Attributes.DynamicDefaultAttribute
+  - ReflActive.Attributes.ParameterAttribute
+  - ReflActive.Attributes.SingletonEntityAttribute
+  - ReflActive.Attributes.StaticDefaultAttribute
+  - ReflActive.Attributes.TextAttribute
+  langs:
+  - csharp
+  - vb
+  name: ReflActive.Attributes
+  nameWithType: ReflActive.Attributes
+  fullName: ReflActive.Attributes
+  type: Namespace
+  assemblies:
+  - ReflActive
+references:
+- uid: ReflActive.Attributes.ActivationConfigurationAttribute
+  commentId: T:ReflActive.Attributes.ActivationConfigurationAttribute
+  href: ReflActive.Attributes.ActivationConfigurationAttribute.html
+  name: ActivationConfigurationAttribute
+  nameWithType: ActivationConfigurationAttribute
+  fullName: ReflActive.Attributes.ActivationConfigurationAttribute
+- uid: ReflActive.Attributes.ActivationConfigurationAttribute.ConstantAttribute
+  commentId: T:ReflActive.Attributes.ActivationConfigurationAttribute.ConstantAttribute
+  href: ReflActive.Attributes.ActivationConfigurationAttribute.html
+  name: ActivationConfigurationAttribute.ConstantAttribute
+  nameWithType: ActivationConfigurationAttribute.ConstantAttribute
+  fullName: ReflActive.Attributes.ActivationConfigurationAttribute.ConstantAttribute
+  spec.csharp:
+  - uid: ReflActive.Attributes.ActivationConfigurationAttribute
+    name: ActivationConfigurationAttribute
+    href: ReflActive.Attributes.ActivationConfigurationAttribute.html
+  - name: .
+  - uid: ReflActive.Attributes.ActivationConfigurationAttribute.ConstantAttribute
+    name: ConstantAttribute
+    href: ReflActive.Attributes.ActivationConfigurationAttribute.ConstantAttribute.html
+  spec.vb:
+  - uid: ReflActive.Attributes.ActivationConfigurationAttribute
+    name: ActivationConfigurationAttribute
+    href: ReflActive.Attributes.ActivationConfigurationAttribute.html
+  - name: .
+  - uid: ReflActive.Attributes.ActivationConfigurationAttribute.ConstantAttribute
+    name: ConstantAttribute
+    href: ReflActive.Attributes.ActivationConfigurationAttribute.ConstantAttribute.html
+- uid: ReflActive.Attributes.ActivationTargetAttribute
+  commentId: T:ReflActive.Attributes.ActivationTargetAttribute
+  parent: ReflActive.Attributes
+  href: ReflActive.Attributes.ActivationTargetAttribute.html
+  name: ActivationTargetAttribute
+  nameWithType: ActivationTargetAttribute
+  fullName: ReflActive.Attributes.ActivationTargetAttribute
+- uid: ReflActive.Attributes.ActivationTargetConstructorAttribute
+  commentId: T:ReflActive.Attributes.ActivationTargetConstructorAttribute
+  href: ReflActive.Attributes.ActivationTargetConstructorAttribute.html
+  name: ActivationTargetConstructorAttribute
+  nameWithType: ActivationTargetConstructorAttribute
+  fullName: ReflActive.Attributes.ActivationTargetConstructorAttribute
+- uid: ReflActive.Attributes.ActivationTargetPropertyAttribute
+  commentId: T:ReflActive.Attributes.ActivationTargetPropertyAttribute
+  href: ReflActive.Attributes.ActivationTargetPropertyAttribute.html
+  name: ActivationTargetPropertyAttribute
+  nameWithType: ActivationTargetPropertyAttribute
+  fullName: ReflActive.Attributes.ActivationTargetPropertyAttribute
+- uid: ReflActive.Attributes.ActivationVariableAttribute
+  commentId: T:ReflActive.Attributes.ActivationVariableAttribute
+  href: ReflActive.Attributes.ActivationVariableAttribute.html
+  name: ActivationVariableAttribute
+  nameWithType: ActivationVariableAttribute
+  fullName: ReflActive.Attributes.ActivationVariableAttribute
+- uid: ReflActive.Attributes.ComparableAttribute`1
+  commentId: T:ReflActive.Attributes.ComparableAttribute`1
+  href: ReflActive.Attributes.ComparableAttribute-1.html
+  name: ComparableAttribute<TComparable>
+  nameWithType: ComparableAttribute<TComparable>
+  fullName: ReflActive.Attributes.ComparableAttribute<TComparable>
+  nameWithType.vb: ComparableAttribute(Of TComparable)
+  fullName.vb: ReflActive.Attributes.ComparableAttribute(Of TComparable)
+  name.vb: ComparableAttribute(Of TComparable)
+  spec.csharp:
+  - uid: ReflActive.Attributes.ComparableAttribute`1
+    name: ComparableAttribute
+    href: ReflActive.Attributes.ComparableAttribute-1.html
+  - name: <
+  - name: TComparable
+  - name: '>'
+  spec.vb:
+  - uid: ReflActive.Attributes.ComparableAttribute`1
+    name: ComparableAttribute
+    href: ReflActive.Attributes.ComparableAttribute-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TComparable
+  - name: )
+- uid: ReflActive.Attributes.DiscreteNumberAttribute
+  commentId: T:ReflActive.Attributes.DiscreteNumberAttribute
+  href: ReflActive.Attributes.DiscreteNumberAttribute.html
+  name: DiscreteNumberAttribute
+  nameWithType: DiscreteNumberAttribute
+  fullName: ReflActive.Attributes.DiscreteNumberAttribute
+- uid: ReflActive.Attributes.ContinuousNumberAttribute
+  commentId: T:ReflActive.Attributes.ContinuousNumberAttribute
+  href: ReflActive.Attributes.ContinuousNumberAttribute.html
+  name: ContinuousNumberAttribute
+  nameWithType: ContinuousNumberAttribute
+  fullName: ReflActive.Attributes.ContinuousNumberAttribute
+- uid: ReflActive.Attributes.CompositeEntityAttribute
+  commentId: T:ReflActive.Attributes.CompositeEntityAttribute
+  href: ReflActive.Attributes.CompositeEntityAttribute.html
+  name: CompositeEntityAttribute
+  nameWithType: CompositeEntityAttribute
+  fullName: ReflActive.Attributes.CompositeEntityAttribute
+- uid: ReflActive.Attributes.DefaultAttribute
+  commentId: T:ReflActive.Attributes.DefaultAttribute
+  parent: ReflActive.Attributes
+  href: ReflActive.Attributes.DefaultAttribute.html
+  name: DefaultAttribute
+  nameWithType: DefaultAttribute
+  fullName: ReflActive.Attributes.DefaultAttribute
+- uid: ReflActive.Attributes.StaticDefaultAttribute
+  commentId: T:ReflActive.Attributes.StaticDefaultAttribute
+  href: ReflActive.Attributes.StaticDefaultAttribute.html
+  name: StaticDefaultAttribute
+  nameWithType: StaticDefaultAttribute
+  fullName: ReflActive.Attributes.StaticDefaultAttribute
+- uid: ReflActive.Attributes.DynamicDefaultAttribute
+  commentId: T:ReflActive.Attributes.DynamicDefaultAttribute
+  href: ReflActive.Attributes.DynamicDefaultAttribute.html
+  name: DynamicDefaultAttribute
+  nameWithType: DynamicDefaultAttribute
+  fullName: ReflActive.Attributes.DynamicDefaultAttribute
+- uid: ReflActive.Attributes.DependencyAttribute
+  commentId: T:ReflActive.Attributes.DependencyAttribute
+  href: ReflActive.Attributes.DependencyAttribute.html
+  name: DependencyAttribute
+  nameWithType: DependencyAttribute
+  fullName: ReflActive.Attributes.DependencyAttribute
+- uid: ReflActive.Attributes.ParameterAttribute
+  commentId: T:ReflActive.Attributes.ParameterAttribute
+  href: ReflActive.Attributes.ParameterAttribute.html
+  name: ParameterAttribute
+  nameWithType: ParameterAttribute
+  fullName: ReflActive.Attributes.ParameterAttribute
+- uid: ReflActive.Attributes.SingletonEntityAttribute
+  commentId: T:ReflActive.Attributes.SingletonEntityAttribute
+  href: ReflActive.Attributes.SingletonEntityAttribute.html
+  name: SingletonEntityAttribute
+  nameWithType: SingletonEntityAttribute
+  fullName: ReflActive.Attributes.SingletonEntityAttribute
+- uid: ReflActive.Attributes.TextAttribute
+  commentId: T:ReflActive.Attributes.TextAttribute
+  href: ReflActive.Attributes.TextAttribute.html
+  name: TextAttribute
+  nameWithType: TextAttribute
+  fullName: ReflActive.Attributes.TextAttribute
+- uid: ReflActive.Attributes
+  commentId: N:ReflActive.Attributes
+  href: ReflActive.html
+  name: ReflActive.Attributes
+  nameWithType: ReflActive.Attributes
+  fullName: ReflActive.Attributes
+  spec.csharp:
+  - uid: ReflActive
+    name: ReflActive
+    href: ReflActive.html
+  - name: .
+  - uid: ReflActive.Attributes
+    name: Attributes
+    href: ReflActive.Attributes.html
+  spec.vb:
+  - uid: ReflActive
+    name: ReflActive
+    href: ReflActive.html
+  - name: .
+  - uid: ReflActive.Attributes
+    name: Attributes
+    href: ReflActive.Attributes.html

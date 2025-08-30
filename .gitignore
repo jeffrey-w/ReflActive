@@ -389,3 +389,7 @@ FodyWeavers.xsd
 # JetBrains Rider
 *.sln.iml
 .idea
+
+# DocFX
+
+**/docs/_site

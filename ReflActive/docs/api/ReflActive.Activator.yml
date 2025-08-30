@@ -1,0 +1,697 @@
+### YamlMime:ManagedReference
+items:
+- uid: ReflActive.Activator
+  commentId: T:ReflActive.Activator
+  id: Activator
+  parent: ReflActive
+  children:
+  - ReflActive.Activator.ActivatePermanentTargets``1(ReflActive.IActivationContext)
+  - ReflActive.Activator.Activate``1(ReflActive.Activation,ReflActive.IActivationContext)
+  langs:
+  - csharp
+  - vb
+  name: Activator
+  nameWithType: Activator
+  fullName: ReflActive.Activator
+  type: Class
+  source:
+    remote:
+      path: ReflActive/src/Activator.cs
+      branch: main
+      repo: git@github.com:jeffrey-w/ReflActive.git
+    id: Activator
+    path: ../src/Activator.cs
+    startLine: 10
+  assemblies:
+  - ReflActive
+  namespace: ReflActive
+  summary: The <code>Activator</code> class provides a facility for instantiating <xref href="System.Type" data-throw-if-not-resolved="false"></xref>s.
+  example: []
+  syntax:
+    content: public static class Activator
+    content.vb: Public Module Activator
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: ReflActive.Activator.Activate``1(ReflActive.Activation,ReflActive.IActivationContext)
+  commentId: M:ReflActive.Activator.Activate``1(ReflActive.Activation,ReflActive.IActivationContext)
+  id: Activate``1(ReflActive.Activation,ReflActive.IActivationContext)
+  parent: ReflActive.Activator
+  langs:
+  - csharp
+  - vb
+  name: Activate<TResult>(Activation, IActivationContext)
+  nameWithType: Activator.Activate<TResult>(Activation, IActivationContext)
+  fullName: ReflActive.Activator.Activate<TResult>(ReflActive.Activation, ReflActive.IActivationContext)
+  type: Method
+  source:
+    remote:
+      path: ReflActive/src/Activator.cs
+      branch: main
+      repo: git@github.com:jeffrey-w/ReflActive.git
+    id: Activate
+    path: ../src/Activator.cs
+    startLine: 43
+  assemblies:
+  - ReflActive
+  namespace: ReflActive
+  summary: Provides the member of <code class="typeparamref">TResult</code> targeted by the specified <code class="paramref">activation</code>.
+  example: []
+  syntax:
+    content: public static TResult Activate<TResult>(Activation activation, IActivationContext context)
+    parameters:
+    - id: activation
+      type: ReflActive.Activation
+      description: An invocation of the constructor for the targeted member of <code class="typeparamref">TResult</code>.
+    - id: context
+      type: ReflActive.IActivationContext
+      description: The current <xref href="ReflActive.IActivationContext" data-throw-if-not-resolved="false"></xref>.
+    typeParameters:
+    - id: TResult
+      description: The type being instantiated.
+    return:
+      type: '{TResult}'
+      description: The targeted member of <code class="typeparamref">TResult</code>.
+    content.vb: Public Shared Function Activate(Of TResult)(activation As Activation, context As IActivationContext) As TResult
+  overload: ReflActive.Activator.Activate*
+  exceptions:
+  - type: System.ArgumentException
+    commentId: T:System.ArgumentException
+    description: >-
+      If any pair of parameters to the constructor targeted by the specified
+          <code class="paramref">activation</code> exhibits the same <xref href="ReflActive.Attributes.ParameterAttribute.Name" data-throw-if-not-resolved="false"></xref>, or if the
+          <xref href="ReflActive.Activation.Arguments" data-throw-if-not-resolved="false"></xref> associtaed with the specified <code class="paramref">activation</code> do not belong to
+          the same <xref href="System.Type" data-throw-if-not-resolved="false"></xref>s as the parameters they target.
+  - type: System.InvalidOperationException
+    commentId: T:System.InvalidOperationException
+    description: >-
+      If the specified <code class="paramref">activation</code> does not target a
+          constructor for a member of <code class="typeparamref">TResult</code>, if there is not exactly one member of
+          <code class="typeparamref">TResult</code> that exhibits the same <xref href="ReflActive.Attributes.ActivationTargetAttribute.Name" data-throw-if-not-resolved="false"></xref> and
+          <xref href="ReflActive.Attributes.ActivationTargetAttribute.Discriminator" data-throw-if-not-resolved="false"></xref> as the specified <code class="paramref">activation</code>, if it does
+          not declare exactly one constructor that exhibits the <xref href="ReflActive.Attributes.ActivationTargetConstructorAttribute" data-throw-if-not-resolved="false"></xref>, if any
+          of them do not exhibit either the <xref href="ReflActive.Attributes.ParameterAttribute" data-throw-if-not-resolved="false"></xref> or the <xref href="ReflActive.Attributes.DependencyAttribute" data-throw-if-not-resolved="false"></xref>, or
+          if any parameter it declares is subject to an <xref href="ReflActive.IEntityConverter" data-throw-if-not-resolved="false"></xref> that does not declare a constructor
+          parameterized only by the current <xref href="ReflActive.IActivationContext" data-throw-if-not-resolved="false"></xref>.
+  - type: System.Collections.Generic.KeyNotFoundException
+    commentId: T:System.Collections.Generic.KeyNotFoundException
+    description: >-
+      If the constructor targeted by the specified <code class="paramref">activation</code>
+          declares a parameter that is neither <xref href="ReflActive.Attributes.ParameterAttribute.Name?text=named" data-throw-if-not-resolved="false"></xref> nor belongs to a <xref href="System.Type" data-throw-if-not-resolved="false"></xref> for which a <xref href="ReflActive.IActivationContext.GetDependency(System.Type)?text=dependency" data-throw-if-not-resolved="false"></xref> exists in the current
+          <xref href="ReflActive.IActivationContext" data-throw-if-not-resolved="false"></xref>.
+  - type: System.MemberAccessException
+    commentId: T:System.MemberAccessException
+    description: >-
+      If the constructor targeted by the specified <code class="paramref">activation</code>
+          is declared on an abstract class.
+  - type: System.MethodAccessException
+    commentId: T:System.MethodAccessException
+    description: >-
+      If the constructor targeted by the specified <code class="paramref">activation</code>
+          is private or protected, and the caller lacks <xref href="System.Security.Permissions.ReflectionPermissionFlag.MemberAccess" data-throw-if-not-resolved="false"></xref>.
+  - type: System.Reflection.TargetInvocationException
+    commentId: T:System.Reflection.TargetInvocationException
+    description: >-
+      If the constructor targeted by one of the specified <code class="paramref">activation</code>
+          throws an exception.
+  - type: System.Reflection.TargetParameterCountException
+    commentId: T:System.Reflection.TargetParameterCountException
+    description: >-
+      If the <xref href="ReflActive.Activation.Arguments" data-throw-if-not-resolved="false"></xref> assocaited with the
+           specified <code class="paramref">activation</code> do not satisfy the arity of the constructor they target.
+  nameWithType.vb: Activator.Activate(Of TResult)(Activation, IActivationContext)
+  fullName.vb: ReflActive.Activator.Activate(Of TResult)(ReflActive.Activation, ReflActive.IActivationContext)
+  name.vb: Activate(Of TResult)(Activation, IActivationContext)
+- uid: ReflActive.Activator.ActivatePermanentTargets``1(ReflActive.IActivationContext)
+  commentId: M:ReflActive.Activator.ActivatePermanentTargets``1(ReflActive.IActivationContext)
+  id: ActivatePermanentTargets``1(ReflActive.IActivationContext)
+  parent: ReflActive.Activator
+  langs:
+  - csharp
+  - vb
+  name: ActivatePermanentTargets<TResult>(IActivationContext)
+  nameWithType: Activator.ActivatePermanentTargets<TResult>(IActivationContext)
+  fullName: ReflActive.Activator.ActivatePermanentTargets<TResult>(ReflActive.IActivationContext)
+  type: Method
+  source:
+    remote:
+      path: ReflActive/src/Activator.cs
+      branch: main
+      repo: git@github.com:jeffrey-w/ReflActive.git
+    id: ActivatePermanentTargets
+    path: ../src/Activator.cs
+    startLine: 151
+  assemblies:
+  - ReflActive
+  namespace: ReflActive
+  summary: Provides every <xref href="ReflActive.Attributes.ActivationTargetAttribute.IsPermanent?text=permanent" data-throw-if-not-resolved="false"></xref> member of <code class="typeparamref">TResult</code>.
+  example: []
+  syntax:
+    content: public static IEnumerable<TResult> ActivatePermanentTargets<TResult>(IActivationContext context)
+    parameters:
+    - id: context
+      type: ReflActive.IActivationContext
+      description: The current <xref href="ReflActive.IActivationContext" data-throw-if-not-resolved="false"></xref>.
+    typeParameters:
+    - id: TResult
+      description: The type being instantiated.
+    return:
+      type: System.Collections.Generic.IEnumerable{{TResult}}
+      description: Every member of <code class="typeparamref">TResult</code> that is<xref href="ReflActive.Attributes.ActivationTargetAttribute.IsPermanent?text=permanent" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Public Shared Function ActivatePermanentTargets(Of TResult)(context As IActivationContext) As IEnumerable(Of TResult)
+  overload: ReflActive.Activator.ActivatePermanentTargets*
+  exceptions:
+  - type: System.InvalidOperationException
+    commentId: T:System.InvalidOperationException
+    description: >-
+      If any of the <xref href="ReflActive.Attributes.ActivationTargetAttribute.IsPermanent?text=permanent" data-throw-if-not-resolved="false"></xref>
+          members of <code class="typeparamref">TResult</code> declare neither a default constructor nor one that is only parameterized
+          by the current <xref href="ReflActive.IActivationContext" data-throw-if-not-resolved="false"></xref>.
+  nameWithType.vb: Activator.ActivatePermanentTargets(Of TResult)(IActivationContext)
+  fullName.vb: ReflActive.Activator.ActivatePermanentTargets(Of TResult)(ReflActive.IActivationContext)
+  name.vb: ActivatePermanentTargets(Of TResult)(IActivationContext)
+references:
+- uid: System.Type
+  commentId: T:System.Type
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.type
+  name: Type
+  nameWithType: Type
+  fullName: System.Type
+- uid: ReflActive
+  commentId: N:ReflActive
+  href: ReflActive.html
+  name: ReflActive
+  nameWithType: ReflActive
+  fullName: ReflActive
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: ReflActive.IActivationContext
+  commentId: T:ReflActive.IActivationContext
+  parent: ReflActive
+  href: ReflActive.IActivationContext.html
+  name: IActivationContext
+  nameWithType: IActivationContext
+  fullName: ReflActive.IActivationContext
+- uid: ReflActive.Attributes.ParameterAttribute.Name
+  commentId: P:ReflActive.Attributes.ParameterAttribute.Name
+  href: ReflActive.Attributes.ParameterAttribute.html#ReflActive_Attributes_ParameterAttribute_Name
+  name: Name
+  nameWithType: ParameterAttribute.Name
+  fullName: ReflActive.Attributes.ParameterAttribute.Name
+- uid: ReflActive.Activation.Arguments
+  commentId: P:ReflActive.Activation.Arguments
+  href: ReflActive.Activation.html#ReflActive_Activation_Arguments
+  name: Arguments
+  nameWithType: Activation.Arguments
+  fullName: ReflActive.Activation.Arguments
+- uid: ReflActive.Attributes.ActivationTargetAttribute.Name
+  commentId: P:ReflActive.Attributes.ActivationTargetAttribute.Name
+  href: ReflActive.Attributes.ActivationTargetAttribute.html#ReflActive_Attributes_ActivationTargetAttribute_Name
+  name: Name
+  nameWithType: ActivationTargetAttribute.Name
+  fullName: ReflActive.Attributes.ActivationTargetAttribute.Name
+- uid: ReflActive.Attributes.ActivationTargetAttribute.Discriminator
+  commentId: P:ReflActive.Attributes.ActivationTargetAttribute.Discriminator
+  href: ReflActive.Attributes.ActivationTargetAttribute.html#ReflActive_Attributes_ActivationTargetAttribute_Discriminator
+  name: Discriminator
+  nameWithType: ActivationTargetAttribute.Discriminator
+  fullName: ReflActive.Attributes.ActivationTargetAttribute.Discriminator
+- uid: ReflActive.Attributes.ActivationTargetConstructorAttribute
+  commentId: T:ReflActive.Attributes.ActivationTargetConstructorAttribute
+  href: ReflActive.Attributes.ActivationTargetConstructorAttribute.html
+  name: ActivationTargetConstructorAttribute
+  nameWithType: ActivationTargetConstructorAttribute
+  fullName: ReflActive.Attributes.ActivationTargetConstructorAttribute
+- uid: ReflActive.Attributes.ParameterAttribute
+  commentId: T:ReflActive.Attributes.ParameterAttribute
+  href: ReflActive.Attributes.ParameterAttribute.html
+  name: ParameterAttribute
+  nameWithType: ParameterAttribute
+  fullName: ReflActive.Attributes.ParameterAttribute
+- uid: ReflActive.Attributes.DependencyAttribute
+  commentId: T:ReflActive.Attributes.DependencyAttribute
+  href: ReflActive.Attributes.DependencyAttribute.html
+  name: DependencyAttribute
+  nameWithType: DependencyAttribute
+  fullName: ReflActive.Attributes.DependencyAttribute
+- uid: ReflActive.IEntityConverter
+  commentId: T:ReflActive.IEntityConverter
+  parent: ReflActive
+  href: ReflActive.IEntityConverter.html
+  name: IEntityConverter
+  nameWithType: IEntityConverter
+  fullName: ReflActive.IEntityConverter
+- uid: ReflActive.IActivationContext.GetDependency(System.Type)
+  commentId: M:ReflActive.IActivationContext.GetDependency(System.Type)
+  parent: ReflActive.IActivationContext
+  isExternal: true
+  href: ReflActive.IActivationContext.html#ReflActive_IActivationContext_GetDependency_System_Type_
+  name: GetDependency(Type)
+  nameWithType: IActivationContext.GetDependency(Type)
+  fullName: ReflActive.IActivationContext.GetDependency(System.Type)
+  spec.csharp:
+  - uid: ReflActive.IActivationContext.GetDependency(System.Type)
+    name: GetDependency
+    href: ReflActive.IActivationContext.html#ReflActive_IActivationContext_GetDependency_System_Type_
+  - name: (
+  - uid: System.Type
+    name: Type
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.type
+  - name: )
+  spec.vb:
+  - uid: ReflActive.IActivationContext.GetDependency(System.Type)
+    name: GetDependency
+    href: ReflActive.IActivationContext.html#ReflActive_IActivationContext_GetDependency_System_Type_
+  - name: (
+  - uid: System.Type
+    name: Type
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.type
+  - name: )
+- uid: System.Security.Permissions.ReflectionPermissionFlag.MemberAccess
+  commentId: F:System.Security.Permissions.ReflectionPermissionFlag.MemberAccess
+  isExternal: true
+- uid: System.ArgumentException
+  commentId: T:System.ArgumentException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.argumentexception
+  name: ArgumentException
+  nameWithType: ArgumentException
+  fullName: System.ArgumentException
+- uid: System.InvalidOperationException
+  commentId: T:System.InvalidOperationException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.invalidoperationexception
+  name: InvalidOperationException
+  nameWithType: InvalidOperationException
+  fullName: System.InvalidOperationException
+- uid: System.Collections.Generic.KeyNotFoundException
+  commentId: T:System.Collections.Generic.KeyNotFoundException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.keynotfoundexception
+  name: KeyNotFoundException
+  nameWithType: KeyNotFoundException
+  fullName: System.Collections.Generic.KeyNotFoundException
+- uid: System.MemberAccessException
+  commentId: T:System.MemberAccessException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.memberaccessexception
+  name: MemberAccessException
+  nameWithType: MemberAccessException
+  fullName: System.MemberAccessException
+- uid: System.MethodAccessException
+  commentId: T:System.MethodAccessException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.methodaccessexception
+  name: MethodAccessException
+  nameWithType: MethodAccessException
+  fullName: System.MethodAccessException
+- uid: System.Reflection.TargetInvocationException
+  commentId: T:System.Reflection.TargetInvocationException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.reflection.targetinvocationexception
+  name: TargetInvocationException
+  nameWithType: TargetInvocationException
+  fullName: System.Reflection.TargetInvocationException
+- uid: System.Reflection.TargetParameterCountException
+  commentId: T:System.Reflection.TargetParameterCountException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.reflection.targetparametercountexception
+  name: TargetParameterCountException
+  nameWithType: TargetParameterCountException
+  fullName: System.Reflection.TargetParameterCountException
+- uid: ReflActive.Activator.Activate*
+  commentId: Overload:ReflActive.Activator.Activate
+  href: ReflActive.Activator.html#ReflActive_Activator_Activate__1_ReflActive_Activation_ReflActive_IActivationContext_
+  name: Activate
+  nameWithType: Activator.Activate
+  fullName: ReflActive.Activator.Activate
+- uid: ReflActive.Activation
+  commentId: T:ReflActive.Activation
+  parent: ReflActive
+  href: ReflActive.Activation.html
+  name: Activation
+  nameWithType: Activation
+  fullName: ReflActive.Activation
+- uid: '{TResult}'
+  commentId: '!:TResult'
+  definition: TResult
+  name: TResult
+  nameWithType: TResult
+  fullName: TResult
+- uid: TResult
+  commentId: '!:TResult'
+  name: TResult
+  nameWithType: TResult
+  fullName: TResult
+- uid: ReflActive.Attributes.ActivationTargetAttribute.IsPermanent
+  commentId: P:ReflActive.Attributes.ActivationTargetAttribute.IsPermanent
+  href: ReflActive.Attributes.ActivationTargetAttribute.html#ReflActive_Attributes_ActivationTargetAttribute_IsPermanent
+  name: IsPermanent
+  nameWithType: ActivationTargetAttribute.IsPermanent
+  fullName: ReflActive.Attributes.ActivationTargetAttribute.IsPermanent
+- uid: ReflActive.Activator.ActivatePermanentTargets*
+  commentId: Overload:ReflActive.Activator.ActivatePermanentTargets
+  href: ReflActive.Activator.html#ReflActive_Activator_ActivatePermanentTargets__1_ReflActive_IActivationContext_
+  name: ActivatePermanentTargets
+  nameWithType: Activator.ActivatePermanentTargets
+  fullName: ReflActive.Activator.ActivatePermanentTargets
+- uid: System.Collections.Generic.IEnumerable{{TResult}}
+  commentId: T:System.Collections.Generic.IEnumerable{``0}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<TResult>
+  nameWithType: IEnumerable<TResult>
+  fullName: System.Collections.Generic.IEnumerable<TResult>
+  nameWithType.vb: IEnumerable(Of TResult)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of TResult)
+  name.vb: IEnumerable(Of TResult)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Collections.Generic.IEnumerable`1
+  commentId: T:System.Collections.Generic.IEnumerable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: System.Collections.Generic.IEnumerable<T>
+  nameWithType.vb: IEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T)
+  name.vb: IEnumerable(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic

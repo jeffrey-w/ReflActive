@@ -15,26 +15,20 @@
         <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
         <RepositoryUrl>https://github.com/jeffrey-w/ReflActive</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
-        <PackageIcon>icon.png</PackageIcon>
+        <PackageIcon>logo.png</PackageIcon>
         <PackageReadmeFile>README.md</PackageReadmeFile>
     </PropertyGroup>
 
     <ItemGroup>
-      <Reference Include="EveryType">
-        <HintPath>..\..\EveryType\EveryType\bin\Debug\net9.0\EveryType.dll</HintPath>
-      </Reference>
-      <Reference Include="Extensions">
-        <HintPath>..\..\Extensions\Extensions\bin\Debug\net9.0\Extensions.dll</HintPath>
-      </Reference>
-      <Reference Include="Guard">
-        <HintPath>..\..\Guard\Guard\bin\Debug\net9.0\Guard.dll</HintPath>
-      </Reference>
+      <PackageReference Include="EveryType" Version="1.0.0" />
+      <PackageReference Include="Extra.Extensions" Version="1.0.1" />
+      <PackageReference Include="Extra.Guard" Version="1.0.1" />
     </ItemGroup>
 
     <ItemGroup>
         <None Include="../LICENSE.md" Pack="true" PackagePath="" />
         <None Include="../README.md" Pack="true" PackagePath="" />
-        <None Include="../icon.png" Pack="true" PackagePath="" />
+        <None Include="../logo.png" Pack="true" PackagePath="" />
     </ItemGroup>
 
 </Project>

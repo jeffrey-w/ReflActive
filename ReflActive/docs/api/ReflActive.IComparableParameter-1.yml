@@ -1,0 +1,269 @@
+### YamlMime:ManagedReference
+items:
+- uid: ReflActive.IComparableParameter`1
+  commentId: T:ReflActive.IComparableParameter`1
+  id: IComparableParameter`1
+  parent: ReflActive
+  children:
+  - ReflActive.IComparableParameter`1.Max
+  - ReflActive.IComparableParameter`1.Min
+  langs:
+  - csharp
+  - vb
+  name: IComparableParameter<TDomain>
+  nameWithType: IComparableParameter<TDomain>
+  fullName: ReflActive.IComparableParameter<TDomain>
+  type: Interface
+  source:
+    remote:
+      path: ReflActive/src/Parameter.cs
+      branch: main
+      repo: git@github.com:jeffrey-w/ReflActive.git
+    id: IComparableParameter
+    path: ../src/Parameter.cs
+    startLine: 40
+  assemblies:
+  - ReflActive
+  namespace: ReflActive
+  summary: >-
+    The <code>IComparableParameter</code> interface provides properties and operations on an <xref href="ReflActive.IParameter%601" data-throw-if-not-resolved="false"></xref>,
+
+    the domain of which exhibit a well-defined order and minimal and maximal elements.
+  example: []
+  syntax:
+    content: 'public interface IComparableParameter<out TDomain> : IParameter<TDomain> where TDomain : IComparable<out TDomain>'
+    typeParameters:
+    - id: TDomain
+      description: ''
+    content.vb: Public Interface IComparableParameter(Of Out TDomain As IComparable(Of Out TDomain)) Inherits IParameter(Of TDomain)
+  inheritedMembers:
+  - ReflActive.IParameter{{TDomain}}.Name
+  - ReflActive.IParameter{{TDomain}}.Description
+  - ReflActive.IParameter{{TDomain}}.IsRequired
+  - ReflActive.IParameter{{TDomain}}.Default
+  nameWithType.vb: IComparableParameter(Of TDomain)
+  fullName.vb: ReflActive.IComparableParameter(Of TDomain)
+  name.vb: IComparableParameter(Of TDomain)
+- uid: ReflActive.IComparableParameter`1.Min
+  commentId: P:ReflActive.IComparableParameter`1.Min
+  id: Min
+  parent: ReflActive.IComparableParameter`1
+  langs:
+  - csharp
+  - vb
+  name: Min
+  nameWithType: IComparableParameter<TDomain>.Min
+  fullName: ReflActive.IComparableParameter<TDomain>.Min
+  type: Property
+  source:
+    remote:
+      path: ReflActive/src/Parameter.cs
+      branch: main
+      repo: git@github.com:jeffrey-w/ReflActive.git
+    id: Min
+    path: ../src/Parameter.cs
+    startLine: 45
+  assemblies:
+  - ReflActive
+  namespace: ReflActive
+  summary: The lowest value that this <code>IComparableParameter</code> may hold.
+  example: []
+  syntax:
+    content: TDomain Min { get; }
+    parameters: []
+    return:
+      type: '{TDomain}'
+    content.vb: ReadOnly Property Min As TDomain
+  overload: ReflActive.IComparableParameter`1.Min*
+  nameWithType.vb: IComparableParameter(Of TDomain).Min
+  fullName.vb: ReflActive.IComparableParameter(Of TDomain).Min
+- uid: ReflActive.IComparableParameter`1.Max
+  commentId: P:ReflActive.IComparableParameter`1.Max
+  id: Max
+  parent: ReflActive.IComparableParameter`1
+  langs:
+  - csharp
+  - vb
+  name: Max
+  nameWithType: IComparableParameter<TDomain>.Max
+  fullName: ReflActive.IComparableParameter<TDomain>.Max
+  type: Property
+  source:
+    remote:
+      path: ReflActive/src/Parameter.cs
+      branch: main
+      repo: git@github.com:jeffrey-w/ReflActive.git
+    id: Max
+    path: ../src/Parameter.cs
+    startLine: 49
+  assemblies:
+  - ReflActive
+  namespace: ReflActive
+  summary: The highest value that this <code>IComparableParameter</code> may hold.
+  example: []
+  syntax:
+    content: TDomain Max { get; }
+    parameters: []
+    return:
+      type: '{TDomain}'
+    content.vb: ReadOnly Property Max As TDomain
+  overload: ReflActive.IComparableParameter`1.Max*
+  nameWithType.vb: IComparableParameter(Of TDomain).Max
+  fullName.vb: ReflActive.IComparableParameter(Of TDomain).Max
+references:
+- uid: ReflActive.IParameter`1
+  commentId: T:ReflActive.IParameter`1
+  href: ReflActive.IParameter-1.html
+  name: IParameter<TDomain>
+  nameWithType: IParameter<TDomain>
+  fullName: ReflActive.IParameter<TDomain>
+  nameWithType.vb: IParameter(Of TDomain)
+  fullName.vb: ReflActive.IParameter(Of TDomain)
+  name.vb: IParameter(Of TDomain)
+  spec.csharp:
+  - uid: ReflActive.IParameter`1
+    name: IParameter
+    href: ReflActive.IParameter-1.html
+  - name: <
+  - name: TDomain
+  - name: '>'
+  spec.vb:
+  - uid: ReflActive.IParameter`1
+    name: IParameter
+    href: ReflActive.IParameter-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TDomain
+  - name: )
+- uid: ReflActive
+  commentId: N:ReflActive
+  href: ReflActive.html
+  name: ReflActive
+  nameWithType: ReflActive
+  fullName: ReflActive
+- uid: ReflActive.IParameter{{TDomain}}.Name
+  commentId: P:ReflActive.IParameter{`0}.Name
+  parent: ReflActive.IParameter{{TDomain}}
+  definition: ReflActive.IParameter`1.Name
+  href: ReflActive.IParameter-1.html#ReflActive_IParameter_1_Name
+  name: Name
+  nameWithType: IParameter<TDomain>.Name
+  fullName: ReflActive.IParameter<TDomain>.Name
+  nameWithType.vb: IParameter(Of TDomain).Name
+  fullName.vb: ReflActive.IParameter(Of TDomain).Name
+- uid: ReflActive.IParameter{{TDomain}}.Description
+  commentId: P:ReflActive.IParameter{`0}.Description
+  parent: ReflActive.IParameter{{TDomain}}
+  definition: ReflActive.IParameter`1.Description
+  href: ReflActive.IParameter-1.html#ReflActive_IParameter_1_Description
+  name: Description
+  nameWithType: IParameter<TDomain>.Description
+  fullName: ReflActive.IParameter<TDomain>.Description
+  nameWithType.vb: IParameter(Of TDomain).Description
+  fullName.vb: ReflActive.IParameter(Of TDomain).Description
+- uid: ReflActive.IParameter{{TDomain}}.IsRequired
+  commentId: P:ReflActive.IParameter{`0}.IsRequired
+  parent: ReflActive.IParameter{{TDomain}}
+  definition: ReflActive.IParameter`1.IsRequired
+  href: ReflActive.IParameter-1.html#ReflActive_IParameter_1_IsRequired
+  name: IsRequired
+  nameWithType: IParameter<TDomain>.IsRequired
+  fullName: ReflActive.IParameter<TDomain>.IsRequired
+  nameWithType.vb: IParameter(Of TDomain).IsRequired
+  fullName.vb: ReflActive.IParameter(Of TDomain).IsRequired
+- uid: ReflActive.IParameter{{TDomain}}.Default
+  commentId: P:ReflActive.IParameter{`0}.Default
+  parent: ReflActive.IParameter{{TDomain}}
+  definition: ReflActive.IParameter`1.Default
+  href: ReflActive.IParameter-1.html#ReflActive_IParameter_1_Default
+  name: Default
+  nameWithType: IParameter<TDomain>.Default
+  fullName: ReflActive.IParameter<TDomain>.Default
+  nameWithType.vb: IParameter(Of TDomain).Default
+  fullName.vb: ReflActive.IParameter(Of TDomain).Default
+- uid: ReflActive.IParameter`1.Name
+  commentId: P:ReflActive.IParameter`1.Name
+  href: ReflActive.IParameter-1.html#ReflActive_IParameter_1_Name
+  name: Name
+  nameWithType: IParameter<TDomain>.Name
+  fullName: ReflActive.IParameter<TDomain>.Name
+  nameWithType.vb: IParameter(Of TDomain).Name
+  fullName.vb: ReflActive.IParameter(Of TDomain).Name
+- uid: ReflActive.IParameter{{TDomain}}
+  commentId: T:ReflActive.IParameter{`0}
+  parent: ReflActive
+  definition: ReflActive.IParameter`1
+  href: ReflActive.IParameter-1.html
+  name: IParameter<TDomain>
+  nameWithType: IParameter<TDomain>
+  fullName: ReflActive.IParameter<TDomain>
+  nameWithType.vb: IParameter(Of TDomain)
+  fullName.vb: ReflActive.IParameter(Of TDomain)
+  name.vb: IParameter(Of TDomain)
+  spec.csharp:
+  - uid: ReflActive.IParameter`1
+    name: IParameter
+    href: ReflActive.IParameter-1.html
+  - name: <
+  - name: TDomain
+  - name: '>'
+  spec.vb:
+  - uid: ReflActive.IParameter`1
+    name: IParameter
+    href: ReflActive.IParameter-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TDomain
+  - name: )
+- uid: ReflActive.IParameter`1.Description
+  commentId: P:ReflActive.IParameter`1.Description
+  href: ReflActive.IParameter-1.html#ReflActive_IParameter_1_Description
+  name: Description
+  nameWithType: IParameter<TDomain>.Description
+  fullName: ReflActive.IParameter<TDomain>.Description
+  nameWithType.vb: IParameter(Of TDomain).Description
+  fullName.vb: ReflActive.IParameter(Of TDomain).Description
+- uid: ReflActive.IParameter`1.IsRequired
+  commentId: P:ReflActive.IParameter`1.IsRequired
+  href: ReflActive.IParameter-1.html#ReflActive_IParameter_1_IsRequired
+  name: IsRequired
+  nameWithType: IParameter<TDomain>.IsRequired
+  fullName: ReflActive.IParameter<TDomain>.IsRequired
+  nameWithType.vb: IParameter(Of TDomain).IsRequired
+  fullName.vb: ReflActive.IParameter(Of TDomain).IsRequired
+- uid: ReflActive.IParameter`1.Default
+  commentId: P:ReflActive.IParameter`1.Default
+  href: ReflActive.IParameter-1.html#ReflActive_IParameter_1_Default
+  name: Default
+  nameWithType: IParameter<TDomain>.Default
+  fullName: ReflActive.IParameter<TDomain>.Default
+  nameWithType.vb: IParameter(Of TDomain).Default
+  fullName.vb: ReflActive.IParameter(Of TDomain).Default
+- uid: ReflActive.IComparableParameter`1.Min*
+  commentId: Overload:ReflActive.IComparableParameter`1.Min
+  href: ReflActive.IComparableParameter-1.html#ReflActive_IComparableParameter_1_Min
+  name: Min
+  nameWithType: IComparableParameter<TDomain>.Min
+  fullName: ReflActive.IComparableParameter<TDomain>.Min
+  nameWithType.vb: IComparableParameter(Of TDomain).Min
+  fullName.vb: ReflActive.IComparableParameter(Of TDomain).Min
+- uid: '{TDomain}'
+  commentId: '!:TDomain'
+  definition: TDomain
+  name: TDomain
+  nameWithType: TDomain
+  fullName: TDomain
+- uid: TDomain
+  name: TDomain
+  nameWithType: TDomain
+  fullName: TDomain
+- uid: ReflActive.IComparableParameter`1.Max*
+  commentId: Overload:ReflActive.IComparableParameter`1.Max
+  href: ReflActive.IComparableParameter-1.html#ReflActive_IComparableParameter_1_Max
+  name: Max
+  nameWithType: IComparableParameter<TDomain>.Max
+  fullName: ReflActive.IComparableParameter<TDomain>.Max
+  nameWithType.vb: IComparableParameter(Of TDomain).Max
+  fullName.vb: ReflActive.IComparableParameter(Of TDomain).Max

@@ -1,0 +1,272 @@
+### YamlMime:ManagedReference
+items:
+- uid: ReflActive
+  commentId: N:ReflActive
+  id: ReflActive
+  children:
+  - ReflActive.Activation
+  - ReflActive.ActivationContext
+  - ReflActive.ActivationTargetMetadata
+  - ReflActive.Activator
+  - ReflActive.BaseArgument
+  - ReflActive.BaseTypedArgument`1
+  - ReflActive.BooleanArgument
+  - ReflActive.DoubleArgument
+  - ReflActive.IActivationContext
+  - ReflActive.IActivationTargetMetadata
+  - ReflActive.IBooleanParameter
+  - ReflActive.IComparableParameter`1
+  - ReflActive.ICompositeActivationTargetMetadata
+  - ReflActive.ICompositeEntityConverter
+  - ReflActive.ICompositeEntityParameter
+  - ReflActive.IContinuousNumberParameter
+  - ReflActive.IDiscreteNumberParameter
+  - ReflActive.IEntityConverter
+  - ReflActive.IParameter`1
+  - ReflActive.ISingletonEntityConverter
+  - ReflActive.ISingletonEntityParameter
+  - ReflActive.ITextParameter
+  - ReflActive.IntegerArgument
+  - ReflActive.NameResolver
+  - ReflActive.StringArgument
+  - ReflActive.StringsArgument
+  langs:
+  - csharp
+  - vb
+  name: ReflActive
+  nameWithType: ReflActive
+  fullName: ReflActive
+  type: Namespace
+  assemblies:
+  - ReflActive
+references:
+- uid: ReflActive.Activation
+  commentId: T:ReflActive.Activation
+  parent: ReflActive
+  href: ReflActive.Activation.html
+  name: Activation
+  nameWithType: Activation
+  fullName: ReflActive.Activation
+- uid: ReflActive.IActivationContext
+  commentId: T:ReflActive.IActivationContext
+  parent: ReflActive
+  href: ReflActive.IActivationContext.html
+  name: IActivationContext
+  nameWithType: IActivationContext
+  fullName: ReflActive.IActivationContext
+- uid: ReflActive.ActivationContext
+  commentId: T:ReflActive.ActivationContext
+  href: ReflActive.ActivationContext.html
+  name: ActivationContext
+  nameWithType: ActivationContext
+  fullName: ReflActive.ActivationContext
+- uid: ReflActive.IActivationTargetMetadata
+  commentId: T:ReflActive.IActivationTargetMetadata
+  parent: ReflActive
+  href: ReflActive.IActivationTargetMetadata.html
+  name: IActivationTargetMetadata
+  nameWithType: IActivationTargetMetadata
+  fullName: ReflActive.IActivationTargetMetadata
+- uid: ReflActive.ICompositeActivationTargetMetadata
+  commentId: T:ReflActive.ICompositeActivationTargetMetadata
+  parent: ReflActive
+  href: ReflActive.ICompositeActivationTargetMetadata.html
+  name: ICompositeActivationTargetMetadata
+  nameWithType: ICompositeActivationTargetMetadata
+  fullName: ReflActive.ICompositeActivationTargetMetadata
+- uid: ReflActive.ActivationTargetMetadata
+  commentId: T:ReflActive.ActivationTargetMetadata
+  href: ReflActive.ActivationTargetMetadata.html
+  name: ActivationTargetMetadata
+  nameWithType: ActivationTargetMetadata
+  fullName: ReflActive.ActivationTargetMetadata
+- uid: ReflActive.Activator
+  commentId: T:ReflActive.Activator
+  href: ReflActive.Activator.html
+  name: Activator
+  nameWithType: Activator
+  fullName: ReflActive.Activator
+- uid: ReflActive.BaseArgument
+  commentId: T:ReflActive.BaseArgument
+  parent: ReflActive
+  href: ReflActive.BaseArgument.html
+  name: BaseArgument
+  nameWithType: BaseArgument
+  fullName: ReflActive.BaseArgument
+- uid: ReflActive.BaseTypedArgument`1
+  commentId: T:ReflActive.BaseTypedArgument`1
+  href: ReflActive.BaseTypedArgument-1.html
+  name: BaseTypedArgument<TValue>
+  nameWithType: BaseTypedArgument<TValue>
+  fullName: ReflActive.BaseTypedArgument<TValue>
+  nameWithType.vb: BaseTypedArgument(Of TValue)
+  fullName.vb: ReflActive.BaseTypedArgument(Of TValue)
+  name.vb: BaseTypedArgument(Of TValue)
+  spec.csharp:
+  - uid: ReflActive.BaseTypedArgument`1
+    name: BaseTypedArgument
+    href: ReflActive.BaseTypedArgument-1.html
+  - name: <
+  - name: TValue
+  - name: '>'
+  spec.vb:
+  - uid: ReflActive.BaseTypedArgument`1
+    name: BaseTypedArgument
+    href: ReflActive.BaseTypedArgument-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TValue
+  - name: )
+- uid: ReflActive.BooleanArgument
+  commentId: T:ReflActive.BooleanArgument
+  parent: ReflActive
+  href: ReflActive.BooleanArgument.html
+  name: BooleanArgument
+  nameWithType: BooleanArgument
+  fullName: ReflActive.BooleanArgument
+- uid: ReflActive.IntegerArgument
+  commentId: T:ReflActive.IntegerArgument
+  parent: ReflActive
+  href: ReflActive.IntegerArgument.html
+  name: IntegerArgument
+  nameWithType: IntegerArgument
+  fullName: ReflActive.IntegerArgument
+- uid: ReflActive.DoubleArgument
+  commentId: T:ReflActive.DoubleArgument
+  parent: ReflActive
+  href: ReflActive.DoubleArgument.html
+  name: DoubleArgument
+  nameWithType: DoubleArgument
+  fullName: ReflActive.DoubleArgument
+- uid: ReflActive.StringArgument
+  commentId: T:ReflActive.StringArgument
+  parent: ReflActive
+  href: ReflActive.StringArgument.html
+  name: StringArgument
+  nameWithType: StringArgument
+  fullName: ReflActive.StringArgument
+- uid: ReflActive.StringsArgument
+  commentId: T:ReflActive.StringsArgument
+  parent: ReflActive
+  href: ReflActive.StringsArgument.html
+  name: StringsArgument
+  nameWithType: StringsArgument
+  fullName: ReflActive.StringsArgument
+- uid: ReflActive.IEntityConverter
+  commentId: T:ReflActive.IEntityConverter
+  parent: ReflActive
+  href: ReflActive.IEntityConverter.html
+  name: IEntityConverter
+  nameWithType: IEntityConverter
+  fullName: ReflActive.IEntityConverter
+- uid: ReflActive.ISingletonEntityConverter
+  commentId: T:ReflActive.ISingletonEntityConverter
+  href: ReflActive.ISingletonEntityConverter.html
+  name: ISingletonEntityConverter
+  nameWithType: ISingletonEntityConverter
+  fullName: ReflActive.ISingletonEntityConverter
+- uid: ReflActive.ICompositeEntityConverter
+  commentId: T:ReflActive.ICompositeEntityConverter
+  href: ReflActive.ICompositeEntityConverter.html
+  name: ICompositeEntityConverter
+  nameWithType: ICompositeEntityConverter
+  fullName: ReflActive.ICompositeEntityConverter
+- uid: ReflActive.NameResolver
+  commentId: T:ReflActive.NameResolver
+  href: ReflActive.NameResolver.html
+  name: NameResolver
+  nameWithType: NameResolver
+  fullName: ReflActive.NameResolver
+- uid: ReflActive.IParameter`1
+  commentId: T:ReflActive.IParameter`1
+  href: ReflActive.IParameter-1.html
+  name: IParameter<TDomain>
+  nameWithType: IParameter<TDomain>
+  fullName: ReflActive.IParameter<TDomain>
+  nameWithType.vb: IParameter(Of TDomain)
+  fullName.vb: ReflActive.IParameter(Of TDomain)
+  name.vb: IParameter(Of TDomain)
+  spec.csharp:
+  - uid: ReflActive.IParameter`1
+    name: IParameter
+    href: ReflActive.IParameter-1.html
+  - name: <
+  - name: TDomain
+  - name: '>'
+  spec.vb:
+  - uid: ReflActive.IParameter`1
+    name: IParameter
+    href: ReflActive.IParameter-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TDomain
+  - name: )
+- uid: ReflActive.IBooleanParameter
+  commentId: T:ReflActive.IBooleanParameter
+  href: ReflActive.IBooleanParameter.html
+  name: IBooleanParameter
+  nameWithType: IBooleanParameter
+  fullName: ReflActive.IBooleanParameter
+- uid: ReflActive.IComparableParameter`1
+  commentId: T:ReflActive.IComparableParameter`1
+  href: ReflActive.IComparableParameter-1.html
+  name: IComparableParameter<TDomain>
+  nameWithType: IComparableParameter<TDomain>
+  fullName: ReflActive.IComparableParameter<TDomain>
+  nameWithType.vb: IComparableParameter(Of TDomain)
+  fullName.vb: ReflActive.IComparableParameter(Of TDomain)
+  name.vb: IComparableParameter(Of TDomain)
+  spec.csharp:
+  - uid: ReflActive.IComparableParameter`1
+    name: IComparableParameter
+    href: ReflActive.IComparableParameter-1.html
+  - name: <
+  - name: TDomain
+  - name: '>'
+  spec.vb:
+  - uid: ReflActive.IComparableParameter`1
+    name: IComparableParameter
+    href: ReflActive.IComparableParameter-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TDomain
+  - name: )
+- uid: ReflActive.IDiscreteNumberParameter
+  commentId: T:ReflActive.IDiscreteNumberParameter
+  href: ReflActive.IDiscreteNumberParameter.html
+  name: IDiscreteNumberParameter
+  nameWithType: IDiscreteNumberParameter
+  fullName: ReflActive.IDiscreteNumberParameter
+- uid: ReflActive.IContinuousNumberParameter
+  commentId: T:ReflActive.IContinuousNumberParameter
+  href: ReflActive.IContinuousNumberParameter.html
+  name: IContinuousNumberParameter
+  nameWithType: IContinuousNumberParameter
+  fullName: ReflActive.IContinuousNumberParameter
+- uid: ReflActive.ITextParameter
+  commentId: T:ReflActive.ITextParameter
+  href: ReflActive.ITextParameter.html
+  name: ITextParameter
+  nameWithType: ITextParameter
+  fullName: ReflActive.ITextParameter
+- uid: ReflActive.ISingletonEntityParameter
+  commentId: T:ReflActive.ISingletonEntityParameter
+  href: ReflActive.ISingletonEntityParameter.html
+  name: ISingletonEntityParameter
+  nameWithType: ISingletonEntityParameter
+  fullName: ReflActive.ISingletonEntityParameter
+- uid: ReflActive.ICompositeEntityParameter
+  commentId: T:ReflActive.ICompositeEntityParameter
+  href: ReflActive.ICompositeEntityParameter.html
+  name: ICompositeEntityParameter
+  nameWithType: ICompositeEntityParameter
+  fullName: ReflActive.ICompositeEntityParameter
+- uid: ReflActive
+  commentId: N:ReflActive
+  href: ReflActive.html
+  name: ReflActive
+  nameWithType: ReflActive
+  fullName: ReflActive

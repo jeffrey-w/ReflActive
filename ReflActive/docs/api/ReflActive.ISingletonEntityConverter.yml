@@ -1,0 +1,184 @@
+### YamlMime:ManagedReference
+items:
+- uid: ReflActive.ISingletonEntityConverter
+  commentId: T:ReflActive.ISingletonEntityConverter
+  id: ISingletonEntityConverter
+  parent: ReflActive
+  children:
+  - ReflActive.ISingletonEntityConverter.Default
+  - ReflActive.ISingletonEntityConverter.Entity(System.String)
+  langs:
+  - csharp
+  - vb
+  name: ISingletonEntityConverter
+  nameWithType: ISingletonEntityConverter
+  fullName: ReflActive.ISingletonEntityConverter
+  type: Interface
+  source:
+    remote:
+      path: ReflActive/src/EntityConverter.cs
+      branch: main
+      repo: git@github.com:jeffrey-w/ReflActive.git
+    id: ISingletonEntityConverter
+    path: ../src/EntityConverter.cs
+    startLine: 21
+  assemblies:
+  - ReflActive
+  namespace: ReflActive
+  summary: >-
+    The <code>ISingletonEntityConverter</code> interface provides properties and operations on an <xref href="ReflActive.IEntityConverter" data-throw-if-not-resolved="false"></xref>
+
+    that facilitates selection of a single member of the <xref href="System.Type" data-throw-if-not-resolved="false"></xref> over which it operates.
+  example: []
+  syntax:
+    content: 'public interface ISingletonEntityConverter : IEntityConverter'
+    content.vb: Public Interface ISingletonEntityConverter Inherits IEntityConverter
+  inheritedMembers:
+  - ReflActive.IEntityConverter.Ids
+- uid: ReflActive.ISingletonEntityConverter.Default
+  commentId: P:ReflActive.ISingletonEntityConverter.Default
+  id: Default
+  parent: ReflActive.ISingletonEntityConverter
+  langs:
+  - csharp
+  - vb
+  name: Default
+  nameWithType: ISingletonEntityConverter.Default
+  fullName: ReflActive.ISingletonEntityConverter.Default
+  type: Property
+  source:
+    remote:
+      path: ReflActive/src/EntityConverter.cs
+      branch: main
+      repo: git@github.com:jeffrey-w/ReflActive.git
+    id: Default
+    path: ../src/EntityConverter.cs
+    startLine: 27
+  assemblies:
+  - ReflActive
+  namespace: ReflActive
+  summary: >-
+    The unique identifier for the member of the <xref href="System.Type" data-throw-if-not-resolved="false"></xref> over which this <code>ISingletonEntityConverter</code>
+
+    operates that is typically selected.
+  example: []
+  syntax:
+    content: string Default { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: ReadOnly Property [Default] As String
+  overload: ReflActive.ISingletonEntityConverter.Default*
+- uid: ReflActive.ISingletonEntityConverter.Entity(System.String)
+  commentId: M:ReflActive.ISingletonEntityConverter.Entity(System.String)
+  id: Entity(System.String)
+  parent: ReflActive.ISingletonEntityConverter
+  langs:
+  - csharp
+  - vb
+  name: Entity(string)
+  nameWithType: ISingletonEntityConverter.Entity(string)
+  fullName: ReflActive.ISingletonEntityConverter.Entity(string)
+  type: Method
+  source:
+    remote:
+      path: ReflActive/src/EntityConverter.cs
+      branch: main
+      repo: git@github.com:jeffrey-w/ReflActive.git
+    id: Entity
+    path: ../src/EntityConverter.cs
+    startLine: 36
+  assemblies:
+  - ReflActive
+  namespace: ReflActive
+  summary: >-
+    Provides the member of the <xref href="System.Type" data-throw-if-not-resolved="false"></xref> over which this <code>ISingletonEntityConverter</code> operates that is
+
+    identified by the specified <code class="paramref">id</code>.
+  example: []
+  syntax:
+    content: object Entity(string id)
+    parameters:
+    - id: id
+      type: System.String
+      description: >-
+        The unique identifiers for a member of the <xref href="System.Type" data-throw-if-not-resolved="false"></xref> over which this <code>ISingletonEntityConverter</code>
+            operates.
+    return:
+      type: System.Object
+      description: The entity identified by the specified <code class="paramref">id</code>.
+    content.vb: Function Entity(id As String) As Object
+  overload: ReflActive.ISingletonEntityConverter.Entity*
+  nameWithType.vb: ISingletonEntityConverter.Entity(String)
+  fullName.vb: ReflActive.ISingletonEntityConverter.Entity(String)
+  name.vb: Entity(String)
+references:
+- uid: ReflActive.IEntityConverter
+  commentId: T:ReflActive.IEntityConverter
+  parent: ReflActive
+  href: ReflActive.IEntityConverter.html
+  name: IEntityConverter
+  nameWithType: IEntityConverter
+  fullName: ReflActive.IEntityConverter
+- uid: System.Type
+  commentId: T:System.Type
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.type
+  name: Type
+  nameWithType: Type
+  fullName: System.Type
+- uid: ReflActive
+  commentId: N:ReflActive
+  href: ReflActive.html
+  name: ReflActive
+  nameWithType: ReflActive
+  fullName: ReflActive
+- uid: ReflActive.IEntityConverter.Ids
+  commentId: P:ReflActive.IEntityConverter.Ids
+  parent: ReflActive.IEntityConverter
+  href: ReflActive.IEntityConverter.html#ReflActive_IEntityConverter_Ids
+  name: Ids
+  nameWithType: IEntityConverter.Ids
+  fullName: ReflActive.IEntityConverter.Ids
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: ReflActive.ISingletonEntityConverter.Default*
+  commentId: Overload:ReflActive.ISingletonEntityConverter.Default
+  href: ReflActive.ISingletonEntityConverter.html#ReflActive_ISingletonEntityConverter_Default
+  name: Default
+  nameWithType: ISingletonEntityConverter.Default
+  fullName: ReflActive.ISingletonEntityConverter.Default
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: ReflActive.ISingletonEntityConverter.Entity*
+  commentId: Overload:ReflActive.ISingletonEntityConverter.Entity
+  href: ReflActive.ISingletonEntityConverter.html#ReflActive_ISingletonEntityConverter_Entity_System_String_
+  name: Entity
+  nameWithType: ISingletonEntityConverter.Entity
+  fullName: ReflActive.ISingletonEntityConverter.Entity
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object

@@ -1,0 +1,193 @@
+### YamlMime:ManagedReference
+items:
+- uid: ReflActive.IBooleanParameter
+  commentId: T:ReflActive.IBooleanParameter
+  id: IBooleanParameter
+  parent: ReflActive
+  children: []
+  langs:
+  - csharp
+  - vb
+  name: IBooleanParameter
+  nameWithType: IBooleanParameter
+  fullName: ReflActive.IBooleanParameter
+  type: Interface
+  source:
+    remote:
+      path: ReflActive/src/Parameter.cs
+      branch: main
+      repo: git@github.com:jeffrey-w/ReflActive.git
+    id: IBooleanParameter
+    path: ../src/Parameter.cs
+    startLine: 33
+  assemblies:
+  - ReflActive
+  namespace: ReflActive
+  summary: >-
+    The <code>IBooleanParameter</code> interface provides properties and operation on an <xref href="ReflActive.IParameter%601" data-throw-if-not-resolved="false"></xref>
+
+    that may be bound to a member of <xref href="System.Boolean" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: 'public interface IBooleanParameter : IParameter<bool>'
+    content.vb: Public Interface IBooleanParameter Inherits IParameter(Of Boolean)
+  inheritedMembers:
+  - ReflActive.IParameter{System.Boolean}.Name
+  - ReflActive.IParameter{System.Boolean}.Description
+  - ReflActive.IParameter{System.Boolean}.IsRequired
+  - ReflActive.IParameter{System.Boolean}.Default
+references:
+- uid: ReflActive.IParameter`1
+  commentId: T:ReflActive.IParameter`1
+  href: ReflActive.IParameter-1.html
+  name: IParameter<TDomain>
+  nameWithType: IParameter<TDomain>
+  fullName: ReflActive.IParameter<TDomain>
+  nameWithType.vb: IParameter(Of TDomain)
+  fullName.vb: ReflActive.IParameter(Of TDomain)
+  name.vb: IParameter(Of TDomain)
+  spec.csharp:
+  - uid: ReflActive.IParameter`1
+    name: IParameter
+    href: ReflActive.IParameter-1.html
+  - name: <
+  - name: TDomain
+  - name: '>'
+  spec.vb:
+  - uid: ReflActive.IParameter`1
+    name: IParameter
+    href: ReflActive.IParameter-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TDomain
+  - name: )
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: ReflActive
+  commentId: N:ReflActive
+  href: ReflActive.html
+  name: ReflActive
+  nameWithType: ReflActive
+  fullName: ReflActive
+- uid: ReflActive.IParameter{System.Boolean}.Name
+  commentId: P:ReflActive.IParameter{System.Boolean}.Name
+  parent: ReflActive.IParameter{System.Boolean}
+  definition: ReflActive.IParameter`1.Name
+  href: ReflActive.IParameter-1.html#ReflActive_IParameter_1_Name
+  name: Name
+  nameWithType: IParameter<bool>.Name
+  fullName: ReflActive.IParameter<bool>.Name
+  nameWithType.vb: IParameter(Of Boolean).Name
+  fullName.vb: ReflActive.IParameter(Of Boolean).Name
+- uid: ReflActive.IParameter{System.Boolean}.Description
+  commentId: P:ReflActive.IParameter{System.Boolean}.Description
+  parent: ReflActive.IParameter{System.Boolean}
+  definition: ReflActive.IParameter`1.Description
+  href: ReflActive.IParameter-1.html#ReflActive_IParameter_1_Description
+  name: Description
+  nameWithType: IParameter<bool>.Description
+  fullName: ReflActive.IParameter<bool>.Description
+  nameWithType.vb: IParameter(Of Boolean).Description
+  fullName.vb: ReflActive.IParameter(Of Boolean).Description
+- uid: ReflActive.IParameter{System.Boolean}.IsRequired
+  commentId: P:ReflActive.IParameter{System.Boolean}.IsRequired
+  parent: ReflActive.IParameter{System.Boolean}
+  definition: ReflActive.IParameter`1.IsRequired
+  href: ReflActive.IParameter-1.html#ReflActive_IParameter_1_IsRequired
+  name: IsRequired
+  nameWithType: IParameter<bool>.IsRequired
+  fullName: ReflActive.IParameter<bool>.IsRequired
+  nameWithType.vb: IParameter(Of Boolean).IsRequired
+  fullName.vb: ReflActive.IParameter(Of Boolean).IsRequired
+- uid: ReflActive.IParameter{System.Boolean}.Default
+  commentId: P:ReflActive.IParameter{System.Boolean}.Default
+  parent: ReflActive.IParameter{System.Boolean}
+  definition: ReflActive.IParameter`1.Default
+  href: ReflActive.IParameter-1.html#ReflActive_IParameter_1_Default
+  name: Default
+  nameWithType: IParameter<bool>.Default
+  fullName: ReflActive.IParameter<bool>.Default
+  nameWithType.vb: IParameter(Of Boolean).Default
+  fullName.vb: ReflActive.IParameter(Of Boolean).Default
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: ReflActive.IParameter`1.Name
+  commentId: P:ReflActive.IParameter`1.Name
+  href: ReflActive.IParameter-1.html#ReflActive_IParameter_1_Name
+  name: Name
+  nameWithType: IParameter<TDomain>.Name
+  fullName: ReflActive.IParameter<TDomain>.Name
+  nameWithType.vb: IParameter(Of TDomain).Name
+  fullName.vb: ReflActive.IParameter(Of TDomain).Name
+- uid: ReflActive.IParameter{System.Boolean}
+  commentId: T:ReflActive.IParameter{System.Boolean}
+  parent: ReflActive
+  definition: ReflActive.IParameter`1
+  href: ReflActive.IParameter-1.html
+  name: IParameter<bool>
+  nameWithType: IParameter<bool>
+  fullName: ReflActive.IParameter<bool>
+  nameWithType.vb: IParameter(Of Boolean)
+  fullName.vb: ReflActive.IParameter(Of Boolean)
+  name.vb: IParameter(Of Boolean)
+  spec.csharp:
+  - uid: ReflActive.IParameter`1
+    name: IParameter
+    href: ReflActive.IParameter-1.html
+  - name: <
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: '>'
+  spec.vb:
+  - uid: ReflActive.IParameter`1
+    name: IParameter
+    href: ReflActive.IParameter-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+- uid: ReflActive.IParameter`1.Description
+  commentId: P:ReflActive.IParameter`1.Description
+  href: ReflActive.IParameter-1.html#ReflActive_IParameter_1_Description
+  name: Description
+  nameWithType: IParameter<TDomain>.Description
+  fullName: ReflActive.IParameter<TDomain>.Description
+  nameWithType.vb: IParameter(Of TDomain).Description
+  fullName.vb: ReflActive.IParameter(Of TDomain).Description
+- uid: ReflActive.IParameter`1.IsRequired
+  commentId: P:ReflActive.IParameter`1.IsRequired
+  href: ReflActive.IParameter-1.html#ReflActive_IParameter_1_IsRequired
+  name: IsRequired
+  nameWithType: IParameter<TDomain>.IsRequired
+  fullName: ReflActive.IParameter<TDomain>.IsRequired
+  nameWithType.vb: IParameter(Of TDomain).IsRequired
+  fullName.vb: ReflActive.IParameter(Of TDomain).IsRequired
+- uid: ReflActive.IParameter`1.Default
+  commentId: P:ReflActive.IParameter`1.Default
+  href: ReflActive.IParameter-1.html#ReflActive_IParameter_1_Default
+  name: Default
+  nameWithType: IParameter<TDomain>.Default
+  fullName: ReflActive.IParameter<TDomain>.Default
+  nameWithType.vb: IParameter(Of TDomain).Default
+  fullName.vb: ReflActive.IParameter(Of TDomain).Default

@@ -1,0 +1,302 @@
+### YamlMime:ManagedReference
+items:
+- uid: ReflActive.ICompositeActivationTargetMetadata
+  commentId: T:ReflActive.ICompositeActivationTargetMetadata
+  id: ICompositeActivationTargetMetadata
+  parent: ReflActive
+  children:
+  - ReflActive.ICompositeActivationTargetMetadata.Children
+  langs:
+  - csharp
+  - vb
+  name: ICompositeActivationTargetMetadata
+  nameWithType: ICompositeActivationTargetMetadata
+  fullName: ReflActive.ICompositeActivationTargetMetadata
+  type: Interface
+  source:
+    remote:
+      path: ReflActive/src/ActivationTargetMetadata.cs
+      branch: main
+      repo: git@github.com:jeffrey-w/ReflActive.git
+    id: ICompositeActivationTargetMetadata
+    path: ../src/ActivationTargetMetadata.cs
+    startLine: 91
+  assemblies:
+  - ReflActive
+  namespace: ReflActive
+  summary: >-
+    The <code>ICompositeActivationTargetMetadata</code> interface provides properties and operations on <xref href="ReflActive.IActivationTargetMetadata" data-throw-if-not-resolved="false"></xref>
+
+    that is logically composed by one or more other instances.
+  example: []
+  syntax:
+    content: 'public interface ICompositeActivationTargetMetadata : IActivationTargetMetadata'
+    content.vb: Public Interface ICompositeActivationTargetMetadata Inherits IActivationTargetMetadata
+  inheritedMembers:
+  - ReflActive.IActivationTargetMetadata.Name
+  - ReflActive.IActivationTargetMetadata.Discriminator
+  - ReflActive.IActivationTargetMetadata.Description
+  - ReflActive.IActivationTargetMetadata.IsDevelopment
+  - ReflActive.IActivationTargetMetadata.IsExperimental
+  - ReflActive.IActivationTargetMetadata.IsParameterized
+  - ReflActive.IActivationTargetMetadata.IsComposite
+  - ReflActive.IActivationTargetMetadata.Properties
+  - ReflActive.IActivationTargetMetadata.Toggles
+  - ReflActive.IActivationTargetMetadata.Counts
+  - ReflActive.IActivationTargetMetadata.Quantities
+  - ReflActive.IActivationTargetMetadata.Labels
+  - ReflActive.IActivationTargetMetadata.SingleSelections
+  - ReflActive.IActivationTargetMetadata.CompositeSelections
+- uid: ReflActive.ICompositeActivationTargetMetadata.Children
+  commentId: P:ReflActive.ICompositeActivationTargetMetadata.Children
+  id: Children
+  parent: ReflActive.ICompositeActivationTargetMetadata
+  langs:
+  - csharp
+  - vb
+  name: Children
+  nameWithType: ICompositeActivationTargetMetadata.Children
+  fullName: ReflActive.ICompositeActivationTargetMetadata.Children
+  type: Property
+  source:
+    remote:
+      path: ReflActive/src/ActivationTargetMetadata.cs
+      branch: main
+      repo: git@github.com:jeffrey-w/ReflActive.git
+    id: Children
+    path: ../src/ActivationTargetMetadata.cs
+    startLine: 96
+  assemblies:
+  - ReflActive
+  namespace: ReflActive
+  summary: Descriptions of the <xref href="Extra.Extensions.Types" data-throw-if-not-resolved="false"></xref> that logically compose the one described by this <code>ICompositeActivationTargetMetadata</code>.
+  example: []
+  syntax:
+    content: IEnumerable<IActivationTargetMetadata> Children { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.IEnumerable{ReflActive.IActivationTargetMetadata}
+    content.vb: ReadOnly Property Children As IEnumerable(Of IActivationTargetMetadata)
+  overload: ReflActive.ICompositeActivationTargetMetadata.Children*
+references:
+- uid: ReflActive.IActivationTargetMetadata
+  commentId: T:ReflActive.IActivationTargetMetadata
+  parent: ReflActive
+  href: ReflActive.IActivationTargetMetadata.html
+  name: IActivationTargetMetadata
+  nameWithType: IActivationTargetMetadata
+  fullName: ReflActive.IActivationTargetMetadata
+- uid: ReflActive
+  commentId: N:ReflActive
+  href: ReflActive.html
+  name: ReflActive
+  nameWithType: ReflActive
+  fullName: ReflActive
+- uid: ReflActive.IActivationTargetMetadata.Name
+  commentId: P:ReflActive.IActivationTargetMetadata.Name
+  parent: ReflActive.IActivationTargetMetadata
+  href: ReflActive.IActivationTargetMetadata.html#ReflActive_IActivationTargetMetadata_Name
+  name: Name
+  nameWithType: IActivationTargetMetadata.Name
+  fullName: ReflActive.IActivationTargetMetadata.Name
+- uid: ReflActive.IActivationTargetMetadata.Discriminator
+  commentId: P:ReflActive.IActivationTargetMetadata.Discriminator
+  parent: ReflActive.IActivationTargetMetadata
+  href: ReflActive.IActivationTargetMetadata.html#ReflActive_IActivationTargetMetadata_Discriminator
+  name: Discriminator
+  nameWithType: IActivationTargetMetadata.Discriminator
+  fullName: ReflActive.IActivationTargetMetadata.Discriminator
+- uid: ReflActive.IActivationTargetMetadata.Description
+  commentId: P:ReflActive.IActivationTargetMetadata.Description
+  parent: ReflActive.IActivationTargetMetadata
+  href: ReflActive.IActivationTargetMetadata.html#ReflActive_IActivationTargetMetadata_Description
+  name: Description
+  nameWithType: IActivationTargetMetadata.Description
+  fullName: ReflActive.IActivationTargetMetadata.Description
+- uid: ReflActive.IActivationTargetMetadata.IsDevelopment
+  commentId: P:ReflActive.IActivationTargetMetadata.IsDevelopment
+  parent: ReflActive.IActivationTargetMetadata
+  href: ReflActive.IActivationTargetMetadata.html#ReflActive_IActivationTargetMetadata_IsDevelopment
+  name: IsDevelopment
+  nameWithType: IActivationTargetMetadata.IsDevelopment
+  fullName: ReflActive.IActivationTargetMetadata.IsDevelopment
+- uid: ReflActive.IActivationTargetMetadata.IsExperimental
+  commentId: P:ReflActive.IActivationTargetMetadata.IsExperimental
+  parent: ReflActive.IActivationTargetMetadata
+  href: ReflActive.IActivationTargetMetadata.html#ReflActive_IActivationTargetMetadata_IsExperimental
+  name: IsExperimental
+  nameWithType: IActivationTargetMetadata.IsExperimental
+  fullName: ReflActive.IActivationTargetMetadata.IsExperimental
+- uid: ReflActive.IActivationTargetMetadata.IsParameterized
+  commentId: P:ReflActive.IActivationTargetMetadata.IsParameterized
+  parent: ReflActive.IActivationTargetMetadata
+  href: ReflActive.IActivationTargetMetadata.html#ReflActive_IActivationTargetMetadata_IsParameterized
+  name: IsParameterized
+  nameWithType: IActivationTargetMetadata.IsParameterized
+  fullName: ReflActive.IActivationTargetMetadata.IsParameterized
+- uid: ReflActive.IActivationTargetMetadata.IsComposite
+  commentId: P:ReflActive.IActivationTargetMetadata.IsComposite
+  parent: ReflActive.IActivationTargetMetadata
+  href: ReflActive.IActivationTargetMetadata.html#ReflActive_IActivationTargetMetadata_IsComposite
+  name: IsComposite
+  nameWithType: IActivationTargetMetadata.IsComposite
+  fullName: ReflActive.IActivationTargetMetadata.IsComposite
+- uid: ReflActive.IActivationTargetMetadata.Properties
+  commentId: P:ReflActive.IActivationTargetMetadata.Properties
+  parent: ReflActive.IActivationTargetMetadata
+  href: ReflActive.IActivationTargetMetadata.html#ReflActive_IActivationTargetMetadata_Properties
+  name: Properties
+  nameWithType: IActivationTargetMetadata.Properties
+  fullName: ReflActive.IActivationTargetMetadata.Properties
+- uid: ReflActive.IActivationTargetMetadata.Toggles
+  commentId: P:ReflActive.IActivationTargetMetadata.Toggles
+  parent: ReflActive.IActivationTargetMetadata
+  href: ReflActive.IActivationTargetMetadata.html#ReflActive_IActivationTargetMetadata_Toggles
+  name: Toggles
+  nameWithType: IActivationTargetMetadata.Toggles
+  fullName: ReflActive.IActivationTargetMetadata.Toggles
+- uid: ReflActive.IActivationTargetMetadata.Counts
+  commentId: P:ReflActive.IActivationTargetMetadata.Counts
+  parent: ReflActive.IActivationTargetMetadata
+  href: ReflActive.IActivationTargetMetadata.html#ReflActive_IActivationTargetMetadata_Counts
+  name: Counts
+  nameWithType: IActivationTargetMetadata.Counts
+  fullName: ReflActive.IActivationTargetMetadata.Counts
+- uid: ReflActive.IActivationTargetMetadata.Quantities
+  commentId: P:ReflActive.IActivationTargetMetadata.Quantities
+  parent: ReflActive.IActivationTargetMetadata
+  href: ReflActive.IActivationTargetMetadata.html#ReflActive_IActivationTargetMetadata_Quantities
+  name: Quantities
+  nameWithType: IActivationTargetMetadata.Quantities
+  fullName: ReflActive.IActivationTargetMetadata.Quantities
+- uid: ReflActive.IActivationTargetMetadata.Labels
+  commentId: P:ReflActive.IActivationTargetMetadata.Labels
+  parent: ReflActive.IActivationTargetMetadata
+  href: ReflActive.IActivationTargetMetadata.html#ReflActive_IActivationTargetMetadata_Labels
+  name: Labels
+  nameWithType: IActivationTargetMetadata.Labels
+  fullName: ReflActive.IActivationTargetMetadata.Labels
+- uid: ReflActive.IActivationTargetMetadata.SingleSelections
+  commentId: P:ReflActive.IActivationTargetMetadata.SingleSelections
+  parent: ReflActive.IActivationTargetMetadata
+  href: ReflActive.IActivationTargetMetadata.html#ReflActive_IActivationTargetMetadata_SingleSelections
+  name: SingleSelections
+  nameWithType: IActivationTargetMetadata.SingleSelections
+  fullName: ReflActive.IActivationTargetMetadata.SingleSelections
+- uid: ReflActive.IActivationTargetMetadata.CompositeSelections
+  commentId: P:ReflActive.IActivationTargetMetadata.CompositeSelections
+  parent: ReflActive.IActivationTargetMetadata
+  href: ReflActive.IActivationTargetMetadata.html#ReflActive_IActivationTargetMetadata_CompositeSelections
+  name: CompositeSelections
+  nameWithType: IActivationTargetMetadata.CompositeSelections
+  fullName: ReflActive.IActivationTargetMetadata.CompositeSelections
+- uid: Extra.Extensions.Types
+  commentId: T:Extra.Extensions.Types
+  isExternal: true
+  name: Types
+  nameWithType: Types
+  fullName: Extra.Extensions.Types
+- uid: ReflActive.ICompositeActivationTargetMetadata.Children*
+  commentId: Overload:ReflActive.ICompositeActivationTargetMetadata.Children
+  href: ReflActive.ICompositeActivationTargetMetadata.html#ReflActive_ICompositeActivationTargetMetadata_Children
+  name: Children
+  nameWithType: ICompositeActivationTargetMetadata.Children
+  fullName: ReflActive.ICompositeActivationTargetMetadata.Children
+- uid: System.Collections.Generic.IEnumerable{ReflActive.IActivationTargetMetadata}
+  commentId: T:System.Collections.Generic.IEnumerable{ReflActive.IActivationTargetMetadata}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<IActivationTargetMetadata>
+  nameWithType: IEnumerable<IActivationTargetMetadata>
+  fullName: System.Collections.Generic.IEnumerable<ReflActive.IActivationTargetMetadata>
+  nameWithType.vb: IEnumerable(Of IActivationTargetMetadata)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of ReflActive.IActivationTargetMetadata)
+  name.vb: IEnumerable(Of IActivationTargetMetadata)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: ReflActive.IActivationTargetMetadata
+    name: IActivationTargetMetadata
+    href: ReflActive.IActivationTargetMetadata.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ReflActive.IActivationTargetMetadata
+    name: IActivationTargetMetadata
+    href: ReflActive.IActivationTargetMetadata.html
+  - name: )
+- uid: System.Collections.Generic.IEnumerable`1
+  commentId: T:System.Collections.Generic.IEnumerable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: System.Collections.Generic.IEnumerable<T>
+  nameWithType.vb: IEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T)
+  name.vb: IEnumerable(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic

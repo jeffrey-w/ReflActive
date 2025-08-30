@@ -1,0 +1,273 @@
+### YamlMime:ManagedReference
+items:
+- uid: ReflActive.ICompositeEntityConverter
+  commentId: T:ReflActive.ICompositeEntityConverter
+  id: ICompositeEntityConverter
+  parent: ReflActive
+  children:
+  - ReflActive.ICompositeEntityConverter.Default
+  - ReflActive.ICompositeEntityConverter.Entities(System.Collections.Generic.IEnumerable{System.String})
+  langs:
+  - csharp
+  - vb
+  name: ICompositeEntityConverter
+  nameWithType: ICompositeEntityConverter
+  fullName: ReflActive.ICompositeEntityConverter
+  type: Interface
+  source:
+    remote:
+      path: ReflActive/src/EntityConverter.cs
+      branch: main
+      repo: git@github.com:jeffrey-w/ReflActive.git
+    id: ICompositeEntityConverter
+    path: ../src/EntityConverter.cs
+    startLine: 43
+  assemblies:
+  - ReflActive
+  namespace: ReflActive
+  summary: >-
+    The <code>ISingletonEntityConverter</code> interface provides properties and operations on an <xref href="ReflActive.IEntityConverter" data-throw-if-not-resolved="false"></xref>
+
+    that facilitates selection of a subset of the <xref href="System.Type" data-throw-if-not-resolved="false"></xref> over which it operates.
+  example: []
+  syntax:
+    content: 'public interface ICompositeEntityConverter : IEntityConverter'
+    content.vb: Public Interface ICompositeEntityConverter Inherits IEntityConverter
+  inheritedMembers:
+  - ReflActive.IEntityConverter.Ids
+- uid: ReflActive.ICompositeEntityConverter.Default
+  commentId: P:ReflActive.ICompositeEntityConverter.Default
+  id: Default
+  parent: ReflActive.ICompositeEntityConverter
+  langs:
+  - csharp
+  - vb
+  name: Default
+  nameWithType: ICompositeEntityConverter.Default
+  fullName: ReflActive.ICompositeEntityConverter.Default
+  type: Property
+  source:
+    remote:
+      path: ReflActive/src/EntityConverter.cs
+      branch: main
+      repo: git@github.com:jeffrey-w/ReflActive.git
+    id: Default
+    path: ../src/EntityConverter.cs
+    startLine: 49
+  assemblies:
+  - ReflActive
+  namespace: ReflActive
+  summary: >-
+    The unique identifiers for the members of the <xref href="System.Type" data-throw-if-not-resolved="false"></xref> over which this <code>ICompositeEntityConverter</code>
+
+    operates that are typically selected.
+  example: []
+  syntax:
+    content: IEnumerable<string> Default { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.IEnumerable{System.String}
+    content.vb: ReadOnly Property [Default] As IEnumerable(Of String)
+  overload: ReflActive.ICompositeEntityConverter.Default*
+- uid: ReflActive.ICompositeEntityConverter.Entities(System.Collections.Generic.IEnumerable{System.String})
+  commentId: M:ReflActive.ICompositeEntityConverter.Entities(System.Collections.Generic.IEnumerable{System.String})
+  id: Entities(System.Collections.Generic.IEnumerable{System.String})
+  parent: ReflActive.ICompositeEntityConverter
+  langs:
+  - csharp
+  - vb
+  name: Entities(IEnumerable<string>)
+  nameWithType: ICompositeEntityConverter.Entities(IEnumerable<string>)
+  fullName: ReflActive.ICompositeEntityConverter.Entities(System.Collections.Generic.IEnumerable<string>)
+  type: Method
+  source:
+    remote:
+      path: ReflActive/src/EntityConverter.cs
+      branch: main
+      repo: git@github.com:jeffrey-w/ReflActive.git
+    id: Entities
+    path: ../src/EntityConverter.cs
+    startLine: 58
+  assemblies:
+  - ReflActive
+  namespace: ReflActive
+  summary: >-
+    Provides the members of the <xref href="System.Type" data-throw-if-not-resolved="false"></xref> over which this <code>ICompositeEntityConverter</code> operates that are
+
+    identified by the specified <code class="paramref">ids</code>.
+  example: []
+  syntax:
+    content: object Entities(IEnumerable<string> ids)
+    parameters:
+    - id: ids
+      type: System.Collections.Generic.IEnumerable{System.String}
+      description: >-
+        The unique identifiers for a subset of the members of the <xref href="System.Type" data-throw-if-not-resolved="false"></xref> over which
+            this <code>ICompositeEntityConverter</code> operates.
+    return:
+      type: System.Object
+      description: The entities identified by the specified <code class="paramref">ids</code>.
+    content.vb: Function Entities(ids As IEnumerable(Of String)) As Object
+  overload: ReflActive.ICompositeEntityConverter.Entities*
+  nameWithType.vb: ICompositeEntityConverter.Entities(IEnumerable(Of String))
+  fullName.vb: ReflActive.ICompositeEntityConverter.Entities(System.Collections.Generic.IEnumerable(Of String))
+  name.vb: Entities(IEnumerable(Of String))
+references:
+- uid: ReflActive.IEntityConverter
+  commentId: T:ReflActive.IEntityConverter
+  parent: ReflActive
+  href: ReflActive.IEntityConverter.html
+  name: IEntityConverter
+  nameWithType: IEntityConverter
+  fullName: ReflActive.IEntityConverter
+- uid: System.Type
+  commentId: T:System.Type
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.type
+  name: Type
+  nameWithType: Type
+  fullName: System.Type
+- uid: ReflActive
+  commentId: N:ReflActive
+  href: ReflActive.html
+  name: ReflActive
+  nameWithType: ReflActive
+  fullName: ReflActive
+- uid: ReflActive.IEntityConverter.Ids
+  commentId: P:ReflActive.IEntityConverter.Ids
+  parent: ReflActive.IEntityConverter
+  href: ReflActive.IEntityConverter.html#ReflActive_IEntityConverter_Ids
+  name: Ids
+  nameWithType: IEntityConverter.Ids
+  fullName: ReflActive.IEntityConverter.Ids
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: ReflActive.ICompositeEntityConverter.Default*
+  commentId: Overload:ReflActive.ICompositeEntityConverter.Default
+  href: ReflActive.ICompositeEntityConverter.html#ReflActive_ICompositeEntityConverter_Default
+  name: Default
+  nameWithType: ICompositeEntityConverter.Default
+  fullName: ReflActive.ICompositeEntityConverter.Default
+- uid: System.Collections.Generic.IEnumerable{System.String}
+  commentId: T:System.Collections.Generic.IEnumerable{System.String}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<string>
+  nameWithType: IEnumerable<string>
+  fullName: System.Collections.Generic.IEnumerable<string>
+  nameWithType.vb: IEnumerable(Of String)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of String)
+  name.vb: IEnumerable(Of String)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System.Collections.Generic.IEnumerable`1
+  commentId: T:System.Collections.Generic.IEnumerable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: System.Collections.Generic.IEnumerable<T>
+  nameWithType.vb: IEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T)
+  name.vb: IEnumerable(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: ReflActive.ICompositeEntityConverter.Entities*
+  commentId: Overload:ReflActive.ICompositeEntityConverter.Entities
+  href: ReflActive.ICompositeEntityConverter.html#ReflActive_ICompositeEntityConverter_Entities_System_Collections_Generic_IEnumerable_System_String__
+  name: Entities
+  nameWithType: ICompositeEntityConverter.Entities
+  fullName: ReflActive.ICompositeEntityConverter.Entities
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object

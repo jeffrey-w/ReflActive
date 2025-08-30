@@ -1,0 +1,327 @@
+### YamlMime:ManagedReference
+items:
+- uid: ReflActive.IDiscreteNumberParameter
+  commentId: T:ReflActive.IDiscreteNumberParameter
+  id: IDiscreteNumberParameter
+  parent: ReflActive
+  children:
+  - ReflActive.IDiscreteNumberParameter.Step
+  langs:
+  - csharp
+  - vb
+  name: IDiscreteNumberParameter
+  nameWithType: IDiscreteNumberParameter
+  fullName: ReflActive.IDiscreteNumberParameter
+  type: Interface
+  source:
+    remote:
+      path: ReflActive/src/Parameter.cs
+      branch: main
+      repo: git@github.com:jeffrey-w/ReflActive.git
+    id: IDiscreteNumberParameter
+    path: ../src/Parameter.cs
+    startLine: 56
+  assemblies:
+  - ReflActive
+  namespace: ReflActive
+  summary: >-
+    The <code>IDiscreteNumberParameter</code> interface provides properties and operations on an <xref href="ReflActive.IComparableParameter%601" data-throw-if-not-resolved="false"></xref>
+
+    that ranges over a subset of the integers.
+  example: []
+  syntax:
+    content: 'public interface IDiscreteNumberParameter : IComparableParameter<int>, IParameter<int>'
+    content.vb: Public Interface IDiscreteNumberParameter Inherits IComparableParameter(Of Integer), IParameter(Of Integer)
+  inheritedMembers:
+  - ReflActive.IComparableParameter{System.Int32}.Min
+  - ReflActive.IComparableParameter{System.Int32}.Max
+  - ReflActive.IParameter{System.Int32}.Name
+  - ReflActive.IParameter{System.Int32}.Description
+  - ReflActive.IParameter{System.Int32}.IsRequired
+  - ReflActive.IParameter{System.Int32}.Default
+- uid: ReflActive.IDiscreteNumberParameter.Step
+  commentId: P:ReflActive.IDiscreteNumberParameter.Step
+  id: Step
+  parent: ReflActive.IDiscreteNumberParameter
+  langs:
+  - csharp
+  - vb
+  name: Step
+  nameWithType: IDiscreteNumberParameter.Step
+  fullName: ReflActive.IDiscreteNumberParameter.Step
+  type: Property
+  source:
+    remote:
+      path: ReflActive/src/Parameter.cs
+      branch: main
+      repo: git@github.com:jeffrey-w/ReflActive.git
+    id: Step
+    path: ../src/Parameter.cs
+    startLine: 61
+  assemblies:
+  - ReflActive
+  namespace: ReflActive
+  summary: The interval between successive elements of the domain of this <code>IDiscreteNumberParameter</code>.
+  example: []
+  syntax:
+    content: int Step { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: ReadOnly Property [Step] As Integer
+  overload: ReflActive.IDiscreteNumberParameter.Step*
+references:
+- uid: ReflActive.IComparableParameter`1
+  commentId: T:ReflActive.IComparableParameter`1
+  href: ReflActive.IComparableParameter-1.html
+  name: IComparableParameter<TDomain>
+  nameWithType: IComparableParameter<TDomain>
+  fullName: ReflActive.IComparableParameter<TDomain>
+  nameWithType.vb: IComparableParameter(Of TDomain)
+  fullName.vb: ReflActive.IComparableParameter(Of TDomain)
+  name.vb: IComparableParameter(Of TDomain)
+  spec.csharp:
+  - uid: ReflActive.IComparableParameter`1
+    name: IComparableParameter
+    href: ReflActive.IComparableParameter-1.html
+  - name: <
+  - name: TDomain
+  - name: '>'
+  spec.vb:
+  - uid: ReflActive.IComparableParameter`1
+    name: IComparableParameter
+    href: ReflActive.IComparableParameter-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TDomain
+  - name: )
+- uid: ReflActive
+  commentId: N:ReflActive
+  href: ReflActive.html
+  name: ReflActive
+  nameWithType: ReflActive
+  fullName: ReflActive
+- uid: ReflActive.IComparableParameter{System.Int32}.Min
+  commentId: P:ReflActive.IComparableParameter{System.Int32}.Min
+  parent: ReflActive.IComparableParameter{System.Int32}
+  definition: ReflActive.IComparableParameter`1.Min
+  href: ReflActive.IComparableParameter-1.html#ReflActive_IComparableParameter_1_Min
+  name: Min
+  nameWithType: IComparableParameter<int>.Min
+  fullName: ReflActive.IComparableParameter<int>.Min
+  nameWithType.vb: IComparableParameter(Of Integer).Min
+  fullName.vb: ReflActive.IComparableParameter(Of Integer).Min
+- uid: ReflActive.IComparableParameter{System.Int32}.Max
+  commentId: P:ReflActive.IComparableParameter{System.Int32}.Max
+  parent: ReflActive.IComparableParameter{System.Int32}
+  definition: ReflActive.IComparableParameter`1.Max
+  href: ReflActive.IComparableParameter-1.html#ReflActive_IComparableParameter_1_Max
+  name: Max
+  nameWithType: IComparableParameter<int>.Max
+  fullName: ReflActive.IComparableParameter<int>.Max
+  nameWithType.vb: IComparableParameter(Of Integer).Max
+  fullName.vb: ReflActive.IComparableParameter(Of Integer).Max
+- uid: ReflActive.IParameter{System.Int32}.Name
+  commentId: P:ReflActive.IParameter{System.Int32}.Name
+  parent: ReflActive.IParameter{System.Int32}
+  definition: ReflActive.IParameter`1.Name
+  href: ReflActive.IParameter-1.html#ReflActive_IParameter_1_Name
+  name: Name
+  nameWithType: IParameter<int>.Name
+  fullName: ReflActive.IParameter<int>.Name
+  nameWithType.vb: IParameter(Of Integer).Name
+  fullName.vb: ReflActive.IParameter(Of Integer).Name
+- uid: ReflActive.IParameter{System.Int32}.Description
+  commentId: P:ReflActive.IParameter{System.Int32}.Description
+  parent: ReflActive.IParameter{System.Int32}
+  definition: ReflActive.IParameter`1.Description
+  href: ReflActive.IParameter-1.html#ReflActive_IParameter_1_Description
+  name: Description
+  nameWithType: IParameter<int>.Description
+  fullName: ReflActive.IParameter<int>.Description
+  nameWithType.vb: IParameter(Of Integer).Description
+  fullName.vb: ReflActive.IParameter(Of Integer).Description
+- uid: ReflActive.IParameter{System.Int32}.IsRequired
+  commentId: P:ReflActive.IParameter{System.Int32}.IsRequired
+  parent: ReflActive.IParameter{System.Int32}
+  definition: ReflActive.IParameter`1.IsRequired
+  href: ReflActive.IParameter-1.html#ReflActive_IParameter_1_IsRequired
+  name: IsRequired
+  nameWithType: IParameter<int>.IsRequired
+  fullName: ReflActive.IParameter<int>.IsRequired
+  nameWithType.vb: IParameter(Of Integer).IsRequired
+  fullName.vb: ReflActive.IParameter(Of Integer).IsRequired
+- uid: ReflActive.IParameter{System.Int32}.Default
+  commentId: P:ReflActive.IParameter{System.Int32}.Default
+  parent: ReflActive.IParameter{System.Int32}
+  definition: ReflActive.IParameter`1.Default
+  href: ReflActive.IParameter-1.html#ReflActive_IParameter_1_Default
+  name: Default
+  nameWithType: IParameter<int>.Default
+  fullName: ReflActive.IParameter<int>.Default
+  nameWithType.vb: IParameter(Of Integer).Default
+  fullName.vb: ReflActive.IParameter(Of Integer).Default
+- uid: ReflActive.IComparableParameter`1.Min
+  commentId: P:ReflActive.IComparableParameter`1.Min
+  href: ReflActive.IComparableParameter-1.html#ReflActive_IComparableParameter_1_Min
+  name: Min
+  nameWithType: IComparableParameter<TDomain>.Min
+  fullName: ReflActive.IComparableParameter<TDomain>.Min
+  nameWithType.vb: IComparableParameter(Of TDomain).Min
+  fullName.vb: ReflActive.IComparableParameter(Of TDomain).Min
+- uid: ReflActive.IComparableParameter{System.Int32}
+  commentId: T:ReflActive.IComparableParameter{System.Int32}
+  parent: ReflActive
+  definition: ReflActive.IComparableParameter`1
+  href: ReflActive.IComparableParameter-1.html
+  name: IComparableParameter<int>
+  nameWithType: IComparableParameter<int>
+  fullName: ReflActive.IComparableParameter<int>
+  nameWithType.vb: IComparableParameter(Of Integer)
+  fullName.vb: ReflActive.IComparableParameter(Of Integer)
+  name.vb: IComparableParameter(Of Integer)
+  spec.csharp:
+  - uid: ReflActive.IComparableParameter`1
+    name: IComparableParameter
+    href: ReflActive.IComparableParameter-1.html
+  - name: <
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '>'
+  spec.vb:
+  - uid: ReflActive.IComparableParameter`1
+    name: IComparableParameter
+    href: ReflActive.IComparableParameter-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: ReflActive.IComparableParameter`1.Max
+  commentId: P:ReflActive.IComparableParameter`1.Max
+  href: ReflActive.IComparableParameter-1.html#ReflActive_IComparableParameter_1_Max
+  name: Max
+  nameWithType: IComparableParameter<TDomain>.Max
+  fullName: ReflActive.IComparableParameter<TDomain>.Max
+  nameWithType.vb: IComparableParameter(Of TDomain).Max
+  fullName.vb: ReflActive.IComparableParameter(Of TDomain).Max
+- uid: ReflActive.IParameter`1.Name
+  commentId: P:ReflActive.IParameter`1.Name
+  href: ReflActive.IParameter-1.html#ReflActive_IParameter_1_Name
+  name: Name
+  nameWithType: IParameter<TDomain>.Name
+  fullName: ReflActive.IParameter<TDomain>.Name
+  nameWithType.vb: IParameter(Of TDomain).Name
+  fullName.vb: ReflActive.IParameter(Of TDomain).Name
+- uid: ReflActive.IParameter{System.Int32}
+  commentId: T:ReflActive.IParameter{System.Int32}
+  parent: ReflActive
+  definition: ReflActive.IParameter`1
+  href: ReflActive.IParameter-1.html
+  name: IParameter<int>
+  nameWithType: IParameter<int>
+  fullName: ReflActive.IParameter<int>
+  nameWithType.vb: IParameter(Of Integer)
+  fullName.vb: ReflActive.IParameter(Of Integer)
+  name.vb: IParameter(Of Integer)
+  spec.csharp:
+  - uid: ReflActive.IParameter`1
+    name: IParameter
+    href: ReflActive.IParameter-1.html
+  - name: <
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '>'
+  spec.vb:
+  - uid: ReflActive.IParameter`1
+    name: IParameter
+    href: ReflActive.IParameter-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: ReflActive.IParameter`1.Description
+  commentId: P:ReflActive.IParameter`1.Description
+  href: ReflActive.IParameter-1.html#ReflActive_IParameter_1_Description
+  name: Description
+  nameWithType: IParameter<TDomain>.Description
+  fullName: ReflActive.IParameter<TDomain>.Description
+  nameWithType.vb: IParameter(Of TDomain).Description
+  fullName.vb: ReflActive.IParameter(Of TDomain).Description
+- uid: ReflActive.IParameter`1.IsRequired
+  commentId: P:ReflActive.IParameter`1.IsRequired
+  href: ReflActive.IParameter-1.html#ReflActive_IParameter_1_IsRequired
+  name: IsRequired
+  nameWithType: IParameter<TDomain>.IsRequired
+  fullName: ReflActive.IParameter<TDomain>.IsRequired
+  nameWithType.vb: IParameter(Of TDomain).IsRequired
+  fullName.vb: ReflActive.IParameter(Of TDomain).IsRequired
+- uid: ReflActive.IParameter`1.Default
+  commentId: P:ReflActive.IParameter`1.Default
+  href: ReflActive.IParameter-1.html#ReflActive_IParameter_1_Default
+  name: Default
+  nameWithType: IParameter<TDomain>.Default
+  fullName: ReflActive.IParameter<TDomain>.Default
+  nameWithType.vb: IParameter(Of TDomain).Default
+  fullName.vb: ReflActive.IParameter(Of TDomain).Default
+- uid: ReflActive.IParameter`1
+  commentId: T:ReflActive.IParameter`1
+  href: ReflActive.IParameter-1.html
+  name: IParameter<TDomain>
+  nameWithType: IParameter<TDomain>
+  fullName: ReflActive.IParameter<TDomain>
+  nameWithType.vb: IParameter(Of TDomain)
+  fullName.vb: ReflActive.IParameter(Of TDomain)
+  name.vb: IParameter(Of TDomain)
+  spec.csharp:
+  - uid: ReflActive.IParameter`1
+    name: IParameter
+    href: ReflActive.IParameter-1.html
+  - name: <
+  - name: TDomain
+  - name: '>'
+  spec.vb:
+  - uid: ReflActive.IParameter`1
+    name: IParameter
+    href: ReflActive.IParameter-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TDomain
+  - name: )
+- uid: ReflActive.IDiscreteNumberParameter.Step*
+  commentId: Overload:ReflActive.IDiscreteNumberParameter.Step
+  href: ReflActive.IDiscreteNumberParameter.html#ReflActive_IDiscreteNumberParameter_Step
+  name: Step
+  nameWithType: IDiscreteNumberParameter.Step
+  fullName: ReflActive.IDiscreteNumberParameter.Step
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
