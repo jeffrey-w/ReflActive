@@ -1,3 +1,5 @@
+using Extra.Guard;
+
 namespace ReflActive.Attributes;
 
 /// <summary>
@@ -16,7 +18,7 @@ public sealed class CompositeEntityAttribute : Attribute
     public required Type Type
     {
         get => _type;
-        init => _type = Guard.Against.InvalidType<ICompositeEntityConverter>(value);
+        init => _type = Against.InvalidType<ICompositeEntityConverter>(value);
     }
     
     private readonly Type _type = null!;

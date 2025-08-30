@@ -1,5 +1,6 @@
 using System.Reflection;
-using Extensions;
+using Extra.Extensions;
+using Extra.Guard;
 using ReflActive.Attributes;
 
 namespace ReflActive;
@@ -17,18 +18,17 @@ public static class Activator
     /// <param name="context">The current <see cref="IActivationContext"/>.</param>
     /// <returns>The targeted member of <typeparamref name="TResult"/>.</returns>
     /// <exception cref="ArgumentException">If any pair of parameters to the constructor targeted by the specified
-    /// <paramref name="activation"/> exhibits the same <see cref="ParameterAttribute.Name"/>, if any of them does not
-    /// exhibit either the <see cref="ParameterAttribute"/> or the <see cref="DependencyAttribute"/>, or if the <see
-    /// cref="Activation.Arguments"/> associtaed with the specified <paramref name="activation"/> do not belong to the
-    /// same <see cref="Type"/>s as the parameters they target.</exception>
-    /// <exception cref="InvalidCastException">.</exception>
+    /// <paramref name="activation"/> exhibits the same <see cref="ParameterAttribute.Name"/>, or if the
+    /// <see cref="Activation.Arguments"/> associtaed with the specified <paramref name="activation"/> do not belong to
+    /// the same <see cref="Type"/>s as the parameters they target.</exception>
     /// <exception cref="InvalidOperationException">If the specified <paramref name="activation"/> does not target a
     /// constructor for a member of <typeparamref name="TResult"/>, if there is not exactly one member of
     /// <typeparamref name="TResult"/> that exhibits the same <see cref="ActivationTargetAttribute.Name"/> and
     /// <see cref="ActivationTargetAttribute.Discriminator"/> as the specified <paramref name="activation"/>, if it does
-    /// not declare exactly one constructor that exhibits the <see cref="ActivationTargetConstructorAttribute"/>, or if
-    /// any parameter it declares is subject to an <see cref="IEntityConverter"/> that does not declare a constructor
-    /// that is parameterized only by the current <see cref="IActivationContext"/>.</exception>
+    /// not declare exactly one constructor that exhibits the <see cref="ActivationTargetConstructorAttribute"/>, if any
+    /// of them do not exhibit either the <see cref="ParameterAttribute"/> or the <see cref="DependencyAttribute"/>, or
+    /// if any parameter it declares is subject to an <see cref="IEntityConverter"/> that does not declare a constructor
+    /// parameterized only by the current <see cref="IActivationContext"/>.</exception>
     /// <exception cref="KeyNotFoundException">If the constructor targeted by the specified <paramref name="activation"/>
     /// declares a parameter that is neither <see cref="ParameterAttribute.Name">named</see> nor belongs to a <see
     /// cref="Type"/> for which a <see cref="IActivationContext.GetDependency">dependency</see> exists in the current
@@ -68,10 +68,37 @@ public static class Activator
     private static object?[] GetValues(
         ConstructorInfo constructor, Dictionary<string, object?> bindings, IActivationContext context)
     {
-        return constructor
-            .GetParameters()
-            .Select(parameter => GetValue(parameter, bindings, context))
-            .ToArray();
+        return Against
+               .Violation(
+                   constructor
+                       .GetParameters(),
+                   HaveUniqueNames)
+               .Select(parameter => GetValue(parameter, bindings, context))
+               .ToArray();
+    }
+
+    private static bool HaveUniqueNames(ParameterInfo[] parameters)
+    {
+        return parameters
+               .Where(parameter => parameter.HasCustomAttribute<ParameterAttribute>())
+               .SelectMany((parameter, i) => GetPairsFor(i, parameter, parameters))
+               .NotAny(NamesEqual);
+    }
+
+    private static IEnumerable<(ParameterInfo, ParameterInfo)> GetPairsFor(
+        int i,
+        ParameterInfo parameter,
+        ParameterInfo[] parameters)
+    {
+        return parameters
+               .Where((_, j) => j > i)
+               .Select(second => (parameter, second));
+    }
+
+    private static bool NamesEqual((ParameterInfo first, ParameterInfo second) pair)
+    {
+        return pair.first.GetCustomAttribute<ParameterAttribute>()!.Name ==
+               pair.second.GetCustomAttribute<ParameterAttribute>()!.Name;
     }
 
     private static object? GetValue(ParameterInfo parameter, Dictionary<string, object?> bindings, IActivationContext context)
@@ -109,7 +136,7 @@ public static class Activator
                 parameter
                     .GetCustomAttribute<CompositeEntityAttribute>()!
                     .GetEntities(ids, context),
-            _ => value
+            _ => value,
         };
     }
 

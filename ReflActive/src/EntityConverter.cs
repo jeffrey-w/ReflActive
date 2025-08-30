@@ -1,3 +1,5 @@
+using Extra.Guard;
+
 namespace ReflActive;
 
 /// <summary>
@@ -71,7 +73,7 @@ internal static class EntityConverter
 
     private static T MakeConverter<T>(Type type, IActivationContext context) where T : IEntityConverter
     {
-        return (T?)Guard.Against
+        return (T?)Against
                    .InvalidType<T>(type)
                    .GetConstructor([typeof(IActivationContext)])?
                    .Invoke([context]) ??

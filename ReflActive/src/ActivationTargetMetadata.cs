@@ -1,8 +1,10 @@
 using System.Collections.Immutable;
 using System.Reflection;
 using System.Text.Json.Serialization;
-using Extensions;
+using Extra.Extensions;
+using Extra.Guard;
 using ReflActive.Attributes;
+
 
 namespace ReflActive;
 
@@ -48,7 +50,7 @@ public interface IActivationTargetMetadata
     /// <summary>
     /// Additional attributes associated with the <see cref="Type"/> described by this <c>IActivationTargetMetadata</c>. 
     /// </summary>
-    public IDictionary<string, string> Properties { get; }
+    public IDictionary<string, object?> Properties { get; }
     /// <summary>
     /// The Boolean-valued <see cref="IParameter{TDomain}">parameters</see> to the <see cref="ActivationTargetConstructorAttribute">
     /// constructor</see> for the <see cref="Type"/> described by this <c>IActivationTargetMetadata</c>.
@@ -112,7 +114,7 @@ public static class ActivationTargetMetadata
         public bool IsParameterized => 
             Toggles.Any() || Counts.Any() || Quantities.Any() || Labels.Any() || SingleSelections.Any() || CompositeSelections.Any();
 
-        public IDictionary<string, string> Properties => _properties;
+        public IDictionary<string, object?> Properties => _properties;
         public IEnumerable<IBooleanParameter> Toggles => GetParameters(IsAssignableTo<bool>).Select(_factory.MakeBoolean);
         public IEnumerable<IDiscreteNumberParameter> Counts => 
             GetParameters(IsAssignableTo<int>).Select(_factory.MakeDiscreteNumber);
@@ -126,15 +128,15 @@ public static class ActivationTargetMetadata
 
         private readonly Parameter.Factory _factory;
 
-        private readonly ImmutableDictionary<string, string> _properties;
+        private readonly ImmutableDictionary<string, object?> _properties;
 
         private readonly Type _type;
 
         public SingletonActivationTargetMetadata(Type type, IActivationContext context, params string[] exclude)
         {
-            _type = Guard.Against.Violation(type, t => IsValidType(t, context));
+            _type = Against.Violation(type, t => IsValidType(t, context));
             _factory = new Parameter.Factory(context);
-            _properties = CompileProperties(type, exclude);
+            _properties = CompileProperties(type, exclude.ToHashSet());
         }
         
         private static bool IsValidType(Type type, IActivationContext context)
@@ -145,12 +147,12 @@ public static class ActivationTargetMetadata
                    false;
         }
 
-        private static ImmutableDictionary<string, string> CompileProperties(Type type, IEnumerable<string> exclude)
+        private static ImmutableDictionary<string, object?> CompileProperties(Type type, HashSet<string> exclude)
         {
             return type
-                   .GetCustomAttribute<PropertiesAttribute>()
-                   ?.Compile(exclude.ToHashSet()) ??
-                   ImmutableDictionary.Create<string, string>();
+                   .GetCustomAttributes<ActivationTargetPropertyAttribute>()
+                   .WhereNot(attribute => exclude.Contains(attribute.Name))
+                   .ToImmutableDictionary(attribute => attribute.Name, attribute => attribute.Value);
         }
 
         private IEnumerable<ParameterInfo> GetParameters(Func<ParameterInfo, bool> predicate)
@@ -187,7 +189,7 @@ public static class ActivationTargetMetadata
         public bool IsExperimental => Children.All(child => child.IsExperimental);
         public bool IsParameterized => false;
         public bool IsComposite => true;
-        public IDictionary<string, string> Properties { get; }
+        public IDictionary<string, object?> Properties { get; }
         public IEnumerable<IBooleanParameter> Toggles => [];
         public IEnumerable<IDiscreteNumberParameter> Counts => [];
         public IEnumerable<IContinuousNumberParameter> Quantities => [];
@@ -210,7 +212,7 @@ public static class ActivationTargetMetadata
             Properties = CompileProperties();
         }
 
-        private ImmutableDictionary<string, string> CompileProperties()
+        private ImmutableDictionary<string, object?> CompileProperties()
         {
             return _children
                    .Skip(1)
@@ -224,9 +226,9 @@ public static class ActivationTargetMetadata
                        intersection => intersection.ToImmutableDictionary());
         }
 
-        private static bool Contains(IDictionary<string, string> properties, KeyValuePair<string, string> pair)
+        private static bool Contains(IDictionary<string, object?> properties, KeyValuePair<string, object?> pair)
         {
-            return properties.TryGetValue(pair.Key, out var value) && value == pair.Value;
+            return properties.TryGetValue(pair.Key, out var value) && Equals(value, pair.Value);
         }
     }
 
@@ -238,7 +240,9 @@ public static class ActivationTargetMetadata
     /// <param name="context">The current <see cref="IActivationContext"/>.</param>
     /// <returns>A new <see cref="IActivationTargetMetadata"/> instance.</returns>
     /// <exception cref="ArgumentException">If <typeparamref name="TTarget"/> does not exhibit the <see cref="ActivationTargetAttribute"/>,
-    /// or if it is unsupported by the specified <paramref name="context"/>.</exception>
+    /// if it is unsupported by the specified <paramref name="context"/>, or if any pair of
+    /// <see cref="ActivationTargetPropertyAttribute">properties</see> it declares have the same
+    /// <see cref="ActivationTargetPropertyAttribute.Name"/>.</exception>
     public static IActivationTargetMetadata Singleton<TTarget>(IActivationContext context)
     {
         return new SingletonActivationTargetMetadata(typeof(TTarget), context);
@@ -257,8 +261,7 @@ public static class ActivationTargetMetadata
     {
         return new CompositeActivationTargetMetadata(
             name,
-            Guard
-                .Against
+            Against
                 .InvalidEnumerable(children)
                 .NullElements()
                 .AnyViolation(child => child.Name == name)
@@ -272,6 +275,8 @@ public static class ActivationTargetMetadata
     /// <param name="context">The current <see cref="IActivationContext"/>.</param>
     /// <returns>A collection of <see cref="IActivationTargetMetadata"/> instances describing the members of
     /// <typeparamref name="T"/>.</returns>
+    /// <exception cref="ArgumentException">if any pair of <see cref="ActivationTargetPropertyAttribute">properties</see>
+    /// declared by a member of <typeparamref name="T"/> have the same <see cref="ActivationTargetPropertyAttribute.Name"/>.</exception>
     public static IEnumerable<IActivationTargetMetadata> For<T>(IActivationContext context)
     {
         return EveryType

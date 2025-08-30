@@ -1,3 +1,5 @@
+using Extra.Guard;
+
 namespace ReflActive.Attributes;
 
 /// <summary>
@@ -43,7 +45,7 @@ public sealed class DynamicDefaultAttribute : DefaultAttribute
     public required string Name
     {
         get => _name;
-        init => _name = Guard.Against.NullOrWhitespace(value);
+        init => _name = Against.NullOrWhitespace(value);
     }
 
     private readonly string _name = null!;
