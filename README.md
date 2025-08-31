@@ -22,7 +22,8 @@ using a standard, serializable representation of the specified arguments.
 
 ## Installation
 
-ReflActive can be installed using [NuGet](https://nuget.org/ReflActive/).
+ReflActive can be installed using
+[NuGet](https://nuget.org/packages/ReflActive/).
 
 ## Usage
 

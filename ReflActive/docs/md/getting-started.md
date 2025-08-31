@@ -261,21 +261,21 @@ not defined at compile time. To achieve this, we rely on the
 
 ## Activation Contexts
 
-The `IActivationContext` provides a facility for defining complex values at
-runtime that may be bound to parameters declared at compile time. You may think
-of it as a mechanism similar to what operating system environment variables
-achieve. Broadly speaking, an `IActivationContext` maintains references to two
-types of values: variables and dependencies. The difference between these
-storage classes is only the way by which they are identified. Variables are
-associated with a name, represented by a string, that must be unique to an
-`IActivationContext`. Dependencies, on the other hand, are identified by any of
-the types to which they are assignable. Naturally, the subset of types to which
-a dependency is assignable must be pairwise disjoint with the set associated
-with every other dependency (excluding `object`, of course, which belongs to
-every set and may not be used to identify a dependency). As shown below, the
-`IActivationContext` interface provides a means for defining and accessing
-variables and dependencies, and for updating variables that are not declared
-constant.
+The `IActivationContext` interface provides a facility for defining complex
+values at runtime that may be bound to parameters declared at compile time. You
+may think of it as a mechanism similar to what operating system environment
+variables achieve. Broadly speaking, an `IActivationContext` maintains
+references to two types of values: variables and dependencies. The difference
+between these storage classes is only the way by which they are identified.
+Variables are associated with a name, represented by a string, that must be
+unique to an `IActivationContext`. Dependencies, on the other hand, are
+identified by any of the types to which they are assignable. Naturally, the
+subset of types to which a dependency is assignable must be pairwise disjoint
+with the set associated with every other dependency (excluding `object`, of
+course, which belongs to every set and may not be used to identify a
+dependency). As shown below, the `IActivationContext` interface provides a means
+for defining and accessing variables and dependencies, and for updating
+variables that are not declared constant.
 
 ```csharp
 var context = ActivationContext.Init();
@@ -413,56 +413,56 @@ Let's inspect what our metadata instance looks like, serializing it using
 
 ```json
 {
-  "name": "Important Computation",
-  "discriminator": "",
-  "description": "An example that demonstrates the ReflActive library.",
-  "isDevelopment": false,
-  "isExperimental": false,
-  "isComposite": false,
-  "isParameterized": true,
-  "properties": {
-    "propertyOne": false,
-    "propertyTwo": 42,
-    "propertyThree": "Three"
-  },
-  "toggles": [],
-  "counts": [
-    {
-      "step": 1,
-      "min": 0,
-      "max": 2147483647,
-      "name": "Param One",
-      "description": "",
-      "isRequired": true,
-      "default": 123
-    }
-  ],
-  "quantities": [],
-  "labels": [
-    {
-      "min": 1,
-      "max": 1024,
-      "pattern": null,
-      "name": "Param Two",
-      "description": "",
-      "isRequired": true,
-      "default": "TEST"
-    }
-  ],
-  "singleSelections": [
-    {
-      "values": [
-        "X",
-        "Y",
-        "Z"
-      ],
-      "name": "Param Three",
-      "description": "",
-      "isRequired": true,
-      "default": "X"
-    }
-  ],
-  "compositeSelections": []
+    "name": "Important Computation",
+    "discriminator": "",
+    "description": "An example that demonstrates the ReflActive library.",
+    "isDevelopment": false,
+    "isExperimental": false,
+    "isComposite": false,
+    "isParameterized": true,
+    "properties": {
+        "propertyOne": false,
+        "propertyTwo": 42,
+        "propertyThree": "Three"
+    },
+    "toggles": [],
+    "counts": [
+        {
+            "step": 1,
+            "min": 0,
+            "max": 2147483647,
+            "name": "Param One",
+            "description": "",
+            "isRequired": true,
+            "default": 123
+        }
+    ],
+    "quantities": [],
+    "labels": [
+        {
+            "min": 1,
+            "max": 1024,
+            "pattern": null,
+            "name": "Param Two",
+            "description": "",
+            "isRequired": true,
+            "default": "TEST"
+        }
+    ],
+    "singleSelections": [
+        {
+            "values": [
+                "X",
+                "Y",
+                "Z"
+            ],
+            "name": "Param Three",
+            "description": "",
+            "isRequired": true,
+            "default": "X"
+        }
+    ],
+    "compositeSelections": []
 }
 ```
 

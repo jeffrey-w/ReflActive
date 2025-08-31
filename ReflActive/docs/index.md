@@ -9,7 +9,8 @@ language-agnostic descriptions of their constructors.
 
 ## Installation
 
-ReflActive can be installed using [NuGet](https://nuget.org/ReflActive).
+ReflActive can be installed using
+[NuGet](https://nuget.org/packages/ReflActive).
 
 ## Code Repository
 
