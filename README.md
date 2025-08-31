@@ -27,7 +27,7 @@ ReflActive can be installed using [NuGet](https://nuget.org/ReflActive/).
 ## Usage
 
 You can find a quick tutorial and API documentation for
-ReflActive [here](https://github.io/jeffrey-w/ReflActive/).
+ReflActive [here](https://jeffrey-w.github.io/ReflActive/).
 
 ## Contributing
 
