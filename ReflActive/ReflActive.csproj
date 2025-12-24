@@ -22,7 +22,7 @@
 
     <ItemGroup>
       <PackageReference Include="EveryType" Version="1.0.0" />
-      <PackageReference Include="Extra.Extensions" Version="1.0.1" />
+      <PackageReference Include="Extra.Extensions" Version="1.4.2" />
       <PackageReference Include="Extra.Guard" Version="1.0.1" />
     </ItemGroup>
 
