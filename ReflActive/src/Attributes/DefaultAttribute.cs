@@ -60,7 +60,9 @@ public sealed class DynamicDefaultAttribute : DefaultAttribute
     /// having been explicitly defined.</exception>
     public object? FallbackValue
     {
-        get => IsFallbackValueSet ? _fallbackValue : throw new InvalidOperationException(); // TODO
+        get => IsFallbackValueSet 
+            ? _fallbackValue 
+            : throw new InvalidOperationException("Fallback value is not defined");
         init => _fallbackValue = value;
     }
 
