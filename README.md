@@ -27,14 +27,14 @@ ReflActive can be installed using
 
 ## Usage
 
-You can find a quick tutorial and API documentation for
-ReflActive [here](https://jeffrey-w.github.io/ReflActive/).
+You can find a quick tutorial and API documentation for ReflActive
+[here](https://jeffrey-w.github.io/ReflActive/).
 
 ## Contributing
 
 ReflActive is privately maintained. Please open an issue to request a feature or
-report a bug. If you would like to
-contribute, you may request an invitation to collaborate on this repository.
+report a bug. If you would like to contribute, you may request an invitation to
+collaborate on this repository.
 
 ## License
 
