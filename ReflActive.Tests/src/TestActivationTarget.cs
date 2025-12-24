@@ -113,6 +113,26 @@ public class TestActivationTarget
     }
 }
 
+[ActivationTarget(Name = "Undefined Dynamic Default With Fallback Value")]
+public class UndefinedDynamicDefaultWithFallbackValueActivationTarget
+{
+    [ActivationTargetConstructor]
+    public UndefinedDynamicDefaultWithFallbackValueActivationTarget(
+        [Parameter(Name = "I")] [DynamicDefault(Name = "Undefined", FallbackValue = int.MaxValue)] int i)
+    {
+    }
+}
+
+[ActivationTarget(Name = "Undefined Dynamic Default Without Fallback Value")]
+public class UndefinedDynamicDefaultWithoutFallbackValueActivationTarget
+{
+    [ActivationTargetConstructor]
+    public UndefinedDynamicDefaultWithoutFallbackValueActivationTarget(
+        [Parameter(Name = "I")] [DynamicDefault(Name = "Undefined")] int i)
+    {
+    }
+}
+
 [ActivationTarget(Name = "Other")]
 public class OtherTestActivationTarget
 {

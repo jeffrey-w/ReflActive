@@ -69,4 +69,31 @@ public class ActivationTargetMetadataTests
         Assert.Throws<ArgumentException>(
             () => ActivationTargetMetadata.Singleton<TestActivationTarget>(ActivationContext.Init()));
     }
+
+    [Test]
+    public void FallbackValueIsUsedWhenDynamicDefaultNameIsUndefinedInSpecifiedActivationContext()
+    {
+        var metadata =
+            ActivationTargetMetadata.Singleton<UndefinedDynamicDefaultWithFallbackValueActivationTarget>(ActivationContext.Init());
+        Assert.Multiple(() =>
+        {
+            Assert.That(metadata.Counts.ToList(), Has.Count.EqualTo(1));
+            Assert.That(metadata.Counts, Has.All.Property("Name").EqualTo("I"));
+            Assert.That(metadata.Counts, Has.All.Property("Default").EqualTo(int.MaxValue));
+        });
+    }
+
+    [Test]
+    public void QueryingDefaultValueForParameterWithUndefinedDynamicDefaultThrowsWhenNoFallbackValueIsProvided()
+    {
+        var metadata =
+            ActivationTargetMetadata.Singleton<UndefinedDynamicDefaultWithoutFallbackValueActivationTarget>(
+                ActivationContext.Init());
+        Assert.Throws<KeyNotFoundException>(() =>
+        {
+            _ = metadata.Counts
+                        .Single()
+                        .Default;
+        });
+    }
 }
