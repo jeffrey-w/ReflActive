@@ -17,13 +17,13 @@
         <RepositoryType>git</RepositoryType>
         <PackageIcon>logo.png</PackageIcon>
         <PackageReadmeFile>README.md</PackageReadmeFile>
-        <Version>1.1.1</Version>
+        <Version>1.1.2</Version>
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="EveryType" Version="1.0.1" />
-      <PackageReference Include="Extra.Extensions" Version="1.4.2" />
-      <PackageReference Include="Extra.Guard" Version="1.0.2" />
+      <PackageReference Include="EveryType" Version="1.0.2" />
+      <PackageReference Include="Extra.Extensions" Version="1.5.0" />
+      <PackageReference Include="Extra.Guard" Version="1.0.3" />
     </ItemGroup>
 
     <ItemGroup>
