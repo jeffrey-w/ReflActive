@@ -36,7 +36,7 @@ public static class Activator
     /// <exception cref="MemberAccessException">If the constructor targeted by the specified <paramref name="activation"/>
     /// is declared on an abstract class.</exception>
     /// <exception cref="MethodAccessException">If the constructor targeted by the specified <paramref name="activation"/>
-    /// is private or protected, and the caller lacks <see cref="F:System.Security.Permissions.ReflectionPermissionFlag.MemberAccess" />.</exception>
+    /// is private or protected, and the caller lacks the necessary permissions.</exception>
     /// <exception cref="TargetInvocationException">If the constructor targeted by one of the specified <paramref name="activation"/>
     /// throws an exception.</exception>
     /// <exception cref="TargetParameterCountException">If the <see cref="Activation.Arguments"/> assocaited with the
@@ -61,8 +61,9 @@ public static class Activator
     {
         // TODO verify that type is valid for context
         return type
-            .GetCustomAttribute<ActivationTargetAttribute>()!
-            .IsTargetedBy(activation);
+              .GetCustomAttribute<ActivationTargetAttribute>()?
+              .IsTargetedBy(activation) ??
+               false;
     }
     
     private static object?[] GetValues(
