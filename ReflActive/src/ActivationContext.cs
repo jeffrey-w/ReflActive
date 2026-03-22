@@ -122,11 +122,20 @@ public sealed class ActivationContext : IActivationContext
     
     private IEnumerable<Variable> GetVariables()
     {
-        var assemblies = AppDomain.CurrentDomain.GetAssemblies();
+        var assemblies = GetUniqueAssemblies();
         return assemblies
                .SelectMany(MakeVariablesFromTypes)
                .Concat(assemblies.SelectMany(MakeVariablesFromFields))
                .ThrowIfDuplicatesBy(variable => variable.Name);
+    }
+
+    private static List<Assembly> GetUniqueAssemblies()
+    {
+        return AppDomain
+              .CurrentDomain
+              .GetAssemblies()
+              .DistinctBy(a => a.FullName)
+              .ToList();
     }
 
     private IEnumerable<Variable> MakeVariablesFromTypes(Assembly assembly)
